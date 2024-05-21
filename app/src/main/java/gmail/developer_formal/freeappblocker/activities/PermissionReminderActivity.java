@@ -32,6 +32,8 @@ public class PermissionReminderActivity extends Activity {
     private static final int REQUEST_CODE_BATTERY_OPTIMIZATIONS = 10234272;
     private static final int MILLIS_IN_SECOND = 1000;
 
+    private AlertDialog alertDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,9 @@ public class PermissionReminderActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
+
+        if(alertDialog != null)
+            alertDialog.dismiss();
 
         if(hasAllPermissions(this))
             this.finish();
@@ -184,15 +189,15 @@ public class PermissionReminderActivity extends Activity {
         Button cancelButton = view.findViewById(R.id.dialogTextCancelButton);
         cancelButton.setText("Exit app");
         builder.setView(view);
-        AlertDialog dialog = builder.create();
+        alertDialog = builder.create();
 
         cancelButton.setOnClickListener(v -> {
-            dialog.dismiss();
+            alertDialog.dismiss();
             this.finish();
         });
 
-        continueButton.setOnClickListener(v -> dialog.dismiss());
+        continueButton.setOnClickListener(v -> alertDialog.dismiss());
 
-        dialog.show();
+        alertDialog.show();
     }
 }

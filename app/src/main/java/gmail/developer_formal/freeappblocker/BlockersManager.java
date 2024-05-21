@@ -27,9 +27,9 @@ public class BlockersManager {
         this.blockers = new ArrayList<>();
         this.prefs = applicationContext.getSharedPreferences("BlockersManager", Context.MODE_PRIVATE);
         this.appsInfoCache = new ArrayList<>();
-        this.strictModeEnabled = prefs.getBoolean("strictModeEnabled", false);
-        this.strictDelay = prefs.getLong("strictDelay", 0);
-        this.startedAt = prefs.getLong("startedAt", 0);
+        this.strictModeEnabled = Boolean.parseBoolean(prefs.getString("strictModeEnabled", "false"));
+        this.strictDelay = AppUtils.getLong(prefs.getString("strictDelay", "0"));
+        this.startedAt = AppUtils.getLong(prefs.getString("startedAt", "0"));
         refreshApps(applicationContext);
         loadBlockers();
         loadStrictBlocker();

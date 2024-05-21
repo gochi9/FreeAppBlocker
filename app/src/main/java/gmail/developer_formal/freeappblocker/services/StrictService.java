@@ -13,7 +13,7 @@ public class StrictService extends TickableService {
     private PowerManager powerManager;
 
     public StrictService() {
-        super("app_blocker_strict_0_service_channel", 1000);
+        super("app_blocker_strict_service_channel", 1000);
     }
 
     @Override

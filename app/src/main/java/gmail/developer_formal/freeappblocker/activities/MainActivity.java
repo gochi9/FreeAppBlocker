@@ -46,20 +46,24 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AppBlockerService.class);
         Intent intent2 = new Intent(this, StrictService.class);
         Intent intent3 = new Intent(this, BlockSitesService.class);
+        Intent intent4 = new Intent(this, BlockSitesService.class);
 
         stopService(intent);
         stopService(intent2);
         stopService(intent3);
+        stopService(intent4);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(intent);
             startForegroundService(intent2);
             startForegroundService(intent3);
+            startForegroundService(intent4);
         }
         else{
             startService(intent);
             startService(intent2);
             startService(intent3);
+            startService(intent4);
         }
     }
 

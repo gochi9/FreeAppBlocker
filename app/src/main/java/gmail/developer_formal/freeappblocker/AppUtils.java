@@ -35,16 +35,16 @@ public class AppUtils {
         NotificationChannel channel = new NotificationChannel(channelId, name, importance);
         channel.setDescription(description);
         NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-        if (notificationManager != null)
+        if (notificationManager != null && notificationManager.getNotificationChannel(channelId) == null)
             notificationManager.createNotificationChannel(channel);
     }
 
-    public static void removeNotificationChannel(Context context, String channelId){
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-            return;
-
-        context.getSystemService(NotificationManager.class).deleteNotificationChannel(channelId);
-    }
+//    public static void removeNotificationChannel(Context context, String channelId){
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+//            return;
+//
+//        context.getSystemService(NotificationManager.class).deleteNotificationChannel(channelId);
+//    }
 
     public static Notification createNotification(Context context, String channelId, String title, String text) {
         Intent notificationIntent = new Intent(context, MainActivity.class);
@@ -109,6 +109,15 @@ public class AppUtils {
         }
         catch(Throwable e){
             return null;
+        }
+    }
+
+    public static long getLong(String s){
+        try{
+            return Long.parseLong(s);
+        }
+        catch (Throwable e){
+            return 0l;
         }
     }
 

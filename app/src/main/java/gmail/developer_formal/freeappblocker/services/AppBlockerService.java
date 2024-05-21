@@ -9,14 +9,13 @@ import android.os.PowerManager;
 import gmail.developer_formal.freeappblocker.AppUtils;
 import gmail.developer_formal.freeappblocker.BlockersManager;
 import gmail.developer_formal.freeappblocker.objects.Blocker;
-import gmail.developer_formal.freeappblocker.receivers.AppInstallReceiver;
+
 import gmail.developer_formal.freeappblocker.services.AbstractServices.TickableService;
 
 import java.util.List;
 
 public class AppBlockerService extends TickableService {
 
-    private final AppInstallReceiver appInstallReceiver = new AppInstallReceiver();
     private PowerManager powerManager;
 
     public AppBlockerService() {
@@ -26,13 +25,6 @@ public class AppBlockerService extends TickableService {
     @Override
     protected int runInstructions(Intent intent, int flags, int startId) {
         this.powerManager = ((PowerManager) getSystemService(Context.POWER_SERVICE));
-
-        IntentFilter filter = new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
-        filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
-        filter.addAction(Intent.ACTION_PACKAGE_CHANGED);
-        filter.addDataScheme("package_name");
-        registerReceiver(appInstallReceiver, filter);
-
         return START_STICKY;
     }
 

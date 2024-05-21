@@ -4,6 +4,7 @@ import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Notification;
 import android.content.Intent;
+import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import gmail.developer_formal.freeappblocker.AppUtils;
@@ -12,14 +13,26 @@ import gmail.developer_formal.freeappblocker.activities.PermissionReminderActivi
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class BlockSitesService extends AccessibilityService {
 
-    private static final String CHANNEL_ID = "app_blocker_service_channel_site_block";
+    private static final String CHANNEL_ID = "app_blocker_site_block_service_channel";
     private List<String> browsers = new ArrayList<>();
+
+    private final static HashSet<Integer> getEvents = new HashSet<>();{
+        getEvents.add(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED);
+        getEvents.add(AccessibilityEvent.TYPE_WINDOWS_CHANGED);
+        getEvents.add(AccessibilityEvent.CONTENT_CHANGE_TYPE_TEXT);
+        getEvents.add(AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED);
+        getEvents.add(AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED);
+        getEvents.add(AccessibilityEvent.TYPE_VIEW_FOCUSED);
+        getEvents.add(AccessibilityEvent.TYPE_VIEW_CLICKED);
+        getEvents.add(AccessibilityEvent.TYPE_TOUCH_INTERACTION_START);
+    };
 
     @Override
     public void onCreate() {
@@ -30,7 +43,7 @@ public class BlockSitesService extends AccessibilityService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        AppUtils.removeNotificationChannel(this, CHANNEL_ID);
+   //     AppUtils.removeNotificationChannel(this, CHANNEL_ID);
     }
 
     @Override
@@ -48,15 +61,15 @@ public class BlockSitesService extends AccessibilityService {
                 "com.opera.mini.native",
                 "com.microsoft.emmx",
                 "com.brave.browser",
-              //  "com.duckduckgo.mobile.android",
+                "com.duckduckgo.mobile.android",
                 "com.UCMobile.intl",
                 "com.android.browser",
                 "com.sec.android.app.sbrowser",
                 "com.htc.sense.browser",
                 "com.google.android.apps.chrome",
                 "com.google.android.apps.chrome_dev",
-                "com.google.android.apps.chrome_canary"
-            //    "org.torproject.torbrowser"
+                "com.google.android.apps.chrome_canary",
+                "org.torproject.torbrowser"
         );
 
         return START_STICKY;
@@ -80,20 +93,27 @@ public class BlockSitesService extends AccessibilityService {
         startActivity(intent);
     }
 
+    //I might be able to ditch AppBlockerService and just use this to find open apps instead of having a timer
+    //Maybe
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         int evType = event.getEventType();
+     //   Log.d("Access test", evType+"");
+//        if(evType != AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED && evType != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED)
+//            return;
 
-        if(evType != AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED && evType != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED)
-            return;
+//        if(!getEvents.contains(evType))
+//            return;
 
         String packageName = event.getPackageName().toString();
-
+        Log.d("Access test", packageName);
         if(!browsers.contains(packageName))
             return;
 
-        String url = getUrlFromEvent(event);
-        if (!isBlockedUrl(url))
+       // String url = getUrlFromEvent(event);
+       // Log.d("Access test", event.getText().toString());
+
+        if (!isBlockedUrl(event.getText().toString()))
             return;
 
         performGlobalAction(GLOBAL_ACTION_BACK);
@@ -112,6 +132,9 @@ public class BlockSitesService extends AccessibilityService {
         String extractedUrl = extractUrlFromText(eventText);
 
         AccessibilityNodeInfo source = event.getSource();
+
+        for(CharSequence s : event.getText())
+            Log.d("Access testt", s.toString());
 
         if(extractedUrl != null || source == null)
             return extractedUrl != null ? extractedUrl : "unknown";
@@ -148,6 +171,6 @@ public class BlockSitesService extends AccessibilityService {
     }
 
     private boolean isBlockedUrl(String url) {
-        return url.contains("google");
+        return url.contains("dfkjgdkfl");
     }
 }

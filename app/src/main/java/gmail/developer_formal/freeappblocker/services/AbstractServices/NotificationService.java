@@ -35,7 +35,7 @@ public abstract class NotificationService extends Service {
     @Override
     public void onDestroy(){
         super.onDestroy();
-        AppUtils.removeNotificationChannel(this, CHANNEL_ID);
+       // AppUtils.removeNotificationChannel(this, CHANNEL_ID);
     }
 
     @Nullable
