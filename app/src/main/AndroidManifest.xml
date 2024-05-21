@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+    <!-- Permissions required by the app -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <!-- Application node: defines global settings and content of the app -->
+    <application
+            android:allowBackup="true"
+            android:dataExtractionRules="@xml/data_extraction_rules"
+            android:fullBackupContent="@xml/backup_rules"
+            android:icon="@mipmap/app_logo"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/app_logo"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.FreeAppBlocker"
+            tools:targetApi="31">
+
+        <!-- MainActivity: the launcher activity of the app -->
+        <activity android:name="gmail.developer_formal.freeappblocker.activities.MainActivity"
+                  android:exported="true"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Theme.FreeAppBlocker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Additional activities used in the app -->
+        <activity android:name="gmail.developer_formal.freeappblocker.activities.PermissionReminderActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name="gmail.developer_formal.freeappblocker.activities.BlockerActivity"
+                  android:excludeFromRecents="true"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Theme.FreeAppBlocker" />
+
+        <!-- Service responsible for app blocking logic -->
+        <service android:name="gmail.developer_formal.freeappblocker.services.AppBlockerService"
+                 android:exported="false"
+                 android:foregroundServiceType="specialUse"
+                 tools:ignore="ForegroundServicePermission"
+                 android:permission="android.permission.BIND_DEVICE_ADMIN"/>
+
+        <service android:name="gmail.developer_formal.freeappblocker.services.StrictService"
+                 android:exported="false"
+                 android:foregroundServiceType="specialUse"
+                 tools:ignore="ForegroundServicePermission"
+                 android:permission="android.permission.BIND_DEVICE_ADMIN"/>
+
+        <service
+                android:name=".services.BlockNotificationsService"
+                android:label="Notification Listener"
+                android:exported="true"
+                android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <service
+                android:name=".services.BlockSitesService"
+                android:exported="true"
+                android:foregroundServiceType="specialUse"
+                tools:ignore="ForegroundServicePermission"
+                android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                    android:name="android.accessibilityservice"
+                    android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- Receivers for handling system events -->
+        <receiver android:name="gmail.developer_formal.freeappblocker.receivers.BootCompletedReceiver"
+                  android:enabled="true"
+                  android:exported="true"
+                  android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="gmail.developer_formal.freeappblocker.receivers.MyAdminReceiver"
+                  android:description="@string/admin_receiver_description"
+                  android:exported="true"
+                  android:enabled="true"
+                  android:label="@string/admin_receiver_label"
+                  android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+            <meta-data
+                    android:name="android.app.device_admin"
+                    android:resource="@xml/device_admin" />
+        </receiver>
+
+        <receiver android:name="gmail.developer_formal.freeappblocker.receivers.AppInstallReceiver"
+                  android:enabled="true"
+                  android:exported="true"
+                  android:permission="android.permission.QUERY_ALL_PACKAGES">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_PACKAGE_ADDED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Provider for initializing components at app start
+        <provider android:name="androidx.startup.InitializationProvider"
+                  android:authorities="${applicationId}.androidx-startup"
+                  android:exported="false"
+                  tools:node="merge">
+            <meta-data android:name="gmail.developer_formal.freeappblocker.initializers.BlockersManagerInit"
+                       android:value="androidx.startup" />
+        </provider>
+        -->
+    </application>
+
+</manifest>

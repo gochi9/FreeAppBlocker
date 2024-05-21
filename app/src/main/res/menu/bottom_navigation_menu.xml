@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/navigation_blockers"
+            android:icon="@drawable/lock_image"
+            android:title="Blockers"/>
+    <item
+            android:id="@+id/navigation_strict"
+            android:icon="@drawable/strict_image"
+            android:title="Strict"/>
+    <item
+            android:id="@+id/navigation_extra"
+            android:icon="@drawable/ic_extra"
+            android:title="Extra"/>
+</menu>

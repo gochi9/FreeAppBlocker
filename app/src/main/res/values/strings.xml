@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FreeAppBlocker</string>
+    <string name="channel_name">App Blocker Notifications</string>
+    <string name="channel_description">Notifications for App Blocker service</string>
+    <string name="admin_receiver_description">Administrator description: additional privileges to prevent uninstallation.</string>
+    <string name="admin_receiver_label">Device Administrator</string>
+    <string name="delete">Delete blocker</string>
+    <string name="accessibility_service_description">
+        This service helps to block access to specified websites to minimize distractions and enhance productivity by monitoring browser activity.
+    </string>
+</resources>

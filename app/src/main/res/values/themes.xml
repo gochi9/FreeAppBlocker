@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FreeAppBlocker" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Customize your theme here. Use your existing color attributes if you have any -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <!-- You can also add other customizations here -->
+    </style>
+
+    <style name="Theme.FreeAppBlockerRed" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Customize your theme here. Use your existing color attributes if you have any -->
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/red</item>
+        <item name="colorAccent">@color/red</item>
+        <!-- You can also add other customizations here -->
+    </style>
+</resources>

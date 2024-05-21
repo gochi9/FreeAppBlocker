@@ -1,0 +1,9 @@
+<!-- res/drawable/button_transparent_outline.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+    <solid android:color="#00000000"/> <!-- Fully transparent background -->
+    <stroke
+            android:width="2dp"
+            android:color="#FFFFFF"/> <!-- White outline -->
+    <corners android:radius="8dp"/> <!-- Rounded corners -->
+</shape>
