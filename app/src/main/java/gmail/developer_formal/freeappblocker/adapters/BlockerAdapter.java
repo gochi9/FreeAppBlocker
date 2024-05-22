@@ -23,6 +23,7 @@ import java.util.*;
 public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
 
     private final Context context;
+    private AlertDialog dialog = null;
 
     public BlockerAdapter(Context context) {
         this.context = context;
@@ -33,6 +34,27 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
     public BlockerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.blocker_list_item, parent, false);
         return new BlockerViewHolder(view);
+    }
+
+    public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView);
+
+        if(dialog == null)
+            return;
+
+        dialog.dismiss();
+        dialog = null;
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(@NonNull BlockerViewHolder holder) {
+        super.onViewDetachedFromWindow(holder);
+
+        if(dialog == null)
+            return;
+
+        dialog.dismiss();
+        dialog = null;
     }
 
     @Override
@@ -103,7 +125,7 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
         keywordRecyclerView.addItemDecoration(dividerItemDecoration);
 
         builder.setView(customLayout);
-        AlertDialog dialog = builder.create();
+        dialog = builder.create();
 
         addButton.setOnClickListener(v -> {
             String keyword = keywordEditText.getText().toString();
@@ -143,7 +165,7 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
         editText.setText(blocker.getName());
 
         builder.setView(customLayout);
-        AlertDialog dialog = builder.create();
+        dialog = builder.create();
 
         Button okButton = customLayout.findViewById(R.id.okButton);
         Button cancelButton = customLayout.findViewById(R.id.cancelButton);
@@ -207,7 +229,7 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
         });
 
         builder.setView(dialogView);
-        AlertDialog dialog = builder.create();
+        dialog = builder.create();
 
         btnShowBlocked.setOnClickListener(v -> {
             if (btnShowBlocked.getText().equals("Show Blocked Only")) {

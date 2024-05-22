@@ -25,6 +25,7 @@ public class StrictFragment extends Fragment {
     private LottieAnimationView waveAnimationView;
     private final static int REQUEST_CODE_ENABLE_ADMIN = 13545201;
     private BroadcastReceiver myReceiver;
+    private AlertDialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,7 +114,7 @@ public class StrictFragment extends Fragment {
         Button cancelButton = view.findViewById(R.id.dialogTextCancelButton);
         cancelButton.setText(R.string.cancel_button_text);
         builder.setView(view);
-        AlertDialog dialog = builder.create();
+        dialog = builder.create();
 
         continueButton.setOnClickListener(v -> {
             dialog.dismiss();
@@ -140,11 +141,18 @@ public class StrictFragment extends Fragment {
         Button cancelButton = view.findViewById(R.id.dialogTextCancelButton);
         cancelButton.setText(R.string.cancel_button_text);
         builder.setView(view);
-        AlertDialog dialog = builder.create();
+        dialog = builder.create();
+
+        BlockersManager blockersManager = BlockersManager.getInstance(this.getContext());
 
         continueButton.setOnClickListener(v -> {
-            BlockersManager.getInstance(this.getContext()).setStartedAt(System.currentTimeMillis());
-            BlockersManager.getInstance(this.getContext()).changeStrictMode(true);
+            if(blockersManager.isStrictModeEnabled()){
+                dialog.dismiss();
+                return;
+            }
+
+            blockersManager.setStartedAt(System.currentTimeMillis());
+            blockersManager.changeStrictMode(true);
             updateWaterEffect(true);
             dialog.dismiss();
         });
@@ -175,8 +183,8 @@ public class StrictFragment extends Fragment {
             waveAnimationView.setAnimation(R.raw.wave_animation_disable);
             actionButton.setClickable(true);
             actionButton.setEnabled(true);
-            actionButton.setText(R.string.strict_mode_active_message);
-            pickerButton.setText(R.string.strict_mode_not_active_message);
+            actionButton.setText(R.string.strict_mode_not_active_message);
+            pickerButton.setText(R.string.strict_mode_timer_not_active_message);
             pickerButton.setBackgroundResource(R.drawable.button_transparent_outline);
         }
         waveAnimationView.playAnimation();
@@ -197,6 +205,12 @@ public class StrictFragment extends Fragment {
     public void onPause() {
         super.onPause();
         requireActivity().unregisterReceiver(myReceiver);
+
+        if(dialog == null)
+            return;
+
+        dialog.dismiss();
+        dialog = null;
     }
 
 }

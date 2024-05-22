@@ -18,9 +18,21 @@ import gmail.developer_formal.freeappblocker.R;
 public class DateTimePickerFragment extends DialogFragment {
     private final TextView displayTimer;
     private EditText daysInput, hoursInput, minutesInput;
+    private AlertDialog dialog;
 
     public DateTimePickerFragment(TextView displayTimer) {
         this.displayTimer = displayTimer;
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        if(dialog == null)
+            return;
+
+        dialog.dismiss();
+        dialog = null;
     }
 
     @Override
@@ -108,7 +120,7 @@ public class DateTimePickerFragment extends DialogFragment {
         cancelButton.setOnClickListener(v -> dismiss());
 
         builder.setView(dialogView);
-        return builder.create();
+        return (dialog = builder.create());
     }
 
     private void setupInputWatcher(EditText input, int maxValue) {
