@@ -31,9 +31,13 @@ public class AppBlockerService extends TickableService {
     @Override
     protected void tickService(){
         BlockersManager blockersManager = BlockersManager.getInstance(this);
+
+        if (blockersManager == null)
+            return;
+
         boolean isStrictMode = blockersManager.isStrictModeEnabled();
 
-        if((!blockersManager.isAtLeastABlockerActive() && !isStrictMode) || !powerManager.isInteractive())
+        if((!blockersManager.isAtLeastABlockerActive(true) && !isStrictMode) || !powerManager.isInteractive())
             return;
 
         String currentApp = getForegroundApp();

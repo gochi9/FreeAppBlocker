@@ -38,7 +38,9 @@
 
         <!-- Additional activities used in the app -->
         <activity android:name="gmail.developer_formal.freeappblocker.activities.PermissionReminderActivity"
-                  android:screenOrientation="portrait"/>
+                  android:screenOrientation="portrait"
+                  android:noHistory="true"/>
+
         <activity android:name="gmail.developer_formal.freeappblocker.activities.BlockerActivity"
                   android:excludeFromRecents="true"
                   android:screenOrientation="portrait"

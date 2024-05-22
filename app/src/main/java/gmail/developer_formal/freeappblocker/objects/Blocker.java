@@ -1,18 +1,23 @@
 package gmail.developer_formal.freeappblocker.objects;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class Blocker {
     private String name;
     private boolean isActive, blockedNotification;
     private Set<String> blockedApps;
+    private HashMap<String, Boolean> blockedSites;
 
     public Blocker(String name, boolean isActive, boolean blockedNotification) {
         this.name = name;
         this.isActive = isActive;
         this.blockedNotification = blockedNotification;
         this.blockedApps = new HashSet<>();
+        this.blockedSites = new HashMap<>();
+        this.blockedSites.put("google", false);
     }
 
     public String getName() {
@@ -45,5 +50,24 @@ public class Blocker {
 
     public void setBlockedApps(Set<String> blockedApps) {
         this.blockedApps = blockedApps;
+    }
+
+    public boolean isKeywordBlocked(String keyword){
+        if(keyword == null || blockedSites.isEmpty())
+            return false;
+
+        for(Map.Entry<String, Boolean> entry : blockedSites.entrySet())
+            if(entry != null && entry.getValue() && keyword.contains(entry.getKey()))
+                return true;
+
+        return false;
+    }
+
+    public HashMap<String, Boolean> getBlockedSites(){
+        return blockedSites != null ? blockedSites : (blockedSites = new HashMap<>());
+    }
+
+    public void setBlockedSites(HashMap<String, Boolean> blockedSites){
+        this.blockedSites = blockedSites;
     }
 }

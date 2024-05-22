@@ -1,10 +1,8 @@
 package gmail.developer_formal.freeappblocker.adapters;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +10,15 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import gmail.developer_formal.freeappblocker.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.objects.Blocker;
 import gmail.developer_formal.freeappblocker.objects.BlockerViewHolder;
 
-import java.util.HashSet;
+import java.util.*;
 
 public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
 
@@ -40,7 +40,9 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
         Blocker blocker = BlockersManager.getInstance(context).getBlockers().get(position);
         TextView name = holder.getName();
         SwitchCompat toggle = holder.getToggle();
-        Button delete = holder.getDelete();
+        ImageButton manageApps = holder.getManageApps();
+        ImageButton addKeyword = holder.getAddKeywordButton();
+        ImageButton delete = holder.getDelete();
         boolean isActive = blocker.isActive();
 
         name.setText(blocker.getName());
@@ -63,10 +65,9 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
             setBorderAndImage(holder, isChecked);
         });
 
-        holder.getManageApps().setOnClickListener(v -> {
-            Toast.makeText(context, "Loading apps...", Toast.LENGTH_SHORT).show();
-            showManageAppsDialog(blocker);
-        });
+        manageApps.setOnClickListener(v -> showManageAppsDialog(blocker));
+
+        addKeyword.setOnClickListener(v -> showAddKeywordDialog(blocker));
 
         delete.setOnClickListener(v -> {
             if (toggle.isChecked() && BlockersManager.getInstance(context).isStrictModeEnabled()) {
@@ -80,6 +81,49 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
             BlockersManager.getInstance(context).saveBlockers();
         });
     }
+
+    private void showAddKeywordDialog(Blocker blocker) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        final View customLayout = LayoutInflater.from(context).inflate(R.layout.dialog_add_keyword, null);
+        EditText keywordEditText = customLayout.findViewById(R.id.keywordEditText);
+        Button addButton = customLayout.findViewById(R.id.addButton);
+        RecyclerView keywordRecyclerView = customLayout.findViewById(R.id.keywordRecyclerView);
+        Button saveButton = customLayout.findViewById(R.id.saveButton);
+        Button cancelButton = customLayout.findViewById(R.id.cancelButton);
+
+        HashMap<String, Boolean> originalKeywords = new HashMap<>(blocker.getBlockedSites());
+        HashMap<String, Boolean> currentKeywords = new HashMap<>(originalKeywords);
+        boolean isStrictModeEnabled = BlockersManager.getInstance(context).isStrictModeEnabled();
+        KeywordAdapter adapter = new KeywordAdapter(context, currentKeywords, originalKeywords, isStrictModeEnabled);
+        keywordRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+        keywordRecyclerView.setAdapter(adapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(keywordRecyclerView.getContext(),
+                ((LinearLayoutManager) keywordRecyclerView.getLayoutManager()).getOrientation());
+        keywordRecyclerView.addItemDecoration(dividerItemDecoration);
+
+        builder.setView(customLayout);
+        AlertDialog dialog = builder.create();
+
+        addButton.setOnClickListener(v -> {
+            String keyword = keywordEditText.getText().toString();
+            if (!keyword.isEmpty() && !currentKeywords.containsKey(keyword)) {
+                adapter.addKeyword(keyword, false);
+                keywordEditText.setText("");
+            }
+        });
+
+        saveButton.setOnClickListener(v -> {
+            blocker.setBlockedSites(currentKeywords);
+            BlockersManager.getInstance(context).saveBlockers();
+            dialog.dismiss();
+        });
+
+        cancelButton.setOnClickListener(v -> dialog.dismiss());
+        dialog.show();
+    }
+
+
 
     private void setBorderAndImage(BlockerViewHolder holder, boolean isActive) {
         int borderRes = isActive ? R.drawable.red_border_background : R.drawable.blue_border_background;
@@ -159,7 +203,7 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
         btnClearRefresh.setOnClickListener(v -> {
             searchBar.setText("");
             adapter.getFilter().filter("");
-            btnShowBlocked.setText("Show Blocked Only");
+            btnShowBlocked.setText(R.string.show_blocked_only_button);
         });
 
         builder.setView(dialogView);
@@ -168,12 +212,12 @@ public class BlockerAdapter extends RecyclerView.Adapter<BlockerViewHolder> {
         btnShowBlocked.setOnClickListener(v -> {
             if (btnShowBlocked.getText().equals("Show Blocked Only")) {
                 adapter.getFilter().filter("blocked");
-                btnShowBlocked.setText("Show All Apps View");
+                btnShowBlocked.setText(R.string.show_all_apps_button);
                 return;
             }
 
             adapter.getFilter().filter("");
-            btnShowBlocked.setText("Show Blocked Only");
+            btnShowBlocked.setText(R.string.show_blocked_only_button);
         });
 
         dialogView.findViewById(R.id.saveButton).setOnClickListener(v -> {

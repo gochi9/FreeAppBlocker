@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="vertical"
               android:padding="16dp"
-              android:background="@drawable/dialog_background">
+              android:background="@drawable/dialog_background"
+              tools:ignore="ButtonStyle">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -17,7 +18,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Days"
+                android:hint="@string/default_days_text"
                 android:inputType="number"
                 android:maxLength="1"
                 android:gravity="center"
@@ -26,14 +27,15 @@
                 android:background="@drawable/input_background"
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/darker_gray"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:autofillHints="no"/>
 
         <EditText
                 android:id="@+id/hoursInput"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Hours"
+                android:hint="@string/default_hours_text"
                 android:inputType="number"
                 android:maxLength="2"
                 android:gravity="center"
@@ -42,14 +44,15 @@
                 android:background="@drawable/input_background"
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/darker_gray"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:autofillHints="no"/>
 
         <EditText
                 android:id="@+id/minutesInput"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Minutes"
+                android:hint="@string/default_minutes_text"
                 android:inputType="number"
                 android:layout_marginEnd="4dp"
                 android:maxLength="2"
@@ -58,7 +61,8 @@
                 android:background="@drawable/input_background"
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/darker_gray"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:autofillHints="no"/>
     </LinearLayout>
 
     <LinearLayout
@@ -73,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Cancel"
+                android:text="@string/cancel_button_text"
                 android:background="@drawable/button_background"
                 android:textColor="@android:color/white" />
 
@@ -81,7 +85,7 @@
                 android:id="@+id/okButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OK"
+                android:text="@string/ok_button_text"
                 android:background="@drawable/button_background"
                 android:textColor="@android:color/white" />
     </LinearLayout>

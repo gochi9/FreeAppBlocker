@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width="match_parent"
+                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    android:padding="8dp"
                                                    android:background="@drawable/dialog_background">
@@ -23,7 +23,7 @@
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="5dp"
-                android:text="Clear &amp; Refresh"
+                android:text="@string/clear_and_refresh_button"
                 android:textStyle="bold"
                 android:background="@drawable/rounded_button"
                 android:textColor="@color/white"
@@ -39,7 +39,7 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:text="Show Blocked Only"
+                android:text="@string/show_blocked_only_button"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:background="@drawable/rounded_button"
@@ -55,14 +55,15 @@
             android:id="@+id/search_bar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Search apps..."
+            android:hint="@string/search_apps_text_bar_hint"
             android:inputType="text"
             android:textStyle="bold"
             android:fontFamily="sans-serif-medium"
             app:layout_constraintTop_toBottomOf="@id/top_button_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:autofillHints="no"/>
 
     <ListView
             android:id="@+id/list_apps"
@@ -92,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="8dp"
-                android:text="Cancel notifications"
+                android:text="@string/cancel_notifications_button"
                 android:textSize="8dp"
                 android:textColor="@android:color/white"
                 android:padding="8dp"
@@ -101,14 +102,14 @@
                 app:layout_constraintEnd_toStartOf="@+id/cancelButton"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_chainStyle="spread"/>
+                app:layout_constraintHorizontal_chainStyle="spread" tools:ignore="SpUsage"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/cancelButton"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="8dp"
-                android:text="Cancel"
+                android:text="@string/cancel_button_text"
                 android:background="@drawable/blue_border_background"
                 android:textColor="@android:color/white"
                 android:padding="8dp"
@@ -122,7 +123,7 @@
                 android:id="@+id/saveButton"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:text="Save"
+                android:text="@string/save_button_text"
                 android:background="@drawable/blue_border_background"
                 android:textColor="@android:color/white"
                 android:padding="8dp"

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:padding="16dp"
               android:orientation="vertical"
-              android:background="@drawable/input_background">
+              android:background="@drawable/input_background"
+              tools:ignore="ButtonStyle">
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
@@ -15,8 +16,9 @@
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter new name"
-                android:inputType="text"/>
+                android:hint="@string/new_name_text_hint"
+                android:inputType="text"
+                android:autofillHints="no"/>
 
     </LinearLayout>
 
@@ -32,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="Cancel"
+                    android:text="@string/cancel_button_text"
                     android:background="@drawable/button_background"
                     android:textColor="@android:color/white" />
 
@@ -40,7 +42,7 @@
                     android:id="@+id/okButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="OK"
+                    android:text="@string/ok_button_text"
                     android:background="@drawable/button_background"
                     android:textColor="@android:color/white" />
     </LinearLayout>

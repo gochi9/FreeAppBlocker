@@ -30,7 +30,7 @@
                         android:id="@+id/usage_permission_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Usage Access Permission"
+                        android:text="@string/permission_usage_access_motive_title"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -39,7 +39,7 @@
                         android:id="@+id/usage_permission_explanation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="This permission allows the app to monitor which apps are being used. It is needed for detecting and blocking specific apps according to user settings."
+                        android:text="@string/permission_usage_access_motive_description"
                         android:textSize="14sp"
                         android:paddingBottom="16dp"/>
 
@@ -47,7 +47,7 @@
                         android:id="@+id/usage_permission_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Grant Usage Permission"
+                        android:text="@string/permission_usage_access_motive_grant_button"
                         android:background="@drawable/button_background"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -70,7 +70,7 @@
                         android:id="@+id/overlay_permission_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Overlay Permission"
+                        android:text="@string/permission_overlay_motive_title"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -79,7 +79,7 @@
                         android:id="@+id/overlay_permission_explanation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="This permission allows the app to display information or warnings over other apps. It is needed for blocking access to specific apps by showing a blocking screen."
+                        android:text="@string/permission_overlay_motive_description"
                         android:textSize="14sp"
                         android:paddingBottom="16dp"/>
 
@@ -87,7 +87,7 @@
                         android:id="@+id/overlay_permission_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Grant Overlay Permission"
+                        android:text="@string/permission_overlay_motive_grant_button"
                         android:background="@drawable/button_background"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -110,7 +110,7 @@
                         android:id="@+id/battery_permission_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ignore Battery Optimizations"
+                        android:text="@string/permission_battery_motive_title"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -119,7 +119,7 @@
                         android:id="@+id/battery_permission_explanation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="This permission allows the app to run continuously without being stopped by battery optimization settings. This makes sure the app can monitor and block apps at all times."
+                        android:text="@string/permission_battery_motive_description"
                         android:textSize="14sp"
                         android:paddingBottom="16dp"/>
 
@@ -127,7 +127,7 @@
                         android:id="@+id/battery_permission_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Disable Battery Optimization"
+                        android:text="@string/permission_battery_motive_grant_button"
                         android:background="@drawable/button_background"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -150,7 +150,7 @@
                         android:id="@+id/notification_permission_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Notification Listener Permission"
+                        android:text="@string/permission_block_notifications_motive_title"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -159,7 +159,7 @@
                         android:id="@+id/notification_permission_explanation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="This permission allows the app to listen to and interact with your notifications. It is necessary for blocking notifications from distracting apps."
+                        android:text="@string/permission_block_notifications_motive_description"
                         android:textSize="14sp"
                         android:paddingBottom="16dp"/>
 
@@ -167,7 +167,7 @@
                         android:id="@+id/notification_permission_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Grant Notification Permission"
+                        android:text="@string/permission_block_notifications_motive_grant_button"
                         android:background="@drawable/button_background"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -190,7 +190,7 @@
                         android:id="@+id/accessibility_permission_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Accessibility Permission"
+                        android:text="@string/permission_accessibility_motive_title"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -199,7 +199,7 @@
                         android:id="@+id/accessibility_permission_explanation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="This permission allows the app to monitor and block websites you mark as distracting in your blockers."
+                        android:text="@string/permission_accessibility_motive_description"
                         android:textSize="14sp"
                         android:paddingBottom="16dp"/>
 
@@ -207,7 +207,7 @@
                         android:id="@+id/accessibility_permission_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Grant Accessibility Permission"
+                        android:text="@string/permission_accessibility_motive_grant_button"
                         android:background="@drawable/button_background"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

@@ -11,6 +11,8 @@ import android.util.Log;
 import gmail.developer_formal.freeappblocker.activities.BlockerActivity;
 import gmail.developer_formal.freeappblocker.activities.MainActivity;
 
+import java.util.Locale;
+
 public class AppUtils {
 
     public static void notifyUser(Context context) {
@@ -81,7 +83,7 @@ public class AppUtils {
         long minutes = seconds / 60;
         seconds %= 60;
 
-        return String.format("%d:%02d:%02d:%02d", days, hours, minutes, seconds);
+        return String.format(Locale.US, "%d:%02d:%02d:%02d", days, hours, minutes, seconds);
     }
 
     public static int getInt(String s, int def){

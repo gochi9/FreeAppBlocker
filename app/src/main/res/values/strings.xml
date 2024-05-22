@@ -6,6 +6,108 @@
     <string name="admin_receiver_label">Device Administrator</string>
     <string name="delete">Delete blocker</string>
     <string name="accessibility_service_description">
-        This service helps to block access to specified websites to minimize distractions and enhance productivity by monitoring browser activity.
+        This service helps to block access to specified websites to minimize distractions and enhance productivity by monitoring and blocking browser activity. No sensitive information is being accessed or stored.
     </string>
+
+    <!-- ######################### -->
+    <!-- #### General Strings #### -->
+    <!-- ######################### -->
+
+    <string name="save_button_text">Save</string>
+    <string name="cancel_button_text">Cancel</string>
+    <string name="exit_app_button_text">Exit App</string>
+    <string name="add_button_text">Add</string>
+    <string name="continue_button_text">Continue</string>
+    <string name="ok_button_text">OK</string>
+    <string name="activate_button_text">Activate</string>
+    <string name="placeholder_empty_text">Your Text Here</string>
+
+    <!-- ################################### -->
+    <!-- #### Blocker Activity Strings  #### -->
+    <!-- ################################### -->
+
+    <string name="add_keyword_text_hint">Enter keyword</string>
+
+    <string name="activity_blocked_message">This app/site is blocked.</string>
+
+    <string name="blocker_edit_name_hint">Edit name</string>
+    <string name="blocker_manage_apps_button_description">Manage Apps Button</string>
+    <string name="blocker_manage_manage_keyword_button_description">Manage Keywords Button</string>
+    <string name="blocker_delete_button_description">Delete Blocker Button</string>
+    <string name="lock_image_description">Lock img</string>
+
+    <string name="app_list_icon_description">Application icon</string>
+
+    <string name="clear_and_refresh_button">Clear &amp; Refresh</string>
+    <string name="show_blocked_only_button">Show Blocked Only</string>
+    <string name="show_all_apps_button">Show All Apps View</string>
+    <string name="search_apps_text_bar_hint">Search apps…</string>
+    <string name="cancel_notifications_button">Cancel notifications</string>
+
+    <string name="new_name_text_hint">Enter new name</string>
+
+    <string name="add_blocker_button_text">Add Blocker</string>
+
+    <!-- ################################# -->
+    <!-- #### Strict activity Strings #### -->
+    <!-- ################################# -->
+
+    <string name="default_days_text">Days</string>
+    <string name="default_hours_text">Hours</string>
+    <string name="default_minutes_text">Minutes</string>
+
+    <string name="default_timer_message">No timer selected</string>
+    <string name="set_timer_button_text">Set Timer</string>
+
+    <string name="strict_mode_enable_warning">
+        "Strict Mode is a powerful feature designed to provide an extra layer of protection against distractions. It's perfect for those moments when you might be tempted to turn off your blockers but need help staying focused.\n\n"
+        "When activated, Strict Mode prevents you from removing blockers, unmarking blocked apps, or disabling blockers. Additionally, you won’t be able to access your settings or uninstall the app while Strict Mode is active.\n\n"
+        "Please note that once you enable Strict Mode, you won't be able to turn it off until the timer runs out. Make sure to double-check that you've set the timer correctly before proceeding."
+    </string>
+
+    <string name="admin_permission_motive_text">
+        "Hi there! Strict mode requires admin permissions for the features below to work properly:\n\n"
+        "1. **Focus Mode**: Strict mode is designed to keep you on track by blocking distractions. You won't be able to turn off the blockers, which helps you stay focused on your tasks, and prevents temptation.\n\n"
+        "2. **Uninstall Protection**: Prevents you from uninstalling the app.\n\n"
+        "3. **No Force Stops**: Stops you from force-stopping the app.\n\n"
+        "Admin permissions are only used to ensure that strict mode works. No sensitive information is being accessed, or shared."
+    </string>
+
+    <string name="strict_mode_active_message">STRICT MODE ACTIVE</string>
+    <string name="strict_mode_not_active_message">ACTIVATE</string>
+
+    <string name="strict_mode_timer_active_message">EXTEND TIMER</string>
+    <string name="strict_mode_timer_not_active_message">SET TIMER</string>
+
+    <!-- ###################################### -->
+    <!-- #### Permissions activity Strings #### -->
+    <!-- ###################################### -->
+
+    <string name="permission_notify_intention_user">
+        "Hey there! We want to be transparent about the permissions the app uses. This app requires the permissions PACKAGE_USAGE_STATS, QUERY_ALL_PACKAGES. Here's what they do:\n\n"
+        "1. **PACKAGE_USAGE_STATS**: This permission allows the app to view your app usage statistics, which helps identify and block distracting apps to improve your productivity.\n\n"
+        "2. **QUERY_ALL_PACKAGES**: This permission lets the app query and get information about all the apps installed on your device. This is necessary to identify and manage the apps you want to block.\n\n"
+        "We understand that some users might find this level of access invasive. However, the app only uses these permissions to help you stay productive by blocking apps and notifications you mark as distractions. The app does not access, share, or save any sensitive information.\n\n" +
+        "It's understandable if you're uncomfortable granting these permissions. However, the app cannot work without them. If you prefer not to use these features, you can close the app and uninstall it. We appreciate your understanding!"
+    </string>
+
+    <string name="permission_usage_access_motive_title">Usage Access Permission</string>
+    <string name="permission_usage_access_motive_description">This permission allows the app to monitor which apps are being used. It is needed for detecting and blocking specific apps according to user settings.</string>
+    <string name="permission_usage_access_motive_grant_button">Grant Usage Permission</string>
+
+    <string name="permission_overlay_motive_title">Overlay Permission</string>
+    <string name="permission_overlay_motive_description">This permission allows the app to display information or warnings over other apps. It is needed for blocking access to specific apps by showing a blocking screen.</string>
+    <string name="permission_overlay_motive_grant_button">Grant Overlay Permission</string>
+
+    <string name="permission_battery_motive_title">Ignore Battery Optimizations</string>
+    <string name="permission_battery_motive_description">This permission allows the app to run continuously without being stopped by battery optimization settings. This makes sure the app can monitor and block apps at all times.</string>
+    <string name="permission_battery_motive_grant_button">Disable Battery Optimization</string>
+
+    <string name="permission_block_notifications_motive_title">Notification Listener Permission</string>
+    <string name="permission_block_notifications_motive_description">This permission allows the app to listen to and interact with your notifications. It is necessary for blocking notifications from distracting apps.</string>
+    <string name="permission_block_notifications_motive_grant_button">Grant Notification Permission</string>
+
+    <string name="permission_accessibility_motive_title">Accessibility Permission</string>
+    <string name="permission_accessibility_motive_description">This permission allows the app to monitor and block websites you mark as distracting in your blockers.</string>
+    <string name="permission_accessibility_motive_grant_button">Grant Accessibility Permission</string>
 </resources>

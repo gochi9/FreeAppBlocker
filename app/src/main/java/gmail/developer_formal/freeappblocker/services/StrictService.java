@@ -27,7 +27,6 @@ public class StrictService extends TickableService {
     @Override
     protected void tickService(){
         BlockersManager blockersManager = BlockersManager.getInstance(this);
-
         if (blockersManager == null)
             return;
 

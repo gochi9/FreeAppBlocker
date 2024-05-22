@@ -2,6 +2,7 @@ package gmail.developer_formal.freeappblocker.adapters;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +37,11 @@ public class AppAdapter extends BaseAdapter implements Filterable {
         for (AppInfoCache app : this.filteredApps)
             appLabels.put(app.getApplicationInfo(), app.getAppName().toString().toLowerCase());
 
-        Collections.sort(this.filteredApps, (app1, app2) ->
-                appLabels.get(app1.getApplicationInfo()).compareTo(appLabels.get(app2.getApplicationInfo())));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            Collections.sort(this.filteredApps, Comparator.comparing(app -> appLabels.get(app.getApplicationInfo())));
+        else
+            Collections.sort(this.filteredApps, (app1, app2) ->
+                    appLabels.get(app1.getApplicationInfo()).compareTo(appLabels.get(app2.getApplicationInfo())));
     }
 
     @Override

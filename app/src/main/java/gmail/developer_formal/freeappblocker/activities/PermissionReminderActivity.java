@@ -33,6 +33,7 @@ public class PermissionReminderActivity extends Activity {
     private static final int MILLIS_IN_SECOND = 1000;
 
     private AlertDialog alertDialog;
+    private static long timeout = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,6 @@ public class PermissionReminderActivity extends Activity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_permission_reminder);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        showUsageStatsPermissionDialog();
         updatePermissionStatus();
     }
 
@@ -49,23 +49,31 @@ public class PermissionReminderActivity extends Activity {
         super.onResume();
         updatePermissionStatus();
 
-        if(!hasAllPermissions(this))
+        if(!hasAllPermissions(this)) {
+            showUsageStatsPermissionDialog();
             return;
+        }
 
-        finish();
+        //performGlobalAction(GLOBAL_ACTION_HOME);
         Toast.makeText(this, "Permissions granted! Starting app...", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        if(alertDialog != null)
-            alertDialog.dismiss();
-
         if(hasAllPermissions(this))
             this.finish();
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+        if(alertDialog != null)
+            alertDialog.dismiss();
     }
 
     private void updatePermissionStatus() {
@@ -173,21 +181,19 @@ public class PermissionReminderActivity extends Activity {
     }
 
     private void showUsageStatsPermissionDialog() {
+        if(timeout != 0 && timeout - System.currentTimeMillis() > 0)
+            return;
+
+        timeout = System.currentTimeMillis() + 90000;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_text, null);
         TextView text = view.findViewById(R.id.dialog_text);
         text.setMovementMethod(new ScrollingMovementMethod());
-        text.setText("Hey there! We want to be transparent about the permissions the app uses. This app requires the permissions PACKAGE_USAGE_STATS, QUERY_ALL_PACKAGES, and NOTIFICATION_LISTENER. Here's what they do:\n\n" +
-                "1. **PACKAGE_USAGE_STATS**: This permission allows the app to view your app usage statistics, which helps identify and block distracting apps to improve your productivity.\n\n" +
-                "2. **QUERY_ALL_PACKAGES**: This permission lets the app query and get information about all the apps installed on your device. This is necessary to identify and manage the apps you want to block.\n\n" +
-                "3. **NOTIFICATION_LISTENER**: This permission allows the app to listen to and interact with your notifications. It is necessary for blocking notifications from distracting apps.\n\n" +
-                "4. **ACCESSIBILITY**: This permission allows the app to monitor and block websites you mark as distracting in your blockers.\n\n" +
-                "We understand that some users might find this level of access invasive. However, the app only uses these permissions to help you stay productive by blocking apps and notifications you mark as distractions. The app does not access, share, or save any sensitive information.\n\n" +
-                "We understand if you're uncomfortable granting these permissions. However, the app cannot work without them. If you prefer not to use these features, you can close the app and uninstall it. We appreciate your understanding!");
+        text.setText(R.string.permission_notify_intention_user);
 
         Button continueButton = view.findViewById(R.id.dialogTextContinueButton);
         Button cancelButton = view.findViewById(R.id.dialogTextCancelButton);
-        cancelButton.setText("Exit app");
+        cancelButton.setText(R.string.exit_app_button_text);
         builder.setView(view);
         alertDialog = builder.create();
 

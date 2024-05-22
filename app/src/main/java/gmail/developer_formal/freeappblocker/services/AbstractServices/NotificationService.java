@@ -20,9 +20,6 @@ public abstract class NotificationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Notification notification = AppUtils.createNotification(this, CHANNEL_ID, "App Blocker Service", "Running...");
-        startForeground(1, notification);
-
         return startInstructions(intent, flags, startId);
     }
 
@@ -30,6 +27,8 @@ public abstract class NotificationService extends Service {
     public void onCreate() {
         super.onCreate();
         AppUtils.createNotificationChannel(this, CHANNEL_ID, getString(R.string.channel_name), getString(R.string.channel_description));
+        Notification notification = AppUtils.createNotification(this, CHANNEL_ID, "App Blocker Service", "Running...");
+        startForeground(1, notification);
     }
 
     @Override

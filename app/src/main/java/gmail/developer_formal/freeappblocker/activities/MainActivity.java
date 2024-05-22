@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause(){
         super.onPause();
+        if(!PermissionReminderActivity.hasAllPermissions(this))
+            return;
+
         BlockersManager blockersManager = BlockersManager.getInstance(this);
         blockersManager.saveBlockers();
         blockersManager.saveStrictBlocker();

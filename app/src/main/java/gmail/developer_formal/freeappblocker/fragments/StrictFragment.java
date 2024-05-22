@@ -16,6 +16,7 @@ import gmail.developer_formal.freeappblocker.AppUtils;
 import gmail.developer_formal.freeappblocker.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.receivers.MyAdminReceiver;
+import org.jetbrains.annotations.NotNull;
 
 public class StrictFragment extends Fragment {
 
@@ -54,8 +55,13 @@ public class StrictFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    @SuppressWarnings("deprecation")
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        if(getContext() == null || getFragmentManager() == null)
+            return null;
+
         BlockersManager blockersManager = BlockersManager.getInstance(this.getContext());
         View view = inflater.inflate(R.layout.fragment_strict, container, false);
 
@@ -76,33 +82,36 @@ public class StrictFragment extends Fragment {
             if (!hasAdminPermission())
                 showAdminRequestDialog();
             else
-                showConfirmationDialog(actionButton);
+                showConfirmationDialog();
         });
         return view;
     }
 
     private boolean hasAdminPermission() {
         Context context = this.getContext();
+
+        if(context == null)
+            return false;
+
         DevicePolicyManager devicePolicyManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         ComponentName adminComponent = new ComponentName(context, MyAdminReceiver.class);
         return devicePolicyManager.isAdminActive(adminComponent);
     }
 
     private void showAdminRequestDialog() {
+        if(getContext() == null)
+            return;
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_text, null);
         TextView text = view.findViewById(R.id.dialog_text);
         text.setMovementMethod(new ScrollingMovementMethod());
-        text.setText("Hi there! Strict mode requires admin permissions for the features below to work properly:\n\n" +
-                "1. **Focus Mode**: Strict mode is designed to keep you on track by blocking distractions. You won't be able to turn off the blockers, which helps you stay focused on your tasks, and prevents temptation.\n\n" +
-                "2. **Uninstall Protection**: Prevents you from uninstalling the app.\n\n" +
-                "3. **No Force Stops**: Stops you from force-stopping the app.\n\n" +
-                "Admin permissions are only used to ensure that strict mode works. No sensitive information is being accessed, or shared.");
+        text.setText(R.string.admin_permission_motive_text);
 
 
         Button continueButton = view.findViewById(R.id.dialogTextContinueButton);
         Button cancelButton = view.findViewById(R.id.dialogTextCancelButton);
-        cancelButton.setText("Cancel");
+        cancelButton.setText(R.string.cancel_button_text);
         builder.setView(view);
         AlertDialog dialog = builder.create();
 
@@ -116,19 +125,20 @@ public class StrictFragment extends Fragment {
         dialog.show();
     }
 
-    private void showConfirmationDialog(Button actionButton) {
+    private void showConfirmationDialog() {
+        if(getContext() == null)
+            return;
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_text, null);
         TextView text = view.findViewById(R.id.dialog_text);
         text.setMovementMethod(new ScrollingMovementMethod());
-        text.setText("Strict Mode is a powerful feature designed to provide an extra layer of protection against distractions. It's perfect for those moments when you might be tempted to turn off your blockers but need help staying focused.\n\n" +
-                "When activated, Strict Mode prevents you from removing blockers, unmarking blocked apps, or disabling blockers. Additionally, you won’t be able to access your settings or uninstall the app while Strict Mode is active.\n\n" +
-                "Please note that once you enable Strict Mode, you won't be able to turn it off until the timer runs out. Make sure to double-check that you've set the timer correctly before proceeding.");
+        text.setText(R.string.strict_mode_enable_warning);
 
 
         Button continueButton = view.findViewById(R.id.dialogTextContinueButton);
         Button cancelButton = view.findViewById(R.id.dialogTextCancelButton);
-        cancelButton.setText("Cancel");
+        cancelButton.setText(R.string.cancel_button_text);
         builder.setView(view);
         AlertDialog dialog = builder.create();
 
@@ -157,16 +167,16 @@ public class StrictFragment extends Fragment {
             waveAnimationView.setAnimation(R.raw.wave_animation_enable);
             actionButton.setClickable(false);
             actionButton.setEnabled(false);
-            actionButton.setText("STRICT MODE ACTIVE");
-            pickerButton.setText("EXTEND TIMER");
+            actionButton.setText(R.string.strict_mode_active_message);
+            pickerButton.setText(R.string.strict_mode_timer_active_message);
             pickerButton.setBackgroundResource(R.drawable.red_border_background);
 
         } else {
             waveAnimationView.setAnimation(R.raw.wave_animation_disable);
             actionButton.setClickable(true);
             actionButton.setEnabled(true);
-            actionButton.setText("ACTIVATE");
-            pickerButton.setText("SET TIMER");
+            actionButton.setText(R.string.strict_mode_active_message);
+            pickerButton.setText(R.string.strict_mode_not_active_message);
             pickerButton.setBackgroundResource(R.drawable.button_transparent_outline);
         }
         waveAnimationView.playAnimation();
@@ -179,9 +189,8 @@ public class StrictFragment extends Fragment {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
             requireActivity().registerReceiver(myReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
-        else {
+        else
             requireActivity().registerReceiver(myReceiver, filter);
-        }
     }
 
     @Override

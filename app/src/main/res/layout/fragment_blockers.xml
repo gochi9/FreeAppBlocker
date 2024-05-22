@@ -10,7 +10,7 @@
             android:id="@+id/add_blocker_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Blocker"
+            android:text="@string/add_blocker_button_text"
             android:background="@drawable/rounded_button"
             android:textColor="@android:color/white"
             android:textStyle="bold"

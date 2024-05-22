@@ -27,9 +27,9 @@ public class BlockersManager {
         this.blockers = new ArrayList<>();
         this.prefs = applicationContext.getSharedPreferences("BlockersManager", Context.MODE_PRIVATE);
         this.appsInfoCache = new ArrayList<>();
-        this.strictModeEnabled = Boolean.parseBoolean(prefs.getString("strictModeEnabled", "false"));
-        this.strictDelay = AppUtils.getLong(prefs.getString("strictDelay", "0"));
-        this.startedAt = AppUtils.getLong(prefs.getString("startedAt", "0"));
+        this.strictModeEnabled = (boolean) loadFromPrefs("strictModeEnabled", new TypeToken<Boolean>() {}.getType(), false);
+        this.strictDelay = (long) loadFromPrefs("strictDelay", new TypeToken<Long>() {}.getType(), 0L);
+        this.startedAt = (long) loadFromPrefs("startedAt", new TypeToken<Long>() {}.getType(), 0L);
         refreshApps(applicationContext);
         loadBlockers();
         loadStrictBlocker();
@@ -68,10 +68,15 @@ public class BlockersManager {
         return appsInfoCache;
     }
 
-    private void loadFromPrefs(String key, Type type, List<Blocker> list) {
-        Gson gson = new Gson();
-        String json = prefs.getString(key, null);
-        list.addAll(json == null ? new ArrayList<>() : gson.fromJson(json, type));
+    private Object loadFromPrefs(String key, Type type, Object def){
+        try{
+            Gson gson = new Gson();
+            String json = prefs.getString(key, null);
+            return json == null ? def : gson.fromJson(json, type);
+        }
+        catch (Throwable e){
+            return def;
+        }
     }
 
     private void saveToPrefs(String key, Object obj) {
@@ -84,7 +89,9 @@ public class BlockersManager {
 
     public void loadBlockers() {
         blockers.clear();
-        loadFromPrefs("BlockersList", new TypeToken<List<Blocker>>() {}.getType(), blockers);
+        Gson gson = new Gson();
+        String json = prefs.getString("BlockersList", null);
+        blockers.addAll(json == null ? new ArrayList<>() : gson.fromJson(json, new TypeToken<List<Blocker>>() {}.getType()));
     }
 
     public void saveBlockers() {
@@ -142,9 +149,9 @@ public class BlockersManager {
         return ((strictDelay + startedAt) - System.currentTimeMillis()) / 1000;
     }
 
-    public boolean isAtLeastABlockerActive(){
+    public boolean isAtLeastABlockerActive(boolean app){
         for(Blocker blocker : blockers)
-            if(blocker.isActive() && !blocker.getBlockedApps().isEmpty())
+            if(blocker.isActive() && ((app && !blocker.getBlockedApps().isEmpty()) || (!app && !blocker.getBlockedSites().isEmpty())))
                 return true;
 
         return false;
