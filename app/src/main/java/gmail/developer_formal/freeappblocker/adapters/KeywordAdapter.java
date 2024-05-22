@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import gmail.developer_formal.freeappblocker.R;
@@ -50,6 +51,7 @@ public class KeywordAdapter extends RecyclerView.Adapter<KeywordViewHolder> {
             Boolean value = originalKeywords.get(keyword);
             if(!(!isStrictModeEnabled || (value != null && !value))){
                 buttonView.setChecked(true);
+                Toast.makeText(context, "Cannot do that while strict mode is enabled", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -59,8 +61,10 @@ public class KeywordAdapter extends RecyclerView.Adapter<KeywordViewHolder> {
         holder.getDeleteButton().setOnClickListener(v -> {
             Boolean value = originalKeywords.get(keyword);
 
-            if(!(!isStrictModeEnabled || (value != null && !value)))
+            if(!(!isStrictModeEnabled || (value != null && !value))) {
+                Toast.makeText(context, "Cannot do that while strict mode is enabled", Toast.LENGTH_SHORT).show();
                 return;
+            }
 
             int actualPosition = holder.getAdapterPosition();
 
