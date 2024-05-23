@@ -3,13 +3,15 @@ package gmail.developer_formal.freeappblocker.services;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Notification;
+import android.content.Context;
 import android.content.Intent;
+import android.os.PowerManager;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
 import gmail.developer_formal.freeappblocker.AppUtils;
 import gmail.developer_formal.freeappblocker.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.activities.PermissionReminderActivity;
-import gmail.developer_formal.freeappblocker.objects.Blocker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,17 +21,7 @@ public class BlockSitesService extends AccessibilityService {
 
     private static final String CHANNEL_ID = "app_blocker_site_block_service_channel";
     private List<String> browsers = new ArrayList<>();
-
-//    private final static HashSet<Integer> getEvents = new HashSet<>();{
-//        getEvents.add(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED);
-//        getEvents.add(AccessibilityEvent.TYPE_WINDOWS_CHANGED);
-//        getEvents.add(AccessibilityEvent.CONTENT_CHANGE_TYPE_TEXT);
-//        getEvents.add(AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED);
-//        getEvents.add(AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED);
-//        getEvents.add(AccessibilityEvent.TYPE_VIEW_FOCUSED);
-//        getEvents.add(AccessibilityEvent.TYPE_VIEW_CLICKED);
-//        getEvents.add(AccessibilityEvent.TYPE_TOUCH_INTERACTION_START);
-//    };
+    private PowerManager powerManager;
 
     @Override
     public void onCreate() {
@@ -40,7 +32,6 @@ public class BlockSitesService extends AccessibilityService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-   //     AppUtils.removeNotificationChannel(this, CHANNEL_ID);
     }
 
     @Override
@@ -69,14 +60,18 @@ public class BlockSitesService extends AccessibilityService {
                 "org.torproject.torbrowser"
         );
 
+        this.powerManager = ((PowerManager) getSystemService(Context.POWER_SERVICE));
+
         return START_STICKY;
     }
+
+    private long cooldown = System.currentTimeMillis() + 500;
 
     @Override
     public void onServiceConnected() {
         AccessibilityServiceInfo info = new AccessibilityServiceInfo();
         info.eventTypes = AccessibilityEvent.TYPES_ALL_MASK;
-        info.notificationTimeout = 100;
+        info.notificationTimeout = 500;
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_ALL_MASK;
         this.setServiceInfo(info);
 
@@ -97,11 +92,17 @@ public class BlockSitesService extends AccessibilityService {
     //FUCK THIS SHIT
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
+        if(cooldown - System.currentTimeMillis() > 0)
+            return;
+
         if(event == null)
             return;
 
 //        if(!getEvents.contains(event.getEventType()))
 //            return;
+
+        if(powerManager != null && !powerManager.isInteractive())
+            return;
 
         CharSequence packageSequence = event.getPackageName();
 
@@ -111,67 +112,45 @@ public class BlockSitesService extends AccessibilityService {
         if(!browsers.contains(packageSequence.toString()))
             return;
 
+        AccessibilityNodeInfo rootNode = getRootInActiveWindow();
+
+        if(rootNode == null)
+            return;
+
         BlockersManager blockersManager = BlockersManager.getInstance(this);
 
         if (blockersManager == null)
             return;
 
-        if(!blockersManager.isAtLeastABlockerActive(false))
+        if(!blockersManager.getIsisAtLeastSiteBlockerActive())
             return;
 
-        if (!isBlockedUrl(blockersManager, event.getText().toString()))
-            return;
-
-        AppUtils.notifyUser(this);
+        cooldown = System.currentTimeMillis() + 500;
+        getAllTexts(rootNode, blockersManager);
     }
 
-//    private String getUrlFromEvent(AccessibilityEvent event) {
-//        CharSequence eventText = event.getText().toString();
-//        String extractedUrl = extractUrlFromText(eventText);
-//
-//        AccessibilityNodeInfo source = event.getSource();
-//
-//        for(CharSequence s : event.getText())
-//            Log.d("Access testt", s.toString());
-//
-//        if(extractedUrl != null || source == null)
-//            return extractedUrl != null ? extractedUrl : "unknown";
-//
-//        List<AccessibilityNodeInfo> nodes = source.findAccessibilityNodeInfosByViewId("android:id/url");
-//
-//        if (!nodes.isEmpty())
-//            extractedUrl = nodes.get(0).getText().toString();
-//
-//        else {
-//            nodes = source.findAccessibilityNodeInfosByViewId("com.android.chrome:id/url_bar");
-//            if (!nodes.isEmpty())
-//                extractedUrl = nodes.get(0).getText().toString();
-//        }
-//
-//        return extractedUrl != null ? extractedUrl : "unknown";
-//    }
-//
-//    private String extractUrlFromText(CharSequence text) {
-//        if(text == null)
-//            return null;
-//
-//        String textStr = text.toString();
-//        Pattern urlPattern = Pattern.compile(
-//                "((http|https)://)?[a-zA-Z0-9\\-\\._]+(\\.[a-zA-Z]{2,})+(/[a-zA-Z0-9\\-\\._?,'+/&%$#=~]*)?",
-//                Pattern.CASE_INSENSITIVE
-//        );
-//        Matcher matcher = urlPattern.matcher(textStr);
-//
-//        if (matcher.find())
-//            return matcher.group();
-//
-//        return null;
-//    }
+    private void getAllTexts(AccessibilityNodeInfo node, BlockersManager blockersManager) {
+        if (node == null || !node.isVisibleToUser())
+            return;
 
-    private boolean isBlockedUrl(BlockersManager blockersManager, String url) {
-        for (Blocker blocker : blockersManager.getBlockers())
-            if (blocker.isActive() && blocker.isKeywordBlocked(url))
-               return true;
+        CharSequence text = node.getText();
+
+        if (text != null){
+            if(isSiteBlocked(text.toString(), blockersManager)){
+                performGlobalAction(GLOBAL_ACTION_BACK);
+                AppUtils.notifyUser(this);
+                return;
+            }
+        }
+
+        for (int i = 0; i < node.getChildCount(); i++)
+            getAllTexts(node.getChild(i), blockersManager);
+    }
+
+    private boolean isSiteBlocked(String url, BlockersManager blockersManager) {
+        for(String block : blockersManager.getCachedBlockedSites())
+            if(block.contains(url))
+                return true;
 
         return false;
     }

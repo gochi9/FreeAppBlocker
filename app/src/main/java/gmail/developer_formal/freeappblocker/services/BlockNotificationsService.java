@@ -23,11 +23,6 @@ public class BlockNotificationsService extends NotificationListenerService {
     }
 
     @Override
-    public void onListenerConnected() {
-        super.onListenerConnected();
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
        // AppUtils.removeNotificationChannel(this, CHANNEL_ID);

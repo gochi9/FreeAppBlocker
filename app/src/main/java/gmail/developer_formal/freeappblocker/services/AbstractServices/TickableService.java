@@ -12,7 +12,7 @@ public abstract class TickableService extends NotificationService {
         this.TICK_DELAY = TICK_DELAY;
     }
 
-    protected abstract void tickService();
+    protected abstract void tickService() throws InterruptedException;
     protected abstract int runInstructions(Intent intent, int flags, int startId);
 
     @Override

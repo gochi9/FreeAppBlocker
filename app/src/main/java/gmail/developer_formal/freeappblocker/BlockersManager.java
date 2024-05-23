@@ -12,7 +12,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class BlockersManager {
     private static volatile BlockersManager instance;
@@ -22,6 +24,9 @@ public class BlockersManager {
     private boolean strictModeEnabled;
     private long strictDelay, startedAt;
     private Blocker strictBlocker;
+
+    private Set<String> cachedBlockedSites;
+    private boolean isAtLeastAppBlockerActive = false, isAtLeastSiteBlockerActive = false;
 
     private BlockersManager(Context applicationContext) {
         this.blockers = new ArrayList<>();
@@ -149,12 +154,35 @@ public class BlockersManager {
         return ((strictDelay + startedAt) - System.currentTimeMillis()) / 1000;
     }
 
-    public boolean isAtLeastABlockerActive(boolean app){
+    private boolean isAtLeastABlockerActive(boolean app){
         for(Blocker blocker : blockers)
             if(blocker.isActive() && ((app && !blocker.getBlockedApps().isEmpty()) || (!app && !blocker.getBlockedSites().isEmpty())))
                 return true;
 
         return false;
+    }
+
+    public void cacheInformation(){
+        this.isAtLeastAppBlockerActive = isAtLeastABlockerActive(true);
+        this.isAtLeastSiteBlockerActive = isAtLeastABlockerActive(false);
+
+        this.cachedBlockedSites = new HashSet<>();
+
+        for(Blocker blocker : blockers)
+            if(blocker.isActive())
+                cachedBlockedSites.addAll(blocker.getBlockedSitesActive());
+    }
+
+    public boolean getIsAtLeastAppBlockerActive(){
+        return isAtLeastAppBlockerActive;
+    }
+
+    public boolean getIsisAtLeastSiteBlockerActive(){
+        return isAtLeastSiteBlockerActive;
+    }
+
+    public Set<String> getCachedBlockedSites(){
+        return cachedBlockedSites;
     }
 
     public long getStrictDelay() {

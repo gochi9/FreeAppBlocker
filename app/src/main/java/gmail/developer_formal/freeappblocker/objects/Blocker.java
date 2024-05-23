@@ -67,6 +67,19 @@ public class Blocker {
         return blockedSites != null ? blockedSites : (blockedSites = new HashMap<>());
     }
 
+    public Set<String> getBlockedSitesActive(){
+        if(blockedSites == null || blockedSites.isEmpty())
+            return new HashSet<>();
+
+        Set<String> sites = new HashSet<>();
+
+        for(Map.Entry<String, Boolean> entry : blockedSites.entrySet())
+            if(entry.getValue())
+                sites.add(entry.getKey());
+
+        return sites;
+    }
+
     public void setBlockedSites(HashMap<String, Boolean> blockedSites){
         this.blockedSites = blockedSites;
     }

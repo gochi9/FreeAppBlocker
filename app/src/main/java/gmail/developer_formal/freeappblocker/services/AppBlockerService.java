@@ -6,6 +6,7 @@ import android.app.usage.UsageStatsManager;
 import android.content.*;
 import android.os.Build;
 import android.os.PowerManager;
+import android.view.KeyEvent;
 import gmail.developer_formal.freeappblocker.AppUtils;
 import gmail.developer_formal.freeappblocker.BlockersManager;
 import gmail.developer_formal.freeappblocker.objects.Blocker;
@@ -29,7 +30,7 @@ public class AppBlockerService extends TickableService {
     }
 
     @Override
-    protected void tickService(){
+    protected void tickService() throws InterruptedException {
         BlockersManager blockersManager = BlockersManager.getInstance(this);
 
         if (blockersManager == null)
@@ -37,14 +38,13 @@ public class AppBlockerService extends TickableService {
 
         boolean isStrictMode = blockersManager.isStrictModeEnabled();
 
-        if((!blockersManager.isAtLeastABlockerActive(true) && !isStrictMode) || !powerManager.isInteractive())
+        if((!blockersManager.getIsAtLeastAppBlockerActive() && !isStrictMode) || !powerManager.isInteractive())
             return;
 
         String currentApp = getForegroundApp();
 
         if(currentApp.isEmpty() || currentApp.equals(getPackageName()))
             return;
-
 
         if(isStrictMode && blockersManager.getStrictBlocker().getBlockedApps().contains(currentApp)){
             AppUtils.notifyUser(this);

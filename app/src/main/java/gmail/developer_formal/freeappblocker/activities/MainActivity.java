@@ -1,9 +1,13 @@
 package gmail.developer_formal.freeappblocker.activities;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
@@ -14,6 +18,7 @@ import gmail.developer_formal.freeappblocker.fragments.ExtraFragment;
 import gmail.developer_formal.freeappblocker.fragments.StrictFragment;
 import gmail.developer_formal.freeappblocker.services.AppBlockerService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import gmail.developer_formal.freeappblocker.services.BlockNotificationsService;
 import gmail.developer_formal.freeappblocker.services.BlockSitesService;
 import gmail.developer_formal.freeappblocker.services.StrictService;
 
@@ -28,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         BlockersManager blockersManager = BlockersManager.getInstance(this);
         blockersManager.saveBlockers();
         blockersManager.saveStrictBlocker();
+        blockersManager.cacheInformation();
         this.finish();
     }
 
@@ -48,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, AppBlockerService.class);
         Intent intent2 = new Intent(this, StrictService.class);
-        Intent intent3 = new Intent(this, BlockSitesService.class);
+        Intent intent3 = new Intent(this, BlockNotificationsService.class);
         Intent intent4 = new Intent(this, BlockSitesService.class);
 
         stopService(intent);
