@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">FreeAppBlocker</string>
+    <string name="channel_name">Уведомления Блокировщика Приложений</string>
+    <string name="channel_description">Уведомления для службы блокировщика приложений</string>
+    <string name="admin_receiver_description">Описание администратора: дополнительные привилегии для предотвращения удаления.</string>
+    <string name="admin_receiver_label">Администратор устройства</string>
+    <string name="delete">Удалить блокировщик</string>
+    <string name="accessibility_service_description">
+        Эта служба помогает блокировать доступ к указанным веб-сайтам, чтобы минимизировать отвлекающие факторы и повысить продуктивность, отслеживая и блокируя активность в браузере. Конфиденциальная информация не обрабатывается и не сохраняется.
+    </string>
+
+    <!-- ######################### -->
+    <!-- #### General Strings #### -->
+    <!-- ######################### -->
+
+    <string name="save_button_text">Сохранить</string>
+    <string name="cancel_button_text">Отмена</string>
+    <string name="exit_app_button_text">Выйти из приложения</string>
+    <string name="add_button_text">Добавить</string>
+    <string name="continue_button_text">Продолжить</string>
+    <string name="ok_button_text">ОК</string>
+    <string name="activate_button_text">Активировать</string>
+    <string name="placeholder_empty_text">Ваш текст здесь</string>
+
+    <!-- ################################### -->
+    <!-- #### Blocker Activity Strings  #### -->
+    <!-- ################################### -->
+
+    <string name="add_keyword_text_hint">Введите ключевое слово</string>
+
+    <string name="activity_blocked_message">Это приложение/сайт заблокировано.</string>
+
+    <string name="blocker_edit_name_hint">Изменить имя</string>
+    <string name="blocker_manage_apps_button_description">Кнопка управления приложениями</string>
+    <string name="blocker_manage_manage_keyword_button_description">Кнопка управления ключевыми словами</string>
+    <string name="blocker_delete_button_description">Кнопка удаления блокировщика</string>
+    <string name="lock_image_description">Изображение замка</string>
+
+    <string name="app_list_icon_description">Значок приложения</string>
+
+    <string name="clear_and_refresh_button">Очистить и обновить</string>
+    <string name="show_blocked_only_button">Показать только заблокированные</string>
+    <string name="show_all_apps_button">Показать все приложения</string>
+    <string name="search_apps_text_bar_hint">Поиск приложений…</string>
+    <string name="cancel_notifications_button">Отменить уведомления</string>
+
+    <string name="new_name_text_hint">Введите новое имя</string>
+
+    <string name="add_blocker_button_text">Добавить блокировщик</string>
+
+    <!-- ################################# -->
+    <!-- #### Strict activity Strings #### -->
+    <!-- ################################# -->
+
+    <string name="default_days_text">Дни</string>
+    <string name="default_hours_text">Часы</string>
+    <string name="default_minutes_text">Минуты</string>
+
+    <string name="default_timer_message">Таймер не выбран</string>
+    <string name="set_timer_button_text">Установить таймер</string>
+
+    <string name="strict_mode_enable_warning">
+        "Строгий режим - это мощная функция, предназначенная для обеспечения дополнительной защиты от отвлекающих факторов. Это идеально для тех моментов, когда вы можете быть искушены отключить блокировщики, но нуждаетесь в помощи, чтобы оставаться сосредоточенным.\n\n"
+        "При активации Строгий режим предотвращает удаление блокировщиков, снятие отметки с заблокированных приложений или отключение блокировщиков. Кроме того, вы не сможете получить доступ к настройкам или удалить приложение, пока активен Строгий режим.\n\n"
+        "Пожалуйста, обратите внимание, что после включения Строгого режима вы не сможете его отключить, пока таймер не закончится. Убедитесь, что вы правильно установили таймер перед продолжением."
+    </string>
+
+    <string name="admin_permission_motive_text">
+        "Привет! Строгий режим требует прав администратора для правильной работы нижеуказанных функций:\n\n"
+        "1. **Режим фокуса**: Строгий режим разработан для того, чтобы вы не отвлекались. Вы не сможете отключить блокировщики, что поможет вам сосредоточиться на задачах и избежать искушений.\n\n"
+        "2. **Защита от удаления**: Предотвращает удаление приложения.\n\n"
+        "3. **Без принудительной остановки**: Препятствует принудительной остановке приложения.\n\n"
+        "Права администратора используются только для обеспечения работы строгого режима. Конфиденциальная информация не обрабатывается и не передается."
+    </string>
+
+    <string name="strict_mode_active_message">СТРОГИЙ РЕЖИМ АКТИВЕН</string>
+    <string name="strict_mode_not_active_message">АКТИВИРОВАТЬ</string>
+
+    <string name="strict_mode_timer_active_message">ПРОДЛИТЬ ТАЙМЕР</string>
+    <string name="strict_mode_timer_not_active_message">УСТАНОВИТЬ ТАЙМЕР</string>
+
+    <!-- ###################################### -->
+    <!-- #### Permissions activity Strings #### -->
+    <!-- ###################################### -->
+
+    <string name="permission_notify_intention_user">
+        "Привет! Мы хотим быть прозрачными в отношении разрешений, которые использует приложение. Для работы этого приложения требуются разрешения PACKAGE_USAGE_STATS и QUERY_ALL_PACKAGES. Вот что они делают:\n\n"
+        "1. **PACKAGE_USAGE_STATS**: Это разрешение позволяет приложению просматривать статистику использования приложений, что помогает выявлять и блокировать отвлекающие приложения для повышения вашей продуктивности.\n\n"
+        "2. **QUERY_ALL_PACKAGES**: Это разрешение позволяет приложению запрашивать и получать информацию обо всех установленных на вашем устройстве приложениях. Это необходимо для идентификации и управления приложениями, которые вы хотите заблокировать.\n\n"
+        "Мы понимаем, что некоторым пользователям может показаться это вторжение в личную жизнь. Однако приложение использует эти разрешения только для того, чтобы помочь вам оставаться продуктивным, блокируя приложения и уведомления, которые вы отмечаете как отвлекающие. Приложение не получает доступ к конфиденциальной информации, не передает и не сохраняет её.\n\n" +
+        "Мы понимаем, если вы не хотите предоставлять эти разрешения. Однако приложение не сможет работать без них. Если вы предпочитаете не использовать эти функции, вы можете закрыть приложение и удалить его. Спасибо за понимание!"
+    </string>
+
+    <string name="permission_usage_access_motive_title">Разрешение на доступ к использованию</string>
+    <string name="permission_usage_access_motive_description">Это разрешение позволяет приложению отслеживать, какие приложения используются. Оно необходимо для обнаружения и блокировки конкретных приложений в соответствии с настройками пользователя.</string>
+    <string name="permission_usage_access_motive_grant_button">Предоставить разрешение на использование</string>
+
+    <string name="permission_overlay_motive_title">Разрешение на наложение</string>
+    <string name="permission_overlay_motive_description">Это разрешение позволяет приложению отображать информацию или предупреждения поверх других приложений. Оно необходимо для блокировки доступа к определённым приложениям, показывая экран блокировки.</string>
+    <string name="permission_overlay_motive_grant_button">Предоставить разрешение на наложение</string>
+
+    <string name="permission_battery_motive_title">Игнорировать оптимизацию батареи</string>
+    <string name="permission_battery_motive_description">Это разрешение позволяет приложению работать непрерывно, не будучи остановленным настройками оптимизации батареи. Это гарантирует, что приложение сможет постоянно отслеживать и блокировать приложения.</string>
+    <string name="permission_battery_motive_grant_button">Отключить оптимизацию батареи</string>
+
+    <string name="permission_block_notifications_motive_title">Разрешение на прослушивание уведомлений</string>
+    <string name="permission_block_notifications_motive_description">Это разрешение позволяет приложению прослушивать и взаимодействовать с вашими уведомлениями. Оно необходимо для блокировки уведомлений от отвлекающих приложений.</string>
+    <string name="permission_block_notifications_motive_grant_button">Предоставить разрешение на уведомления</string>
+
+    <string name="permission_accessibility_motive_title">Разрешение на доступность</string>
+    <string name="permission_accessibility_motive_description">Это разрешение позволяет приложению отслеживать и блокировать веб-сайты, которые вы отмечаете как отвлекающие в ваших блокировщиках.</string>
+    <string name="permission_accessibility_motive_grant_button">Предоставить разрешение на доступность</string>
+</resources>

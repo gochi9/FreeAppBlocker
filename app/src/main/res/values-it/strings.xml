@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">FreeAppBlocker</string>
+    <string name="channel_name">Notifiche del blocco app</string>
+    <string name="channel_description">Notifiche per il servizio di blocco app</string>
+    <string name="admin_receiver_description">"Descrizione dell'amministratore: privilegi aggiuntivi per prevenire la disinstallazione."</string>
+    <string name="admin_receiver_label">Amministratore del dispositivo</string>
+    <string name="delete">Elimina blocco</string>
+    <string name="accessibility_service_description">
+        "Questo servizio aiuta a bloccare l'accesso a siti web specificati per ridurre le distrazioni e aumentare la produttività monitorando e bloccando l'attività del browser. Nessuna informazione sensibile viene accessibile o memorizzata."
+    </string>
+
+    <!-- ######################### -->
+    <!-- #### General Strings #### -->
+    <!-- ######################### -->
+
+    <string name="save_button_text">Salva</string>
+    <string name="cancel_button_text">Annulla</string>
+    <string name="exit_app_button_text">"Esci dall'app"</string>
+    <string name="add_button_text">Aggiungi</string>
+    <string name="continue_button_text">Continua</string>
+    <string name="ok_button_text">OK</string>
+    <string name="activate_button_text">Attiva</string>
+    <string name="placeholder_empty_text">Il tuo testo qui</string>
+
+    <!-- ################################### -->
+    <!-- #### Blocker Activity Strings  #### -->
+    <!-- ################################### -->
+
+    <string name="add_keyword_text_hint">Inserisci parola chiave</string>
+
+    <string name="activity_blocked_message">Questa app/sito è bloccata.</string>
+
+    <string name="blocker_edit_name_hint">Modifica nome</string>
+    <string name="blocker_manage_apps_button_description">Pulsante Gestisci App</string>
+    <string name="blocker_manage_manage_keyword_button_description">Pulsante Gestisci Parole Chiave</string>
+    <string name="blocker_delete_button_description">Pulsante Elimina Blocco</string>
+    <string name="lock_image_description">Immagine blocco</string>
+
+    <string name="app_list_icon_description">"Icona dell'applicazione"</string>
+
+    <string name="clear_and_refresh_button">Pulisci e aggiorna</string>
+    <string name="show_blocked_only_button">Mostra solo bloccati</string>
+    <string name="show_all_apps_button">Mostra tutte le app</string>
+    <string name="search_apps_text_bar_hint">Cerca app...</string>
+    <string name="cancel_notifications_button">Annulla notifiche</string>
+
+    <string name="new_name_text_hint">Inserisci nuovo nome</string>
+
+    <string name="add_blocker_button_text">Aggiungi blocco</string>
+
+    <!-- ################################# -->
+    <!-- #### Strict activity Strings #### -->
+    <!-- ################################# -->
+
+    <string name="default_days_text">Giorni</string>
+    <string name="default_hours_text">Ore</string>
+    <string name="default_minutes_text">Minuti</string>
+
+    <string name="default_timer_message">Nessun timer selezionato</string>
+    <string name="set_timer_button_text">Imposta timer</string>
+
+    <string name="strict_mode_enable_warning">
+        "La modalità rigorosa è una funzione potente progettata per fornire un ulteriore livello di protezione contro le distrazioni. È perfetta per quei momenti in cui potresti essere tentato di disattivare i blocchi ma hai bisogno di aiuto per rimanere concentrato.\n\n"
+        "Quando attivata, la modalità rigorosa impedisce di rimuovere i blocchi, deselezionare le app bloccate o disabilitare i blocchi. Inoltre, non potrai accedere alle impostazioni o disinstallare l'app mentre la modalità rigorosa è attiva.\n\n"
+        "Si prega di notare che una volta abilitata la modalità rigorosa, non sarà possibile disattivarla fino alla scadenza del timer. Assicurati di aver impostato correttamente il timer prima di procedere."
+    </string>
+
+    <string name="admin_permission_motive_text">
+        "Ciao! La modalità rigorosa richiede permessi di amministratore affinché le funzionalità sottostanti funzionino correttamente:\n\n"
+        "1. **Modalità Focus**: La modalità rigorosa è progettata per mantenerti in carreggiata bloccando le distrazioni. Non potrai disattivare i blocchi, il che ti aiuta a rimanere concentrato sui tuoi compiti e previene le tentazioni.\n\n"
+        "2. **Protezione dalla Disinstallazione**: Impedisce di disinstallare l'app.\n\n"
+        "3. **No Arresti Forzati**: Impedisce di forzare l'arresto dell'app.\n\n"
+        "I permessi di amministratore sono utilizzati solo per garantire che la modalità rigorosa funzioni. Nessuna informazione sensibile viene accessibile o condivisa."
+    </string>
+
+    <string name="strict_mode_active_message">MODALITÀ RIGOROSA ATTIVA</string>
+    <string name="strict_mode_not_active_message">ATTIVA</string>
+
+    <string name="strict_mode_timer_active_message">ESTENDI TIMER</string>
+    <string name="strict_mode_timer_not_active_message">IMPOSTA TIMER</string>
+
+    <!-- ###################################### -->
+    <!-- #### Permissions activity Strings #### -->
+    <!-- ###################################### -->
+
+    <string name="permission_notify_intention_user">
+        "Ciao! Vogliamo essere trasparenti riguardo ai permessi utilizzati dall'app. Questa app richiede i permessi PACKAGE_USAGE_STATS, QUERY_ALL_PACKAGES. Ecco cosa fanno:\n\n"
+        "1. **PACKAGE_USAGE_STATS**: Questo permesso consente all'app di visualizzare le statistiche di utilizzo delle app, aiutando a identificare e bloccare le app che distraggono per migliorare la produttività.\n\n"
+        "2. **QUERY_ALL_PACKAGES**: Questo permesso consente all'app di interrogare e ottenere informazioni su tutte le app installate sul dispositivo. È necessario per identificare e gestire le app che si desidera bloccare.\n\n"
+        "Capisco che alcuni utenti potrebbero trovare questo livello di accesso invasivo. Tuttavia, l'app utilizza questi permessi solo per aiutarti a rimanere produttivo bloccando le app e le notifiche che segni come distrazioni. L'app non accede, condivide o salva alcuna informazione sensibile.\n\n"
+        "È comprensibile se sei a disagio a concedere questi permessi. Tuttavia, l'app non può funzionare senza di essi. Se preferisci non utilizzare queste funzionalità, puoi chiudere l'app e disinstallarla. Apprezziamo la tua comprensione!"
+    </string>
+
+    <string name="permission_usage_access_motive_title">"Permesso di accesso all'uso"</string>
+    <string name="permission_usage_access_motive_description">"Questo permesso consente all'app di monitorare quali app vengono utilizzate. È necessario per rilevare e bloccare specifiche app secondo le impostazioni dell'utente."</string>
+    <string name="permission_usage_access_motive_grant_button">Concedi permesso di utilizzo</string>
+
+    <string name="permission_overlay_motive_title">Permesso di sovrapposizione</string>
+    <string name="permission_overlay_motive_description">"Questo permesso consente all'app di visualizzare informazioni o avvisi sopra altre app. È necessario per bloccare l'accesso a specifiche app mostrando una schermata di blocco."</string>
+    <string name="permission_overlay_motive_grant_button">Concedi permesso di sovrapposizione</string>
+
+    <string name="permission_battery_motive_title">Ignora ottimizzazioni della batteria</string>
+    <string name="permission_battery_motive_description">"Questo permesso consente all'app di funzionare continuamente senza essere interrotta dalle impostazioni di ottimizzazione della batteria. Ciò garantisce che l'app possa monitorare e bloccare le app in ogni momento."</string>
+    <string name="permission_battery_motive_grant_button">Disabilita ottimizzazione della batteria</string>
+
+    <string name="permission_block_notifications_motive_title">Permesso di ascolto delle notifiche</string>
+    <string name="permission_block_notifications_motive_description">"Questo permesso consente all'app di ascoltare e interagire con le tue notifiche. È necessario per bloccare le notifiche delle app che distraggono."</string>
+    <string name="permission_block_notifications_motive_grant_button">Concedi permesso di notifica</string>
+
+    <string name="permission_accessibility_motive_title">Permesso di accessibilità</string>
+    <string name="permission_accessibility_motive_description">"Questo permesso consente all'app di monitorare e bloccare i siti web che segni come distraenti nei tuoi blocchi."</string>
+    <string name="permission_accessibility_motive_grant_button">Concedi permesso di accessibilità</string>
+</resources>

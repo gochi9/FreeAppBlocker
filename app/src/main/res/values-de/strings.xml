@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">FreeAppBlocker</string>
+    <string name="channel_name">App-Blocker-Benachrichtigungen</string>
+    <string name="channel_description">Benachrichtigungen für den App-Blocker-Dienst</string>
+    <string name="admin_receiver_description">Administratorbeschreibung: zusätzliche Berechtigungen, um die Deinstallation zu verhindern.</string>
+    <string name="admin_receiver_label">Geräteadministrator</string>
+    <string name="delete">Blocker löschen</string>
+    <string name="accessibility_service_description">
+        Dieser Dienst hilft dabei, den Zugriff auf bestimmte Websites zu blockieren, um Ablenkungen zu minimieren und die Produktivität zu steigern, indem Browseraktivitäten überwacht und blockiert werden. Es werden keine sensiblen Informationen abgerufen oder gespeichert.
+    </string>
+
+    <!-- ######################### -->
+    <!-- #### General Strings #### -->
+    <!-- ######################### -->
+
+    <string name="save_button_text">Speichern</string>
+    <string name="cancel_button_text">Abbrechen</string>
+    <string name="exit_app_button_text">App beenden</string>
+    <string name="add_button_text">Hinzufügen</string>
+    <string name="continue_button_text">Weiter</string>
+    <string name="ok_button_text">OK</string>
+    <string name="activate_button_text">Aktivieren</string>
+    <string name="placeholder_empty_text">Ihr Text hier</string>
+
+    <!-- ################################### -->
+    <!-- #### Blocker Activity Strings  #### -->
+    <!-- ################################### -->
+
+    <string name="add_keyword_text_hint">Schlüsselwort eingeben</string>
+
+    <string name="activity_blocked_message">Diese App/Website ist blockiert.</string>
+
+    <string name="blocker_edit_name_hint">Name bearbeiten</string>
+    <string name="blocker_manage_apps_button_description">Apps verwalten Button</string>
+    <string name="blocker_manage_manage_keyword_button_description">Schlüsselwörter verwalten Button</string>
+    <string name="blocker_delete_button_description">Blocker löschen Button</string>
+    <string name="lock_image_description">Sperrbild</string>
+
+    <string name="app_list_icon_description">Anwendungssymbol</string>
+
+    <string name="clear_and_refresh_button">Löschen &amp; Aktualisieren</string>
+    <string name="show_blocked_only_button">Nur Blockierte anzeigen</string>
+    <string name="show_all_apps_button">Alle Apps anzeigen</string>
+    <string name="search_apps_text_bar_hint">Apps suchen…</string>
+    <string name="cancel_notifications_button">Benachrichtigungen abbrechen</string>
+
+    <string name="new_name_text_hint">Neuen Namen eingeben</string>
+
+    <string name="add_blocker_button_text">Blocker hinzufügen</string>
+
+    <!-- ################################# -->
+    <!-- #### Strict activity Strings #### -->
+    <!-- ################################# -->
+
+    <string name="default_days_text">Tage</string>
+    <string name="default_hours_text">Stunden</string>
+    <string name="default_minutes_text">Minuten</string>
+
+    <string name="default_timer_message">Kein Timer ausgewählt</string>
+    <string name="set_timer_button_text">Timer setzen</string>
+
+    <string name="strict_mode_enable_warning">
+        "Der Strenge Modus ist eine leistungsstarke Funktion, die eine zusätzliche Schutzschicht gegen Ablenkungen bietet. Er ist perfekt für die Momente, in denen Sie versucht sind, Ihre Blocker auszuschalten, aber Hilfe brauchen, um konzentriert zu bleiben.\n\n"
+        "Wenn aktiviert, verhindert der Strenge Modus, dass Sie Blocker entfernen, blockierte Apps entsperren oder Blocker deaktivieren. Außerdem können Sie Ihre Einstellungen nicht aufrufen oder die App deinstallieren, solange der Strenge Modus aktiv ist.\n\n"
+        "Bitte beachten Sie, dass Sie den Strengen Modus nicht deaktivieren können, sobald er aktiviert ist, bis der Timer abgelaufen ist. Stellen Sie sicher, dass Sie den Timer korrekt eingestellt haben, bevor Sie fortfahren."
+    </string>
+
+    <string name="admin_permission_motive_text">
+        "Hallo! Der Strenge Modus benötigt Administratorrechte, damit die unten aufgeführten Funktionen ordnungsgemäß funktionieren:\n\n"
+        "1. **Fokusmodus**: Der Strenge Modus ist so konzipiert, dass Sie auf Kurs bleiben, indem Ablenkungen blockiert werden. Sie können die Blocker nicht ausschalten, was Ihnen hilft, sich auf Ihre Aufgaben zu konzentrieren und Versuchungen zu vermeiden.\n\n"
+        "2. **Deinstallationsschutz**: Verhindert die Deinstallation der App.\n\n"
+        "3. **Keine erzwungenen Stopps**: Verhindert, dass Sie die App erzwingen stoppen.\n\n"
+        "Administratorrechte werden nur verwendet, um sicherzustellen, dass der Strenge Modus funktioniert. Es werden keine sensiblen Informationen abgerufen oder weitergegeben."
+    </string>
+
+    <string name="strict_mode_active_message">STRIKTER MODUS AKTIV</string>
+    <string name="strict_mode_not_active_message">AKTIVIEREN</string>
+
+    <string name="strict_mode_timer_active_message">TIMER VERLÄNGERN</string>
+    <string name="strict_mode_timer_not_active_message">TIMER SETZEN</string>
+
+    <!-- ###################################### -->
+    <!-- #### Permissions activity Strings #### -->
+    <!-- ###################################### -->
+
+    <string name="permission_notify_intention_user">
+        "Hallo! Wir möchten transparent über die von der App verwendeten Berechtigungen informieren. Diese App erfordert die Berechtigungen PACKAGE_USAGE_STATS und QUERY_ALL_PACKAGES. Hier ist, was sie tun:\n\n"
+        "1. **PACKAGE_USAGE_STATS**: Diese Berechtigung ermöglicht es der App, Ihre App-Nutzungsstatistiken anzuzeigen, was hilft, ablenkende Apps zu identifizieren und zu blockieren, um Ihre Produktivität zu verbessern.\n\n"
+        "2. **QUERY_ALL_PACKAGES**: Diese Berechtigung ermöglicht es der App, alle auf Ihrem Gerät installierten Apps abzufragen und Informationen darüber zu erhalten. Dies ist notwendig, um die Apps zu identifizieren und zu verwalten, die Sie blockieren möchten.\n\n"
+        "Wir verstehen, dass einige Benutzer dieses Maß an Zugriff als invasiv empfinden könnten. Die App verwendet diese Berechtigungen jedoch nur, um Ihnen zu helfen, produktiv zu bleiben, indem sie Apps und Benachrichtigungen blockiert, die Sie als Ablenkungen markieren. Die App greift nicht auf sensible Informationen zu, teilt oder speichert diese nicht.\n\n"
+        "Es ist verständlich, wenn Sie sich unwohl fühlen, diese Berechtigungen zu erteilen. Die App kann jedoch ohne sie nicht funktionieren. Wenn Sie diese Funktionen nicht nutzen möchten, können Sie die App schließen und deinstallieren. Wir danken für Ihr Verständnis!"
+    </string>
+
+    <string name="permission_usage_access_motive_title">Zugriffsberechtigung verwenden</string>
+    <string name="permission_usage_access_motive_description">Diese Berechtigung ermöglicht es der App, zu überwachen, welche Apps verwendet werden. Sie ist notwendig, um bestimmte Apps gemäß den Benutzereinstellungen zu erkennen und zu blockieren.</string>
+    <string name="permission_usage_access_motive_grant_button">Nutzungsberechtigung gewähren</string>
+
+    <string name="permission_overlay_motive_title">Overlay-Berechtigung</string>
+    <string name="permission_overlay_motive_description">Diese Berechtigung ermöglicht es der App, Informationen oder Warnungen über anderen Apps anzuzeigen. Sie ist notwendig, um den Zugriff auf bestimmte Apps zu blockieren, indem ein Sperrbildschirm angezeigt wird.</string>
+    <string name="permission_overlay_motive_grant_button">Overlay-Berechtigung gewähren</string>
+
+    <string name="permission_battery_motive_title">Batterieoptimierungen ignorieren</string>
+    <string name="permission_battery_motive_description">Diese Berechtigung ermöglicht es der App, kontinuierlich zu laufen, ohne von den Batterieoptimierungseinstellungen gestoppt zu werden. Dies stellt sicher, dass die App jederzeit Apps überwachen und blockieren kann.</string>
+    <string name="permission_battery_motive_grant_button">Batterieoptimierung deaktivieren</string>
+
+    <string name="permission_block_notifications_motive_title">Benachrichtigungslistener-Berechtigung</string>
+    <string name="permission_block_notifications_motive_description">Diese Berechtigung ermöglicht es der App, Ihre Benachrichtigungen zu hören und mit ihnen zu interagieren. Sie ist notwendig, um Benachrichtigungen von ablenkenden Apps zu blockieren.</string>
+    <string name="permission_block_notifications_motive_grant_button">Benachrichtigungsberechtigung gewähren</string>
+
+    <string name="permission_accessibility_motive_title">Zugänglichkeitsberechtigung</string>
+    <string name="permission_accessibility_motive_description">Diese Berechtigung ermöglicht es der App, Websites zu überwachen und zu blockieren, die Sie in Ihren Blockern als ablenkend markiert haben.</string>
+    <string name="permission_accessibility_motive_grant_button">Zugänglichkeitsberechtigung gewähren</string>
+</resources>

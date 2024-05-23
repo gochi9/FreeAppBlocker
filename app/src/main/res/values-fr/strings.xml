@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">FreeAppBlocker</string>
+    <string name="channel_name">"Notifications de l'App Blocker"</string>
+    <string name="channel_description">Notifications pour le service App Blocker</string>
+    <string name="admin_receiver_description">"Description de l'administrateur : privilèges supplémentaires pour empêcher la désinstallation."</string>
+    <string name="admin_receiver_label">"Administrateur de l'appareil"</string>
+    <string name="delete">Supprimer le bloqueur</string>
+    <string name="accessibility_service_description">
+        "Ce service aide à bloquer l'accès à certains sites web pour minimiser les distractions et améliorer la productivité en surveillant et en bloquant l'activité du navigateur. Aucune information sensible n'est accédée ou stockée."
+    </string>
+
+    <!-- ######################### -->
+    <!-- #### General Strings #### -->
+    <!-- ######################### -->
+
+    <string name="save_button_text">Enregistrer</string>
+    <string name="cancel_button_text">Annuler</string>
+    <string name="exit_app_button_text">"Quitter l'application"</string>
+    <string name="add_button_text">Ajouter</string>
+    <string name="continue_button_text">Continuer</string>
+    <string name="ok_button_text">OK</string>
+    <string name="activate_button_text">Activer</string>
+    <string name="placeholder_empty_text">Votre texte ici</string>
+
+    <!-- ################################### -->
+    <!-- #### Blocker Activity Strings  #### -->
+    <!-- ################################### -->
+
+    <string name="add_keyword_text_hint">Entrez le mot-clé</string>
+
+    <string name="activity_blocked_message">Cette application/site est bloqué(e).</string>
+
+    <string name="blocker_edit_name_hint">Modifier le nom</string>
+    <string name="blocker_manage_apps_button_description">Bouton Gérer les applications</string>
+    <string name="blocker_manage_manage_keyword_button_description">Bouton Gérer les mots-clés</string>
+    <string name="blocker_delete_button_description">Bouton Supprimer le bloqueur</string>
+    <string name="lock_image_description">Image de verrouillage</string>
+
+    <string name="app_list_icon_description">"Icône d'application"</string>
+
+    <string name="clear_and_refresh_button">Effacer &amp; Actualiser</string>
+    <string name="show_blocked_only_button">Afficher uniquement les bloqués</string>
+    <string name="show_all_apps_button">Afficher toutes les applications</string>
+    <string name="search_apps_text_bar_hint">Rechercher des applications…</string>
+    <string name="cancel_notifications_button">Annuler les notifications</string>
+
+    <string name="new_name_text_hint">Entrez un nouveau nom</string>
+
+    <string name="add_blocker_button_text">Ajouter un bloqueur</string>
+
+    <!-- ################################# -->
+    <!-- #### Strict activity Strings #### -->
+    <!-- ################################# -->
+
+    <string name="default_days_text">Jours</string>
+    <string name="default_hours_text">Heures</string>
+    <string name="default_minutes_text">Minutes</string>
+
+    <string name="default_timer_message">Aucun minuteur sélectionné</string>
+    <string name="set_timer_button_text">Définir le minuteur</string>
+
+    <string name="strict_mode_enable_warning">
+        "Le mode strict est une fonctionnalité puissante conçue pour offrir une protection supplémentaire contre les distractions. Il est parfait pour les moments où vous pourriez être tenté de désactiver vos bloqueurs mais avez besoin d'aide pour rester concentré.\n\n"
+        "Une fois activé, le mode strict vous empêche de supprimer les bloqueurs, de désépingler les applications bloquées ou de désactiver les bloqueurs. De plus, vous ne pourrez pas accéder à vos paramètres ou désinstaller l'application tant que le mode strict est actif.\n\n"
+        "Veuillez noter qu'une fois le mode strict activé, vous ne pourrez plus le désactiver tant que le minuteur n'aura pas expiré. Assurez-vous de vérifier que vous avez correctement réglé le minuteur avant de continuer."
+    </string>
+
+    <string name="admin_permission_motive_text">
+        "Bonjour! Le mode strict nécessite des autorisations d'administrateur pour que les fonctionnalités ci-dessous fonctionnent correctement:\n\n"
+        "1. **Mode Focus**: Le mode strict est conçu pour vous aider à rester concentré en bloquant les distractions. Vous ne pourrez pas désactiver les bloqueurs, ce qui vous aide à rester concentré sur vos tâches et à éviter les tentations.\n\n"
+        "2. **Protection contre la désinstallation**: Empêche la désinstallation de l'application.\n\n"
+        "3. **Pas d'arrêt forcé**: Vous empêche de forcer l'arrêt de l'application.\n\n"
+        "Les autorisations d'administrateur sont uniquement utilisées pour garantir que le mode strict fonctionne. Aucune information sensible n'est accédée ou partagée."
+    </string>
+
+    <string name="strict_mode_active_message">MODE STRICT ACTIF</string>
+    <string name="strict_mode_not_active_message">ACTIVER</string>
+
+    <string name="strict_mode_timer_active_message">PROLONGER LE MINUTEUR</string>
+    <string name="strict_mode_timer_not_active_message">DÉFINIR LE MINUTEUR</string>
+
+    <!-- ###################################### -->
+    <!-- #### Permissions activity Strings #### -->
+    <!-- ###################################### -->
+
+    <string name="permission_notify_intention_user">
+        "Salut! Nous voulons être transparents quant aux autorisations utilisées par l'application. Cette application nécessite les autorisations PACKAGE_USAGE_STATS, QUERY_ALL_PACKAGES. Voici ce qu'elles font:\n\n"
+        "1. **PACKAGE_USAGE_STATS**: Cette autorisation permet à l'application de voir vos statistiques d'utilisation des applications, ce qui aide à identifier et bloquer les applications distrayantes pour améliorer votre productivité.\n\n"
+        "2. **QUERY_ALL_PACKAGES**: Cette autorisation permet à l'application de rechercher et d'obtenir des informations sur toutes les applications installées sur votre appareil. Cela est nécessaire pour identifier et gérer les applications que vous souhaitez bloquer.\n\n"
+        "Nous comprenons que certains utilisateurs peuvent trouver ce niveau d'accès intrusif. Cependant, l'application utilise uniquement ces autorisations pour vous aider à rester productif en bloquant les applications et les notifications que vous marquez comme distractions. L'application n'accède, ne partage ni ne stocke aucune information sensible.\n\n" +
+        "Il est compréhensible que vous soyez réticent à accorder ces autorisations. Cependant, l'application ne peut pas fonctionner sans elles. Si vous préférez ne pas utiliser ces fonctionnalités, vous pouvez fermer l'application et la désinstaller. Nous vous remercions de votre compréhension!"
+    </string>
+
+    <string name="permission_usage_access_motive_title">"Autorisation d'accès à l'utilisation"</string>
+    <string name="permission_usage_access_motive_description">"Cette autorisation permet à l'application de surveiller les applications utilisées. Elle est nécessaire pour détecter et bloquer certaines applications selon les paramètres de l'utilisateur."</string>
+    <string name="permission_usage_access_motive_grant_button">"Accorder l'autorisation d'"utilisation"</string>
+
+    <string name="permission_overlay_motive_title">Autorisation de superposition</string>
+    <string name="permission_overlay_motive_description">"Cette autorisation permet à l'application d'afficher des informations ou des avertissements par-dessus d'autres applications. Elle est nécessaire pour bloquer l'accès à certaines applications en affichant un écran de blocage."</string>
+    <string name="permission_overlay_motive_grant_button">"Accorder l'autorisation de superposition"</string>
+
+    <string name="permission_battery_motive_title">Ignorer les optimisations de batterie</string>
+    <string name="permission_battery_motive_description">"Cette autorisation permet à l'application de fonctionner en continu sans être arrêtée par les paramètres d'optimisation de la batterie. Cela garantit que l'application peut surveiller et bloquer les applications à tout moment."</string>
+    <string name="permission_battery_motive_grant_button">"Désactiver l'optimisation de la batterie"</string>
+
+    <string name="permission_block_notifications_motive_title">"Autorisation de l'écouteur de notifications"</string>
+    <string name="permission_block_notifications_motive_description">"Cette autorisation permet à l'application d'écouter et d'interagir avec vos notifications. Elle est nécessaire pour bloquer les notifications des applications distrayantes."</string>
+    <string name="permission_block_notifications_motive_grant_button">"Accorder l'autorisation de notification"</string>
+
+    <string name="permission_accessibility_motive_title">"Autorisation d'accessibilité"</string>
+    <string name="permission_accessibility_motive_description">"Cette autorisation permet à l'application de surveiller et de bloquer les sites web que vous marquez comme distrayants dans vos bloqueurs."</string>
+    <string name="permission_accessibility_motive_grant_button">"Accorder l'autorisation d'accessibilité"</string>
+</resources>

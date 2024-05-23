@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">FreeAppBlocker</string>
+    <string name="channel_name">Powiadomienia Blokera Aplikacji</string>
+    <string name="channel_description">Powiadomienia dla usługi Blokera Aplikacji</string>
+    <string name="admin_receiver_description">Opis administratora: dodatkowe uprawnienia do zapobiegania odinstalowaniu.</string>
+    <string name="admin_receiver_label">Administrator Urządzenia</string>
+    <string name="delete">Usuń bloker</string>
+    <string name="accessibility_service_description">
+        Ta usługa pomaga blokować dostęp do określonych stron internetowych, aby zminimalizować rozpraszanie i zwiększyć produktywność poprzez monitorowanie i blokowanie aktywności w przeglądarce. Nie są dostępne ani przechowywane żadne wrażliwe informacje.
+    </string>
+
+    <!-- ######################### -->
+    <!-- #### General Strings #### -->
+    <!-- ######################### -->
+
+    <string name="save_button_text">Zapisz</string>
+    <string name="cancel_button_text">Anuluj</string>
+    <string name="exit_app_button_text">Zamknij aplikację</string>
+    <string name="add_button_text">Dodaj</string>
+    <string name="continue_button_text">Kontynuuj</string>
+    <string name="ok_button_text">OK</string>
+    <string name="activate_button_text">Aktywuj</string>
+    <string name="placeholder_empty_text">Twój tekst tutaj</string>
+
+    <!-- ################################### -->
+    <!-- #### Blocker Activity Strings  #### -->
+    <!-- ################################### -->
+
+    <string name="add_keyword_text_hint">Wprowadź słowo kluczowe</string>
+
+    <string name="activity_blocked_message">Ta aplikacja/strona jest zablokowana.</string>
+
+    <string name="blocker_edit_name_hint">Edytuj nazwę</string>
+    <string name="blocker_manage_apps_button_description">Przycisk Zarządzaj Aplikacjami</string>
+    <string name="blocker_manage_manage_keyword_button_description">Przycisk Zarządzaj Słowami Kluczowymi</string>
+    <string name="blocker_delete_button_description">Przycisk Usuń Bloker</string>
+    <string name="lock_image_description">Obrazek blokady</string>
+
+    <string name="app_list_icon_description">Ikona aplikacji</string>
+
+    <string name="clear_and_refresh_button">Wyczyść i Odśwież</string>
+    <string name="show_blocked_only_button">Pokaż tylko zablokowane</string>
+    <string name="show_all_apps_button">Pokaż wszystkie aplikacje</string>
+    <string name="search_apps_text_bar_hint">Szukaj aplikacji...</string>
+    <string name="cancel_notifications_button">Anuluj powiadomienia</string>
+
+    <string name="new_name_text_hint">Wprowadź nową nazwę</string>
+
+    <string name="add_blocker_button_text">Dodaj Bloker</string>
+
+    <!-- ################################# -->
+    <!-- #### Strict activity Strings #### -->
+    <!-- ################################# -->
+
+    <string name="default_days_text">Dni</string>
+    <string name="default_hours_text">Godziny</string>
+    <string name="default_minutes_text">Minuty</string>
+
+    <string name="default_timer_message">Nie wybrano timera</string>
+    <string name="set_timer_button_text">Ustaw Timer</string>
+
+    <string name="strict_mode_enable_warning">
+        "Tryb surowy to potężna funkcja zaprojektowana w celu zapewnienia dodatkowej warstwy ochrony przed rozproszeniem uwagi. Jest idealny na te momenty, gdy możesz być kuszony, aby wyłączyć swoje blokery, ale potrzebujesz pomocy, aby pozostać skoncentrowanym.\n\n"
+        "Po aktywacji, tryb surowy uniemożliwia usunięcie blokerów, odznaczanie zablokowanych aplikacji lub wyłączanie blokerów. Dodatkowo, nie będziesz miał dostępu do ustawień ani nie będziesz mógł odinstalować aplikacji, gdy tryb surowy jest aktywny.\n\n"
+        "Należy pamiętać, że po włączeniu trybu surowego, nie będzie można go wyłączyć, dopóki timer się nie skończy. Upewnij się, że ustawiłeś timer poprawnie przed kontynuowaniem."
+    </string>
+
+    <string name="admin_permission_motive_text">
+        "Cześć! Tryb surowy wymaga uprawnień administratora, aby poniższe funkcje działały poprawnie:\n\n"
+        "1. **Tryb Skupienia**: Tryb surowy jest zaprojektowany, aby pomóc Ci pozostać na torze poprzez blokowanie rozpraszaczy. Nie będziesz mógł wyłączyć blokerów, co pomoże Ci skupić się na zadaniach i uniknąć pokus.\n\n"
+        "2. **Ochrona przed odinstalowaniem**: Zapobiega odinstalowaniu aplikacji.\n\n"
+        "3. **Brak wymuszonych zatrzymań**: Uniemożliwia wymuszone zatrzymanie aplikacji.\n\n"
+        "Uprawnienia administratora są używane wyłącznie w celu zapewnienia działania trybu surowego. Nie są dostępne ani udostępniane żadne wrażliwe informacje."
+    </string>
+
+    <string name="strict_mode_active_message">TRYB SUROWY AKTYWNY</string>
+    <string name="strict_mode_not_active_message">AKTYWUJ</string>
+
+    <string name="strict_mode_timer_active_message">PRZEDŁUŻ TIMER</string>
+    <string name="strict_mode_timer_not_active_message">USTAW TIMER</string>
+
+    <!-- ###################################### -->
+    <!-- #### Permissions activity Strings #### -->
+    <!-- ###################################### -->
+
+    <string name="permission_notify_intention_user">
+        "Hej! Chcemy być transparentni w kwestii uprawnień, których używa aplikacja. Ta aplikacja wymaga uprawnień PACKAGE_USAGE_STATS, QUERY_ALL_PACKAGES. Oto, co robią:\n\n"
+        "1. **PACKAGE_USAGE_STATS**: To uprawnienie pozwala aplikacji na przeglądanie statystyk użycia aplikacji, co pomaga zidentyfikować i zablokować rozpraszające aplikacje, aby poprawić Twoją produktywność.\n\n"
+        "2. **QUERY_ALL_PACKAGES**: To uprawnienie pozwala aplikacji na zapytania i uzyskiwanie informacji o wszystkich aplikacjach zainstalowanych na Twoim urządzeniu. Jest to konieczne do identyfikacji i zarządzania aplikacjami, które chcesz zablokować.\n\n"
+        "Rozumiemy, że niektórzy użytkownicy mogą uznać ten poziom dostępu za inwazyjny. Jednak aplikacja używa tych uprawnień tylko po to, aby pomóc Ci pozostać produktywnym poprzez blokowanie aplikacji i powiadomień, które oznaczasz jako rozpraszające. Aplikacja nie uzyskuje dostępu do żadnych wrażliwych informacji, nie udostępnia ich ani ich nie zapisuje.\n\n" +
+        "Jeśli nie czujesz się komfortowo, udzielając tych uprawnień, możesz zamknąć aplikację i ją odinstalować. Dziękujemy za zrozumienie!"
+    </string>
+
+    <string name="permission_usage_access_motive_title">Uprawnienia Dostępu do Użycia</string>
+    <string name="permission_usage_access_motive_description">To uprawnienie pozwala aplikacji monitorować, które aplikacje są używane. Jest potrzebne do wykrywania i blokowania konkretnych aplikacji zgodnie z ustawieniami użytkownika.</string>
+    <string name="permission_usage_access_motive_grant_button">Przyznaj Uprawnienie Dostępu do Użycia</string>
+
+    <string name="permission_overlay_motive_title">Uprawnienia Nakładki</string>
+    <string name="permission_overlay_motive_description">To uprawnienie pozwala aplikacji wyświetlać informacje lub ostrzeżenia nad innymi aplikacjami. Jest potrzebne do blokowania dostępu do określonych aplikacji poprzez wyświetlanie ekranu blokady.</string>
+    <string name="permission_overlay_motive_grant_button">Przyznaj Uprawnienie Nakładki</string>
+
+    <string name="permission_battery_motive_title">Ignorowanie Optymalizacji Baterii</string>
+    <string name="permission_battery_motive_description">To uprawnienie pozwala aplikacji działać bez przerwy bez przerywania przez ustawienia optymalizacji baterii. Zapewnia to, że aplikacja może monitorować i blokować aplikacje przez cały czas.</string>
+    <string name="permission_battery_motive_grant_button">Wyłącz Optymalizację Baterii</string>
+
+    <string name="permission_block_notifications_motive_title">Uprawnienie Dostępu do Powiadomień</string>
+    <string name="permission_block_notifications_motive_description">To uprawnienie pozwala aplikacji na słuchanie i interakcję z Twoimi powiadomieniami. Jest konieczne do blokowania powiadomień z rozpraszających aplikacji.</string>
+    <string name="permission_block_notifications_motive_grant_button">Przyznaj Uprawnienie Dostępu do Powiadomień</string>
+
+    <string name="permission_accessibility_motive_title">Uprawnienie Dostępu</string>
+    <string name="permission_accessibility_motive_description">To uprawnienie pozwala aplikacji monitorować i blokować strony internetowe, które oznaczysz jako rozpraszające w swoich blokerach.</string>
+    <string name="permission_accessibility_motive_grant_button">Przyznaj Uprawnienie Dostępu</string>
+</resources>

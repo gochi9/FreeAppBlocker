@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">FreeAppBlocker</string>
+    <string name="channel_name">Notificări Blocare Aplicații</string>
+    <string name="channel_description">Notificări pentru serviciul Blocare Aplicații</string>
+    <string name="admin_receiver_description">Descriere administrator: privilegii suplimentare pentru a preveni dezinstalarea.</string>
+    <string name="admin_receiver_label">Administrator Dispozitiv</string>
+    <string name="delete">Șterge blocator</string>
+    <string name="accessibility_service_description">
+        Acest serviciu ajută la blocarea accesului la site-urile specificate pentru a minimiza distragerile și a spori productivitatea prin monitorizarea și blocarea activității browserului. Nu se accesează sau stochează informații sensibile.
+    </string>
+
+    <!-- ######################### -->
+    <!-- #### General Strings #### -->
+    <!-- ######################### -->
+
+    <string name="save_button_text">Salvează</string>
+    <string name="cancel_button_text">Anulează</string>
+    <string name="exit_app_button_text">Ieși din aplicație</string>
+    <string name="add_button_text">Adaugă</string>
+    <string name="continue_button_text">Continuă</string>
+    <string name="ok_button_text">OK</string>
+    <string name="activate_button_text">Activează</string>
+    <string name="placeholder_empty_text">Textul tău aici</string>
+
+    <!-- ################################### -->
+    <!-- #### Blocker Activity Strings  #### -->
+    <!-- ################################### -->
+
+    <string name="add_keyword_text_hint">Introdu cuvânt cheie</string>
+
+    <string name="activity_blocked_message">Această aplicație/site este blocat.</string>
+
+    <string name="blocker_edit_name_hint">Editează numele</string>
+    <string name="blocker_manage_apps_button_description">Buton Gestionare Aplicații</string>
+    <string name="blocker_manage_manage_keyword_button_description">Buton Gestionare Cuvinte Cheie</string>
+    <string name="blocker_delete_button_description">Buton Ștergere Blocator</string>
+    <string name="lock_image_description">Imagine lacăt</string>
+
+    <string name="app_list_icon_description">Iconiță aplicație</string>
+
+    <string name="clear_and_refresh_button">Șterge și Reîncarcă</string>
+    <string name="show_blocked_only_button">Afișează doar blocate</string>
+    <string name="show_all_apps_button">Afișează toate aplicațiile</string>
+    <string name="search_apps_text_bar_hint">Caută aplicații...</string>
+    <string name="cancel_notifications_button">Anulează notificările</string>
+
+    <string name="new_name_text_hint">Introdu nume nou</string>
+
+    <string name="add_blocker_button_text">Adaugă Blocator</string>
+
+    <!-- ################################# -->
+    <!-- #### Strict activity Strings #### -->
+    <!-- ################################# -->
+
+    <string name="default_days_text">Zile</string>
+    <string name="default_hours_text">Ore</string>
+    <string name="default_minutes_text">Minute</string>
+
+    <string name="default_timer_message">Niciun temporizator selectat</string>
+    <string name="set_timer_button_text">Setează Temporizator</string>
+
+    <string name="strict_mode_enable_warning">
+        "Modul Strict este o caracteristică puternică proiectată pentru a oferi un nivel suplimentar de protecție împotriva distragerilor. Este perfect pentru acele momente când ești tentat să oprești blocatorii, dar ai nevoie de ajutor pentru a rămâne concentrat.\n\n"
+        "Când este activat, Modul Strict te împiedică să elimini blocatorii, să demarchezi aplicațiile blocate sau să dezactivezi blocatorii. În plus, nu vei putea accesa setările sau dezinstala aplicația cât timp Modul Strict este activ.\n\n"
+        "Te rugăm să reții că odată ce activezi Modul Strict, nu vei putea să-l dezactivezi până când temporizatorul nu expiră. Asigură-te că ai setat corect temporizatorul înainte de a continua."
+    </string>
+
+    <string name="admin_permission_motive_text">
+        "Salut! Modul strict necesită permisiuni de administrator pentru ca funcțiile de mai jos să funcționeeze corect:\n\n"
+        "1. **Modul Focalizare**: Modul strict este proiectat pentru a te menține pe drumul cel bun prin blocarea distragerilor. Nu vei putea dezactiva blocatorii, ceea ce te ajută să rămâi concentrat pe sarcinile tale și să previi tentația.\n\n"
+        "2. **Protecție împotriva Dezinstalării**: Te împiedică să dezinstalezi aplicația.\n\n"
+        "3. **Fără Opriri Forțate**: Te oprește să forțezi oprirea aplicației.\n\n"
+        "Permisiunile de administrator sunt utilizate doar pentru a asigura că modul strict funcționează. Nu se accesează, nu se împărtășesc și nu se stochează informații sensibile."
+    </string>
+
+    <string name="strict_mode_active_message">MOD STRICT ACTIV</string>
+    <string name="strict_mode_not_active_message">ACTIVEAZĂ</string>
+
+    <string name="strict_mode_timer_active_message">PRELUNGEȘTE TEMPORIZATORUL</string>
+    <string name="strict_mode_timer_not_active_message">SETĂ TEMPORIZATOR</string>
+
+    <!-- ###################################### -->
+    <!-- #### Permissions activity Strings #### -->
+    <!-- ###################################### -->
+
+    <string name="permission_notify_intention_user">
+        "Salut! Vrem să fim transparenți în privința permisiunilor pe care le folosește aplicația. Această aplicație necesită permisiunile PACKAGE_USAGE_STATS, QUERY_ALL_PACKAGES. Iată ce fac acestea:\n\n"
+        "1. **PACKAGE_USAGE_STATS**: Această permisiune permite aplicației să vizualizeze statisticile de utilizare ale aplicațiilor tale, ceea ce ajută la identificarea și blocarea aplicațiilor care distrag atenția pentru a-ți îmbunătăți productivitatea.\n\n"
+        "2. **QUERY_ALL_PACKAGES**: Această permisiune permite aplicației să interogheze și să obțină informații despre toate aplicațiile instalate pe dispozitivul tău. Acest lucru este necesar pentru a identifica și gestiona aplicațiile pe care dorești să le blochezi.\n\n"
+        "Înțelegem că unii utilizatori ar putea considera acest nivel de acces invaziv. Cu toate acestea, aplicația folosește aceste permisiuni doar pentru a te ajuta să rămâi productiv prin blocarea aplicațiilor și notificărilor pe care le marchezi ca fiind distrageri. Aplicația nu accesează, nu împărtășește și nu salvează informații sensibile.\n\n" +
+        "Este de înțeles dacă nu te simți confortabil să acorzi aceste permisiuni. Totuși, aplicația nu poate funcționa fără ele. Dacă preferi să nu folosești aceste funcții, poți închide aplicația și o poți dezinstala. Îți mulțumim pentru înțelegere!"
+    </string>
+
+    <string name="permission_usage_access_motive_title">Permisiune Acces Utilizare</string>
+    <string name="permission_usage_access_motive_description">Această permisiune permite aplicației să monitorizeze ce aplicații sunt utilizate. Este necesară pentru detectarea și blocarea anumitor aplicații conform setărilor utilizatorului.</string>
+    <string name="permission_usage_access_motive_grant_button">Acordă Permisiune de Utilizare</string>
+
+    <string name="permission_overlay_motive_title">Permisiune Suprapunere</string>
+    <string name="permission_overlay_motive_description">Această permisiune permite aplicației să afișeze informații sau avertismente peste alte aplicații. Este necesară pentru blocarea accesului la anumite aplicații prin afișarea unui ecran de blocare.</string>
+    <string name="permission_overlay_motive_grant_button">Acordă Permisiune de Suprapunere</string>
+
+    <string name="permission_battery_motive_title">Ignoră Optimizările Bateriei</string>
+    <string name="permission_battery_motive_description">Această permisiune permite aplicației să funcționeze continuu fără a fi oprită de setările de optimizare a bateriei. Acest lucru asigură că aplicația poate monitoriza și bloca aplicațiile în orice moment.</string>
+    <string name="permission_battery_motive_grant_button">Dezactivează Optimizarea Bateriei</string>
+
+    <string name="permission_block_notifications_motive_title">Permisiune Ascultător Notificări</string>
+    <string name="permission_block_notifications_motive_description">Această permisiune permite aplicației să asculte și să interacționeze cu notificările tale. Este necesară pentru blocarea notificărilor din aplicațiile care distrag atenția.</string>
+    <string name="permission_block_notifications_motive_grant_button">Acordă Permisiune pentru Notificări</string>
+
+    <string name="permission_accessibility_motive_title">Permisiune Accesibilitate</string>
+    <string name="permission_accessibility_motive_description">Această permisiune permite aplicației să monitorizeze și să blocheze site-urile pe care le marchezi ca fiind distrageri în blocatori.</string>
+    <string name="permission_accessibility_motive_grant_button">Acordă Permisiune de Accesibilitate</string>
+</resources>
