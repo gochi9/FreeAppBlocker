@@ -13,7 +13,7 @@ public abstract class TickableService extends NotificationService {
     }
 
     protected abstract void tickService() throws InterruptedException;
-    protected abstract int runInstructions(Intent intent, int flags, int startId);
+    protected abstract int finishInstructions(Intent intent, int flags, int startId);
 
     @Override
     public void onDestroy(){
@@ -24,10 +24,10 @@ public abstract class TickableService extends NotificationService {
     @Override
     protected int startInstructions(Intent intent, int flags, int startId){
         startTimer();
-        return runInstructions(intent, flags, startId);
+        return finishInstructions(intent, flags, startId);
     }
 
-    public void startTimer(){
+    private void startTimer(){
         this.running = true;
 
         new Thread(() -> {

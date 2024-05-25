@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.text.method.ScrollingMovementMethod;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
@@ -54,10 +55,8 @@ public class PermissionReminderActivity extends Activity {
             return;
         }
 
-        //performGlobalAction(GLOBAL_ACTION_HOME);
         Toast.makeText(this, "Permissions granted! Starting app...", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, MainActivity.class));
-        finish();
     }
 
     @Override

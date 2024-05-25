@@ -69,6 +69,10 @@ public class BlockSitesService extends AccessibilityService {
 
     @Override
     public void onServiceConnected() {
+        for(int i = 0; i < 4; i++)
+            goBack();
+
+
         AccessibilityServiceInfo info = new AccessibilityServiceInfo();
         info.eventTypes = AccessibilityEvent.TYPES_ALL_MASK;
         info.notificationTimeout = 500;
@@ -134,11 +138,11 @@ public class BlockSitesService extends AccessibilityService {
             return;
 
         CharSequence text = node.getText();
-
-        if (text != null){
-            if(isSiteBlocked(text.toString(), blockersManager)){
-                performGlobalAction(GLOBAL_ACTION_BACK);
-                AppUtils.notifyUser(this);
+        String id = null;
+        if (text != null && !(id = text.toString()).isEmpty()){
+            if(isSiteBlocked(id, blockersManager)){
+                goBack();
+                AppUtils.notifyUser(this, "URL: " + id);
                 return;
             }
         }
@@ -149,9 +153,19 @@ public class BlockSitesService extends AccessibilityService {
 
     private boolean isSiteBlocked(String url, BlockersManager blockersManager) {
         for(String block : blockersManager.getCachedBlockedSites())
-            if(block.contains(url))
+            if(url.contains(block))
                 return true;
 
         return false;
+    }
+
+    private void goBack(){
+        try{
+            performGlobalAction(GLOBAL_ACTION_BACK);
+            Thread.sleep(100);
+        }
+        catch(InterruptedException e){
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -24,7 +24,7 @@ public class AppBlockerService extends TickableService {
     }
 
     @Override
-    protected int runInstructions(Intent intent, int flags, int startId) {
+    protected int finishInstructions(Intent intent, int flags, int startId) {
         this.powerManager = ((PowerManager) getSystemService(Context.POWER_SERVICE));
         return START_STICKY;
     }
@@ -47,13 +47,13 @@ public class AppBlockerService extends TickableService {
             return;
 
         if(isStrictMode && blockersManager.getStrictBlocker().getBlockedApps().contains(currentApp)){
-            AppUtils.notifyUser(this);
+            AppUtils.notifyUser(this, currentApp);
             return;
         }
 
         for (Blocker blocker : blockersManager.getBlockers()) {
             if (blocker.isActive() && blocker.getBlockedApps().contains(currentApp)) {
-                AppUtils.notifyUser(this);
+                AppUtils.notifyUser(this, currentApp);
                 break;
             }
         }

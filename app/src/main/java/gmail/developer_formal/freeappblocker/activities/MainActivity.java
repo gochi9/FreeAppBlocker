@@ -1,9 +1,11 @@
 package gmail.developer_formal.freeappblocker.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
@@ -17,6 +19,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import gmail.developer_formal.freeappblocker.services.BlockNotificationsService;
 import gmail.developer_formal.freeappblocker.services.BlockSitesService;
 import gmail.developer_formal.freeappblocker.services.StrictService;
+
+import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
             startService(intent3);
             startService(intent4);
         }
+
+        writeLog(this, "LOG: Main activity resumed");
     }
 
     @Override
@@ -84,12 +90,12 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
-        if (savedInstanceState != null)
-            return;
+//        if (savedInstanceState != null)
+//            return;
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new BlockersFragment()).commit();
-        bottomNavigationView.setSelectedItemId(R.id.navigation_blockers);
+                new StrictFragment()).commit();
+        bottomNavigationView.setSelectedItemId(R.id.navigation_strict);
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -105,4 +111,30 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             };
 
+    public static void writeLog(Context context, String message) {
+        File logFile = new File(context.getCacheDir(), "FUCK_THIS_SHIT.txt");
+        try (FileOutputStream fos = new FileOutputStream(logFile, true)) {
+            fos.write((message + "\n").getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        copyLogToDownloadsDirectory(context);
+    }
+
+    public static void copyLogToDownloadsDirectory(Context context) {
+        File logFile = new File(context.getCacheDir(), "FUCK_THIS_SHIT.txt");
+        File publicLogFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "FUCK_THIS_SHIT.txt");
+        publicLogFile.getParentFile().mkdirs();
+
+        try (FileInputStream fis = new FileInputStream(logFile);
+             FileOutputStream fos = new FileOutputStream(publicLogFile, true)) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = fis.read(buffer)) > 0) {
+                fos.write(buffer, 0, length);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

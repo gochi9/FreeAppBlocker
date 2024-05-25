@@ -15,8 +15,9 @@ import java.util.Locale;
 
 public class AppUtils {
 
-    public static void notifyUser(Context context) {
+    public static void notifyUser(Context context, String packageName) {
         try {
+            MainActivity.writeLog(context, "Found restricted app. Replacing view. Package name: " + packageName);
             Intent dialogIntent = new Intent(context, BlockerActivity.class);
             dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             dialogIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -17,7 +17,7 @@ public class StrictService extends TickableService {
     }
 
     @Override
-    public int runInstructions(Intent intent, int flags, int startId) {
+    public int finishInstructions(Intent intent, int flags, int startId) {
         this.powerManager = ((PowerManager) getSystemService(Context.POWER_SERVICE));
         broadcastIntent.setPackage(this.getPackageName());
 
