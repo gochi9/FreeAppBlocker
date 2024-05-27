@@ -110,4 +110,32 @@
     <string name="permission_accessibility_motive_title">Permesso di accessibilità</string>
     <string name="permission_accessibility_motive_description">"Questo permesso consente all'app di monitorare e bloccare i siti web che segni come distraenti nei tuoi blocchi."</string>
     <string name="permission_accessibility_motive_grant_button">Concedi permesso di accessibilità</string>
+
+    <!-- ################################ -->
+    <!-- #### Extra Fragment Strings #### -->
+    <!-- ################################ -->
+
+    <string name="extra_settings_button_text">Impostazioni</string>
+    <string name="extra_changelog_button_text">Registro delle modifiche</string>
+    <string name="extra_support_me_button_text">Sostienimi</string>
+
+    <string name="extra_short_add_button_text">Guarda un breve annuncio ora</string>
+    <string name="extra_long_add_button_text">Guarda un lungo annuncio ora</string>
+    <string name="extra_paypal_button_text">Dona via PayPal</string>
+
+    <string name="enable_ad_banner">Abilita banner pubblicitario</string>
+    <string name="enable_ad_banner_description">Mostra un banner pubblicitario nella parte superiore dello schermo</string>
+
+    <string name="watch_short_ad_on_trigger">Guarda breve annuncio al trigger</string>
+    <string name="watch_short_ad_on_trigger_description">Guarda un breve annuncio quando viene attivato un blocco</string>
+
+    <string name="watch_long_ad_on_trigger">Guarda lungo annuncio al trigger</string>
+    <string name="watch_long_ad_on_trigger_description">Guarda un lungo annuncio quando viene attivato un blocco</string>
+
+    <string name="block_installed_apps">Blocca le app installate</string>
+    <string name="block_installed_apps_description">Blocca tutte le app installate mentre la modalità rigorosa è attivata</string>
+
+    <string name="turn_off_blockers_when_finished">Disattiva i blocchi quando finito</string>
+    <string name="turn_off_blockers_when_finished_description">Disattiva tutti i blocchi quando la modalità rigorosa è terminata</string>
+
 </resources>

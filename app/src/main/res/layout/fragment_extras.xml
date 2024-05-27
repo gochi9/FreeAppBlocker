@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="gmail.developer_formal.freeappblocker.fragments.ExtraFragment">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="gmail.developer_formal.freeappblocker.fragments.ExtraFragment">
 
-    <TextView
-            android:layout_width="wrap_content"
+    <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Extra Fragment"
-            android:layout_gravity="center" />
+            android:orientation="vertical"
+            android:gravity="top|center_horizontal"
+            android:paddingTop="32dp"
+            android:paddingHorizontal="16dp">
 
-</FrameLayout>
+        <Button
+                android:id="@+id/settings_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/extra_settings_button_text"
+                android:textAllCaps="false"
+                android:background="@drawable/button_background"
+                android:drawableStart="@drawable/ic_settings"
+                android:drawablePadding="8dp"
+                android:textSize="16sp"
+                android:layout_margin="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"/>
+
+        <Button
+                android:id="@+id/changelog_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/extra_changelog_button_text"
+                android:textAllCaps="false"
+                android:background="@drawable/button_background"
+                android:drawableStart="@drawable/ic_changelog"
+                android:drawablePadding="8dp"
+                android:textSize="16sp"
+                android:layout_margin="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"/>
+
+        <Button
+                android:id="@+id/support_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/extra_support_me_button_text"
+                android:textAllCaps="false"
+                android:background="@drawable/button_background"
+                android:drawableStart="@drawable/ic_support_me"
+                android:drawablePadding="8dp"
+                android:textSize="16sp"
+                android:layout_margin="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+</ScrollView>

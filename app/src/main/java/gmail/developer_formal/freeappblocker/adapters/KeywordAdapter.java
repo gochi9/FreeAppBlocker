@@ -49,7 +49,7 @@ public class KeywordAdapter extends RecyclerView.Adapter<KeywordViewHolder> {
 
         holder.getKeywordCheckBox().setOnCheckedChangeListener((buttonView, isChecked) -> {
             Boolean value = originalKeywords.get(keyword);
-            if(!(!isStrictModeEnabled || (value != null && !value))){
+            if((isStrictModeEnabled && (value != null && value))){
                 buttonView.setChecked(true);
                 Toast.makeText(context, "Cannot do that while strict mode is enabled", Toast.LENGTH_SHORT).show();
                 return;
@@ -61,7 +61,7 @@ public class KeywordAdapter extends RecyclerView.Adapter<KeywordViewHolder> {
         holder.getDeleteButton().setOnClickListener(v -> {
             Boolean value = originalKeywords.get(keyword);
 
-            if(!(!isStrictModeEnabled || (value != null && !value))) {
+            if((isStrictModeEnabled && (value != null && value))) {
                 Toast.makeText(context, "Cannot do that while strict mode is enabled", Toast.LENGTH_SHORT).show();
                 return;
             }

@@ -8,6 +8,7 @@
     <string name="accessibility_service_description">
         This service helps to block access to specified websites to minimize distractions and enhance productivity by monitoring and blocking browser activity. No sensitive information is being accessed or stored.
     </string>
+    <string name="ad_unit_id_banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
 
     <!-- ######################### -->
     <!-- #### General Strings #### -->
@@ -110,4 +111,35 @@
     <string name="permission_accessibility_motive_title">Accessibility Permission</string>
     <string name="permission_accessibility_motive_description">This permission allows the app to monitor and block websites you mark as distracting in your blockers.</string>
     <string name="permission_accessibility_motive_grant_button">Grant Accessibility Permission</string>
+
+    <!-- ################################ -->
+    <!-- #### Extra Fragment Strings #### -->
+    <!-- ################################ -->
+
+    <string name="extra_settings_name_placeholder" translatable="false">Settings</string>
+    <string name="extra_settings_description_placeholder" translatable="false">Changelog</string>
+
+    <string name="extra_settings_button_text">Settings</string>
+    <string name="extra_changelog_button_text">Changelog</string>
+    <string name="extra_support_me_button_text">Support Me</string>
+
+    <string name="extra_short_add_button_text">Watch A Short Ad Now</string>
+    <string name="extra_long_add_button_text">Watch A Long Ad Now</string>
+    <string name="extra_paypal_button_text">Donate via PayPal</string>
+
+    <string name="enable_ad_banner">Enable Ad Banner</string>
+    <string name="enable_ad_banner_description">Show an ad banner at the top of the screen</string>
+
+    <string name="watch_short_ad_on_trigger">Watch Short Ad on Trigger</string>
+    <string name="watch_short_ad_on_trigger_description">Watch a short ad when a blocker gets triggered</string>
+
+    <string name="watch_long_ad_on_trigger">Watch Long Ad on Trigger</string>
+    <string name="watch_long_ad_on_trigger_description">Watch a long ad when a blocker gets triggered</string>
+
+    <string name="block_installed_apps">Block installed apps</string>
+    <string name="block_installed_apps_description">Block any apps installed while strict mode is enabled</string>
+
+    <string name="turn_off_blockers_when_finished">Turn off blockers when finished</string>
+    <string name="turn_off_blockers_when_finished_description">Turn off all blockers when strict mode is done</string>
+
 </resources>

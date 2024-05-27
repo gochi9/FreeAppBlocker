@@ -110,4 +110,32 @@
     <string name="permission_accessibility_motive_title">Permiso de Accesibilidad</string>
     <string name="permission_accessibility_motive_description">Este permiso permite que la aplicación monitoree y bloquee sitios web que marcas como distractores en tus bloqueadores.</string>
     <string name="permission_accessibility_motive_grant_button">Otorgar Permiso de Accesibilidad</string>
+
+    <!-- ################################ -->
+    <!-- #### Extra Fragment Strings #### -->
+    <!-- ################################ -->
+
+    <string name="extra_settings_button_text">Configuraciones</string>
+    <string name="extra_changelog_button_text">Registro de cambios</string>
+    <string name="extra_support_me_button_text">Apóyame</string>
+
+    <string name="extra_short_add_button_text">Ver un anuncio corto ahora</string>
+    <string name="extra_long_add_button_text">Ver un anuncio largo ahora</string>
+    <string name="extra_paypal_button_text">Donar vía PayPal</string>
+
+    <string name="enable_ad_banner">Activar banner publicitario</string>
+    <string name="enable_ad_banner_description">Mostrar un banner publicitario en la parte superior de la pantalla</string>
+
+    <string name="watch_short_ad_on_trigger">Ver anuncio corto al activar</string>
+    <string name="watch_short_ad_on_trigger_description">Ver un anuncio corto cuando se active un bloqueador</string>
+
+    <string name="watch_long_ad_on_trigger">Ver anuncio largo al activar</string>
+    <string name="watch_long_ad_on_trigger_description">Ver un anuncio largo cuando se active un bloqueador</string>
+
+    <string name="block_installed_apps">Bloquear aplicaciones instaladas</string>
+    <string name="block_installed_apps_description">Bloquear cualquier aplicación instalada mientras el modo estricto está habilitado</string>
+
+    <string name="turn_off_blockers_when_finished">Desactivar bloqueadores al finalizar</string>
+    <string name="turn_off_blockers_when_finished_description">Desactivar todos los bloqueadores cuando el modo estricto haya terminado</string>
+
 </resources>

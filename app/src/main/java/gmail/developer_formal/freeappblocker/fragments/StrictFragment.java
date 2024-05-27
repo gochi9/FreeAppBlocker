@@ -5,6 +5,7 @@ import android.content.*;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,10 @@ public class StrictFragment extends Fragment {
 
                 String resetUI = intent.getStringExtra("resetUI");
 
-                if(resetUI == null)
+                Log.d("SDFDSFSFSDFSDF", intent.getStringExtra("updateSecondsText")+" ");
+                Log.d("SDFDSFSFSDFSDF", intent.getStringExtra("resetUI") + " ");
+
+                if(resetUI == null || resetUI.isEmpty())
                     return;
 
                 if(displayTimer != null)
@@ -118,6 +122,7 @@ public class StrictFragment extends Fragment {
 
         continueButton.setOnClickListener(v -> {
             dialog.dismiss();
+            BlockersManager.getInstance(getContext()).setPause(true);
             requestAdminPermission();
         });
 

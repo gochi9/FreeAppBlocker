@@ -27,23 +27,21 @@ public class StrictService extends TickableService {
     @Override
     protected void tickService(){
         BlockersManager blockersManager = BlockersManager.getInstance(this);
-        if (blockersManager == null)
+        if (blockersManager == null || !blockersManager.isStrictModeEnabled() || !powerManager.isInteractive())
             return;
 
         long seconds = blockersManager.getTotalStrictSecondsRemaining();
 
-        if (!blockersManager.isStrictModeEnabled() || !powerManager.isInteractive())
-            return;
-
         if (seconds < 1) {
             blockersManager.changeStrictMode(false);
-            broadcastIntent.putExtra("resetUI", "");
+            broadcastIntent.putExtra("resetUI", "true");
             sendBroadcast(broadcastIntent);
 
             return;
         }
 
         broadcastIntent.putExtra("updateSecondsText", AppUtils.convertToDHMS(seconds));
+        broadcastIntent.putExtra("resetUI", "");
         sendBroadcast(broadcastIntent);
     }
 

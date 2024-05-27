@@ -110,4 +110,32 @@
     <string name="permission_accessibility_motive_title">Разрешение на доступность</string>
     <string name="permission_accessibility_motive_description">Это разрешение позволяет приложению отслеживать и блокировать веб-сайты, которые вы отмечаете как отвлекающие в ваших блокировщиках.</string>
     <string name="permission_accessibility_motive_grant_button">Предоставить разрешение на доступность</string>
+
+    <!-- ################################ -->
+    <!-- #### Extra Fragment Strings #### -->
+    <!-- ################################ -->
+
+    <string name="extra_settings_button_text">Настройки</string>
+    <string name="extra_changelog_button_text">Журнал изменений</string>
+    <string name="extra_support_me_button_text">Поддержите меня</string>
+
+    <string name="extra_short_add_button_text">Смотреть короткую рекламу сейчас</string>
+    <string name="extra_long_add_button_text">Смотреть длинную рекламу сейчас</string>
+    <string name="extra_paypal_button_text">Пожертвовать через PayPal</string>
+
+    <string name="enable_ad_banner">Включить рекламный баннер</string>
+    <string name="enable_ad_banner_description">Показывать рекламный баннер в верхней части экрана</string>
+
+    <string name="watch_short_ad_on_trigger">Смотреть короткую рекламу при срабатывании</string>
+    <string name="watch_short_ad_on_trigger_description">Смотреть короткую рекламу при срабатывании блокировщика</string>
+
+    <string name="watch_long_ad_on_trigger">Смотреть длинную рекламу при срабатывании</string>
+    <string name="watch_long_ad_on_trigger_description">Смотреть длинную рекламу при срабатывании блокировщика</string>
+
+    <string name="block_installed_apps">Блокировать установленные приложения</string>
+    <string name="block_installed_apps_description">Блокировать все приложения, установленные при включенном строгом режиме</string>
+
+    <string name="turn_off_blockers_when_finished">Выключить блокировщики по завершении</string>
+    <string name="turn_off_blockers_when_finished_description">Выключить все блокировщики по завершении строгого режима</string>
+
 </resources>

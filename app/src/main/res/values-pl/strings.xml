@@ -110,4 +110,32 @@
     <string name="permission_accessibility_motive_title">Uprawnienie Dostępu</string>
     <string name="permission_accessibility_motive_description">To uprawnienie pozwala aplikacji monitorować i blokować strony internetowe, które oznaczysz jako rozpraszające w swoich blokerach.</string>
     <string name="permission_accessibility_motive_grant_button">Przyznaj Uprawnienie Dostępu</string>
+
+    <!-- ################################ -->
+    <!-- #### Extra Fragment Strings #### -->
+    <!-- ################################ -->
+
+    <string name="extra_settings_button_text">Ustawienia</string>
+    <string name="extra_changelog_button_text">Dziennik zmian</string>
+    <string name="extra_support_me_button_text">Wesprzyj mnie</string>
+
+    <string name="extra_short_add_button_text">Oglądaj teraz krótki film reklamowy</string>
+    <string name="extra_long_add_button_text">Oglądaj teraz długi film reklamowy</string>
+    <string name="extra_paypal_button_text">Przekaż darowiznę przez PayPal</string>
+
+    <string name="enable_ad_banner">Włącz baner reklamowy</string>
+    <string name="enable_ad_banner_description">Pokaż baner reklamowy na górze ekranu</string>
+
+    <string name="watch_short_ad_on_trigger">Oglądaj krótką reklamę przy wyzwoleniu</string>
+    <string name="watch_short_ad_on_trigger_description">Oglądaj krótką reklamę, gdy wyzwalacz zostanie uruchomiony</string>
+
+    <string name="watch_long_ad_on_trigger">Oglądaj długą reklamę przy wyzwoleniu</string>
+    <string name="watch_long_ad_on_trigger_description">Oglądaj długą reklamę, gdy wyzwalacz zostanie uruchomiony</string>
+
+    <string name="block_installed_apps">Blokuj zainstalowane aplikacje</string>
+    <string name="block_installed_apps_description">Blokuj wszystkie aplikacje zainstalowane, gdy tryb ścisły jest włączony</string>
+
+    <string name="turn_off_blockers_when_finished">Wyłącz blokady po zakończeniu</string>
+    <string name="turn_off_blockers_when_finished_description">Wyłącz wszystkie blokady po zakończeniu trybu ścisłego</string>
+
 </resources>

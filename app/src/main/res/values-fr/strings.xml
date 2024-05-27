@@ -110,4 +110,33 @@
     <string name="permission_accessibility_motive_title">"Autorisation d'accessibilité"</string>
     <string name="permission_accessibility_motive_description">"Cette autorisation permet à l'application de surveiller et de bloquer les sites web que vous marquez comme distrayants dans vos bloqueurs."</string>
     <string name="permission_accessibility_motive_grant_button">"Accorder l'autorisation d'accessibilité"</string>
+
+    <!-- ################################ -->
+    <!-- #### Extra Fragment Strings #### -->
+    <!-- ################################ -->
+
+    <string name="extra_settings_button_text">Paramètres</string>
+    <string name="extra_changelog_button_text">Journal des modifications</string>
+    <string name="extra_support_me_button_text">Soutenez-moi</string>
+
+    <string name="extra_short_add_button_text">Regarder une courte publicité maintenant</string>
+    <string name="extra_long_add_button_text">Regarder une longue publicité maintenant</string>
+    <string name="extra_paypal_button_text">Faire un don via PayPal</string>
+
+    <string name="enable_ad_banner">Activer la bannière publicitaire</string>
+    <string name="enable_ad_banner_description">"Afficher une bannière publicitaire en haut de l'écran"</string>
+
+    <string name="watch_short_ad_on_trigger">Regarder une courte publicité lors du déclenchement</string>
+    <string name="watch_short_ad_on_trigger_description">"Regarder une courte publicité lorsqu'un bloqueur est déclenché"</string>
+
+    <string name="watch_long_ad_on_trigger">Regarder une longue publicité lors du déclenchement</string>
+    <string name="watch_long_ad_on_trigger_description">"Regarder une longue publicité lorsqu'un bloqueur est déclenché"</string>
+
+    <string name="block_installed_apps">Bloquer les applications installées</string>
+    <string name="block_installed_apps_description">Bloquer toute application installée pendant que le mode strict est activé</string>
+
+    <string name="turn_off_blockers_when_finished">Désactiver les bloqueurs une fois terminé</string>
+    <string name="turn_off_blockers_when_finished_description">Désactiver tous les bloqueurs lorsque le mode strict est terminé</string>
+
+
 </resources>

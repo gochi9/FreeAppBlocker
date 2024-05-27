@@ -110,4 +110,32 @@
     <string name="permission_accessibility_motive_title">Zugänglichkeitsberechtigung</string>
     <string name="permission_accessibility_motive_description">Diese Berechtigung ermöglicht es der App, Websites zu überwachen und zu blockieren, die Sie in Ihren Blockern als ablenkend markiert haben.</string>
     <string name="permission_accessibility_motive_grant_button">Zugänglichkeitsberechtigung gewähren</string>
+
+    <!-- ################################ -->
+    <!-- #### Extra Fragment Strings #### -->
+    <!-- ################################ -->
+
+    <string name="extra_settings_button_text">Einstellungen</string>
+    <string name="extra_changelog_button_text">Änderungsprotokoll</string>
+    <string name="extra_support_me_button_text">Unterstütze mich</string>
+
+    <string name="extra_short_add_button_text">Schauen Sie sich jetzt eine kurze Anzeige an</string>
+    <string name="extra_long_add_button_text">Schauen Sie sich jetzt eine lange Anzeige an</string>
+    <string name="extra_paypal_button_text">Spenden via PayPal</string>
+
+    <string name="enable_ad_banner">Werbebanner aktivieren</string>
+    <string name="enable_ad_banner_description">Zeige ein Werbebanner oben auf dem Bildschirm</string>
+
+    <string name="watch_short_ad_on_trigger">Kurze Anzeige bei Auslösung ansehen</string>
+    <string name="watch_short_ad_on_trigger_description">Sehen Sie sich eine kurze Anzeige an, wenn ein Blocker ausgelöst wird</string>
+
+    <string name="watch_long_ad_on_trigger">Lange Anzeige bei Auslösung ansehen</string>
+    <string name="watch_long_ad_on_trigger_description">Sehen Sie sich eine lange Anzeige an, wenn ein Blocker ausgelöst wird</string>
+
+    <string name="block_installed_apps">Installierte Apps blockieren</string>
+    <string name="block_installed_apps_description">Blockiere alle Apps, die während des strikten Modus installiert werden</string>
+
+    <string name="turn_off_blockers_when_finished">Blocker ausschalten, wenn fertig</string>
+    <string name="turn_off_blockers_when_finished_description">Schalte alle Blocker aus, wenn der strikte Modus beendet ist</string>
+
 </resources>

@@ -1,9 +1,6 @@
 package gmail.developer_formal.freeappblocker;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.app.*;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -11,22 +8,34 @@ import android.util.Log;
 import gmail.developer_formal.freeappblocker.activities.BlockerActivity;
 import gmail.developer_formal.freeappblocker.activities.MainActivity;
 
+import java.util.List;
 import java.util.Locale;
 
 public class AppUtils {
 
     public static void notifyUser(Context context, String packageName) {
         try {
-            MainActivity.writeLog(context, "Found restricted app. Replacing view. Package name: " + packageName);
             Intent dialogIntent = new Intent(context, BlockerActivity.class);
             dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             context.startActivity(dialogIntent);
         }
         catch (Exception e) {
             Log.e("AppBlockerService", "Failed to start BlockerActivity", e);
+        }
+    }
+
+    public static void killAppProcess(Context context, String packageName) {
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
+
+        if (runningAppProcesses == null || runningAppProcesses.isEmpty())
+            return;
+
+        for (ActivityManager.RunningAppProcessInfo processInfo : runningAppProcesses){
+            Log.d("DSFDSADSFDDSDSF", processInfo.processName);
         }
     }
 

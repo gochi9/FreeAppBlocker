@@ -110,4 +110,32 @@
     <string name="permission_accessibility_motive_title">Permisiune Accesibilitate</string>
     <string name="permission_accessibility_motive_description">Această permisiune permite aplicației să monitorizeze și să blocheze site-urile pe care le marchezi ca fiind distrageri în blocatori.</string>
     <string name="permission_accessibility_motive_grant_button">Acordă Permisiune de Accesibilitate</string>
+
+    <!-- ################################ -->
+    <!-- #### Extra Fragment Strings #### -->
+    <!-- ################################ -->
+
+    <string name="extra_settings_button_text">Setări</string>
+    <string name="extra_changelog_button_text">Jurnal de modificări</string>
+    <string name="extra_support_me_button_text">Susține-mă</string>
+
+    <string name="extra_short_add_button_text">Urmărește acum un anunț scurt</string>
+    <string name="extra_long_add_button_text">Urmărește acum un anunț lung</string>
+    <string name="extra_paypal_button_text">Donează prin PayPal</string>
+
+    <string name="enable_ad_banner">Activează bannerul publicitar</string>
+    <string name="enable_ad_banner_description">Afișează un banner publicitar în partea de sus a ecranului</string>
+
+    <string name="watch_short_ad_on_trigger">Urmărește un anunț scurt la declanșare</string>
+    <string name="watch_short_ad_on_trigger_description">Urmărește un anunț scurt când un blocator este declanșat</string>
+
+    <string name="watch_long_ad_on_trigger">Urmărește un anunț lung la declanșare</string>
+    <string name="watch_long_ad_on_trigger_description">Urmărește un anunț lung când un blocator este declanșat</string>
+
+    <string name="block_installed_apps">Blochează aplicațiile instalate</string>
+    <string name="block_installed_apps_description">Blochează toate aplicațiile instalate în timp ce modul strict este activat</string>
+
+    <string name="turn_off_blockers_when_finished">Dezactivează blocatorii când este terminat</string>
+    <string name="turn_off_blockers_when_finished_description">Dezactivează toți blocatorii când modul strict s-a terminat</string>
+
 </resources>

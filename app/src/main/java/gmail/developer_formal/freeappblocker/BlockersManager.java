@@ -25,7 +25,17 @@ public class BlockersManager {
     private long strictDelay, startedAt;
     private Blocker strictBlocker;
 
-    private Set<String> cachedBlockedSites;
+    //Settings
+    private boolean blockInstalledApps;
+    private boolean turnOffBlockersWhenFinished;
+
+    //Support
+    private boolean enableAdBanner;
+    private boolean watchShortAdOnTrigger;
+    private boolean watchLongAdOnTrigger;
+
+    //Cached info
+    private Set<String> cachedBlockedSites, cachedActiveBlocker;
     private boolean isAtLeastAppBlockerActive = false, isAtLeastSiteBlockerActive = false;
 
     private BlockersManager(Context applicationContext) {
@@ -35,6 +45,12 @@ public class BlockersManager {
         this.strictModeEnabled = (boolean) loadFromPrefs("strictModeEnabled", new TypeToken<Boolean>() {}.getType(), false);
         this.strictDelay = (long) loadFromPrefs("strictDelay", new TypeToken<Long>() {}.getType(), 0L);
         this.startedAt = (long) loadFromPrefs("startedAt", new TypeToken<Long>() {}.getType(), 0L);
+        this.blockInstalledApps = (boolean) loadFromPrefs("blockInstalledApps", new TypeToken<Boolean>() {}.getType(), false);
+        this.turnOffBlockersWhenFinished = (boolean) loadFromPrefs("turnOffBlockersWhenFinished", new TypeToken<Boolean>() {}.getType(), false);
+        this.enableAdBanner = (boolean) loadFromPrefs("enableAdBanner", new TypeToken<Boolean>() {}.getType(), false);
+        this.watchShortAdOnTrigger = (boolean) loadFromPrefs("watchShortAdOnTrigger", new TypeToken<Boolean>() {}.getType(), false);
+        this.watchLongAdOnTrigger = (boolean) loadFromPrefs("watchLongAdOnTrigger", new TypeToken<Boolean>() {}.getType(), false);
+        cacheInformation();
         refreshApps(applicationContext);
         loadBlockers();
         loadStrictBlocker();
@@ -42,14 +58,16 @@ public class BlockersManager {
 
     public static BlockersManager getInstance(@NotNull Context context) {
         BlockersManager result = instance;
-        if (result == null) {
-            synchronized (BlockersManager.class) {
-                result = instance;
-                if (result == null) {
-                    instance = result = new BlockersManager(context.getApplicationContext());
-                }
-            }
+
+        if(result != null)
+            return result;
+
+        synchronized (BlockersManager.class) {
+            result = instance;
+            if (result == null)
+                instance = new BlockersManager(context.getApplicationContext());
         }
+
         return result;
     }
 
@@ -121,7 +139,6 @@ public class BlockersManager {
             return;
 
         this.strictBlocker = new Blocker("Strict", true, true);
-        this.strictBlocker.getBlockedApps().add("com.android.settings");
         this.strictBlocker.getBlockedApps().add("com.google.android.packageinstaller");
         saveStrictBlocker();
     }
@@ -167,10 +184,15 @@ public class BlockersManager {
         this.isAtLeastSiteBlockerActive = isAtLeastABlockerActive(false);
 
         this.cachedBlockedSites = new HashSet<>();
+        this.cachedActiveBlocker = new HashSet<>();
 
-        for(Blocker blocker : blockers)
-            if(blocker.isActive())
-                cachedBlockedSites.addAll(blocker.getBlockedSitesActive());
+        for(Blocker blocker : blockers){
+            if(!blocker.isActive())
+                continue;
+
+            cachedBlockedSites.addAll(blocker.getBlockedSitesActive());
+            cachedActiveBlocker.addAll(blocker.getBlockedApps());
+        }
     }
 
     public boolean getIsAtLeastAppBlockerActive(){
@@ -185,11 +207,70 @@ public class BlockersManager {
         return cachedBlockedSites;
     }
 
+    public Set<String> getCachedActiveBlocker(){
+        return cachedActiveBlocker;
+    }
+
     public long getStrictDelay() {
         return strictDelay;
     }
 
     public long getStartedAt() {
         return startedAt;
+    }
+
+    public boolean isBlockInstalledApps() {
+        return blockInstalledApps;
+    }
+
+    public void setBlockInstalledApps(boolean blockInstalledApps) {
+        this.blockInstalledApps = blockInstalledApps;
+        saveToPrefs("blockInstalledApps", blockInstalledApps);
+    }
+
+    public boolean isTurnOffBlockersWhenFinished() {
+        return turnOffBlockersWhenFinished;
+    }
+
+    public void setTurnOffBlockersWhenFinished(boolean turnOffBlockersWhenFinished) {
+        this.turnOffBlockersWhenFinished = turnOffBlockersWhenFinished;
+        saveToPrefs("turnOffBlockersWhenFinished", turnOffBlockersWhenFinished);
+    }
+
+    public boolean isEnableAdBanner() {
+        return enableAdBanner;
+    }
+
+    public void setEnableAdBanner(boolean enableAdBanner) {
+        this.enableAdBanner = enableAdBanner;
+        saveToPrefs("enableAdBanner", enableAdBanner);
+    }
+
+    public boolean isWatchShortAdOnTrigger() {
+        return watchShortAdOnTrigger;
+    }
+
+    public void setWatchShortAdOnTrigger(boolean watchShortAdOnTrigger) {
+        this.watchShortAdOnTrigger = watchShortAdOnTrigger;
+        saveToPrefs("watchShortAdOnTrigger", watchShortAdOnTrigger);
+    }
+
+    public boolean isWatchLongAdOnTrigger() {
+        return watchLongAdOnTrigger;
+    }
+
+    public void setWatchLongAdOnTrigger(boolean watchLongAdOnTrigger) {
+        this.watchLongAdOnTrigger = watchLongAdOnTrigger;
+        saveToPrefs("watchLongAdOnTrigger", watchLongAdOnTrigger);
+    }
+
+    private boolean pause = false;
+
+    public boolean isPause(){
+        return pause;
+    }
+
+    public void setPause(boolean pause){
+        this.pause = pause;
     }
 }
