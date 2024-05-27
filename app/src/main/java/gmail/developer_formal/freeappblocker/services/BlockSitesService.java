@@ -12,6 +12,7 @@ import gmail.developer_formal.freeappblocker.AppUtils;
 import gmail.developer_formal.freeappblocker.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.activities.PermissionReminderActivity;
+import gmail.developer_formal.freeappblocker.objects.Blocker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +66,7 @@ public class BlockSitesService extends AccessibilityService {
         return START_STICKY;
     }
 
-    private long cooldown = System.currentTimeMillis() + 500;
+    private long cooldown = System.currentTimeMillis() + 250;
 
     @Override
     public void onServiceConnected() {
@@ -75,7 +76,7 @@ public class BlockSitesService extends AccessibilityService {
 
         AccessibilityServiceInfo info = new AccessibilityServiceInfo();
         info.eventTypes = AccessibilityEvent.TYPES_ALL_MASK;
-        info.notificationTimeout = 500;
+        info.notificationTimeout = 250;
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_ALL_MASK;
         this.setServiceInfo(info);
 
@@ -102,9 +103,6 @@ public class BlockSitesService extends AccessibilityService {
         if(event == null)
             return;
 
-//        if(!getEvents.contains(event.getEventType()))
-//            return;
-
         if(powerManager != null && !powerManager.isInteractive())
             return;
 
@@ -113,34 +111,46 @@ public class BlockSitesService extends AccessibilityService {
         if(packageSequence == null)
             return;
 
-        if(!browsers.contains(packageSequence.toString()))
-            return;
-
-        AccessibilityNodeInfo rootNode = getRootInActiveWindow();
-
-        if(rootNode == null)
-            return;
-
         BlockersManager blockersManager = BlockersManager.getInstance(this);
 
         if (blockersManager == null)
             return;
 
+        String packageName = packageSequence.toString();
+
+        if(isSettings(packageName, blockersManager) && !browsers.contains(packageName))
+            return;
+
         if(!blockersManager.getIsisAtLeastSiteBlockerActive())
             return;
 
-        cooldown = System.currentTimeMillis() + 500;
-        getAllTexts(rootNode, blockersManager);
+        cooldown = System.currentTimeMillis() + 250;
+        getAllTexts(getRootInActiveWindow(), false, blockersManager);
     }
 
-    private void getAllTexts(AccessibilityNodeInfo node, BlockersManager blockersManager) {
+    private boolean isSettings(String packageName, BlockersManager blockersManager){
+        if(!packageName.equals("com.android.settings"))
+            return false;
+
+        getAllTexts(getRootInActiveWindow(), true, blockersManager);
+        return true;
+    }
+
+    private void getAllTexts(AccessibilityNodeInfo node, boolean checkInSettings, BlockersManager blockersManager) {
         if (node == null || !node.isVisibleToUser())
             return;
 
         CharSequence text = node.getText();
         String id = null;
         if (text != null && !(id = text.toString()).isEmpty()){
-            if(isSiteBlocked(id, blockersManager)){
+            if(checkInSettings){
+                if(blockersManager.isStrictModeEnabled() && id.toLowerCase().contains("freeappblocker")){
+                    goBack();
+                    AppUtils.notifyUser(this, "URL: " + id);
+                    return;
+                }
+            }
+            else if(isSiteBlocked(id, blockersManager)){
                 goBack();
                 AppUtils.notifyUser(this, "URL: " + id);
                 return;
@@ -148,7 +158,7 @@ public class BlockSitesService extends AccessibilityService {
         }
 
         for (int i = 0; i < node.getChildCount(); i++)
-            getAllTexts(node.getChild(i), blockersManager);
+            getAllTexts(node.getChild(i), checkInSettings, blockersManager);
     }
 
     private boolean isSiteBlocked(String url, BlockersManager blockersManager) {

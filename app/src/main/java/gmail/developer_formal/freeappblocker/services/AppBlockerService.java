@@ -6,9 +6,11 @@ import android.app.usage.UsageStatsManager;
 import android.content.*;
 import android.os.Build;
 import android.os.PowerManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import gmail.developer_formal.freeappblocker.AppUtils;
 import gmail.developer_formal.freeappblocker.BlockersManager;
+import gmail.developer_formal.freeappblocker.activities.PermissionReminderActivity;
 import gmail.developer_formal.freeappblocker.objects.Blocker;
 
 import gmail.developer_formal.freeappblocker.services.AbstractServices.TickableService;
@@ -46,13 +48,16 @@ public class AppBlockerService extends TickableService {
         if(currentApp.isEmpty() || currentApp.equals(getPackageName()))
             return;
 
-        if(isStrictMode && blockersManager.getStrictBlocker().getBlockedApps().contains(currentApp)){
+//        blockersManager.getStrictBlocker().getBlockedApps().forEach(idk -> Log.d("Iafsdfsd", idk));
+//        Log.d("Iafsdfsd", idk);
+
+        if(isStrictMode && (blockersManager.getStrictBlocker().getBlockedApps().contains(currentApp))){
             AppUtils.notifyUser(this, currentApp);
             return;
         }
 
-        for (Blocker blocker : blockersManager.getBlockers()) {
-            if (blocker.isActive() && blocker.getBlockedApps().contains(currentApp)) {
+        for (String blockedApps : blockersManager.getCachedActiveBlocker()) {
+            if (blockedApps.contains(currentApp)) {
                 AppUtils.notifyUser(this, currentApp);
                 break;
             }

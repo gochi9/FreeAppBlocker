@@ -25,7 +25,7 @@ public class BlockersManager {
     private long strictDelay, startedAt;
     private Blocker strictBlocker;
 
-    private Set<String> cachedBlockedSites;
+    private Set<String> cachedBlockedSites, cachedActiveBlocker;
     private boolean isAtLeastAppBlockerActive = false, isAtLeastSiteBlockerActive = false;
 
     private BlockersManager(Context applicationContext) {
@@ -35,6 +35,7 @@ public class BlockersManager {
         this.strictModeEnabled = (boolean) loadFromPrefs("strictModeEnabled", new TypeToken<Boolean>() {}.getType(), false);
         this.strictDelay = (long) loadFromPrefs("strictDelay", new TypeToken<Long>() {}.getType(), 0L);
         this.startedAt = (long) loadFromPrefs("startedAt", new TypeToken<Long>() {}.getType(), 0L);
+        cacheInformation();
         refreshApps(applicationContext);
         loadBlockers();
         loadStrictBlocker();
@@ -121,7 +122,7 @@ public class BlockersManager {
             return;
 
         this.strictBlocker = new Blocker("Strict", true, true);
-        this.strictBlocker.getBlockedApps().add("com.android.settings");
+     //   this.strictBlocker.getBlockedApps().add("com.android.settings");
         this.strictBlocker.getBlockedApps().add("com.google.android.packageinstaller");
         saveStrictBlocker();
     }
@@ -167,10 +168,15 @@ public class BlockersManager {
         this.isAtLeastSiteBlockerActive = isAtLeastABlockerActive(false);
 
         this.cachedBlockedSites = new HashSet<>();
+        this.cachedActiveBlocker = new HashSet<>();
 
-        for(Blocker blocker : blockers)
-            if(blocker.isActive())
-                cachedBlockedSites.addAll(blocker.getBlockedSitesActive());
+        for(Blocker blocker : blockers){
+            if(!blocker.isActive())
+                continue;
+
+            cachedBlockedSites.addAll(blocker.getBlockedSitesActive());
+            cachedActiveBlocker.addAll(blocker.getBlockedApps());
+        }
     }
 
     public boolean getIsAtLeastAppBlockerActive(){
@@ -183,6 +189,10 @@ public class BlockersManager {
 
     public Set<String> getCachedBlockedSites(){
         return cachedBlockedSites;
+    }
+
+    public Set<String> getCachedActiveBlocker(){
+        return cachedActiveBlocker;
     }
 
     public long getStrictDelay() {
