@@ -29,7 +29,7 @@ import gmail.developer_formal.freeappblocker.objects.ChangelogEntry;
 
 public class ChangelogActivity extends AppCompatActivity {
 
-    private static final String CHANGELOG_URL = "https://raw.githubusercontent.com/gochi9/FreeAppBlocker/master/app/src/main/java/changelog.json";
+    private static final String CHANGELOG_URL = "https://raw.githubusercontent.com/gochi9/FreeAppBlocker/master/app/src/main/java/changelog.json?token=$(date%20+%s";
 
     private TextView versionTextView;
     private RecyclerView changelogRecyclerView;

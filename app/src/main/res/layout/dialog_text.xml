@@ -3,7 +3,7 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   android:padding="16dp"
+                                                   android:padding="@dimen/padding_default"
                                                    android:background="@drawable/dialog_background">
 
     <LinearLayout
@@ -16,7 +16,7 @@
                 android:id="@+id/text_container"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.92"
+                android:layout_weight="1"
                 android:orientation="vertical"
                 android:gravity="center">
 
@@ -25,41 +25,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/placeholder_empty_text"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_default"
                     android:textColor="@android:color/white"
                     android:scrollbars="vertical"/>
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.08">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium">
 
             <Button
                     android:id="@+id/dialogTextCancelButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
                     android:text="@string/cancel_button_text"
                     android:background="@drawable/button_background"
                     android:textColor="@android:color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/dialogTextContinueButton"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.48"/>
 
             <Button
                     android:id="@+id/dialogTextContinueButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/continue_button_text"
                     android:background="@drawable/button_background"
                     android:textColor="@android:color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
+                    app:layout_constraintStart_toEndOf="@+id/dialogTextCancelButton"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.48"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,8 +7,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/waveAnimationView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="272dp"
+            android:layout_height="278dp"
             app:lottie_rawRes="@raw/wave_animation_enable"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
@@ -17,8 +17,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="100dp"
-            android:layout_marginBottom="32dp"/>
-
+            android:layout_marginBottom="32dp" app:layout_constraintVertical_bias="0.556"/>
     <gmail.developer_formal.freeappblocker.objects.AutoResizeTextView
             android:id="@+id/displayTimer"
             android:layout_width="0dp"

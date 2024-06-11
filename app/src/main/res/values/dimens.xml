@@ -1,3 +1,15 @@
 <resources>
     <dimen name="item_spacing">8dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="animation_view_size">200dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="button_margin_end">8dp</dimen>
+    <dimen name="layout_weight_text">0.92</dimen>
+    <dimen name="layout_weight_buttons">0.08</dimen>
+    <dimen name="padding_default">16dp</dimen>
+    <dimen name="text_size_default">16sp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
 </resources>
