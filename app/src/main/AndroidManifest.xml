@@ -46,6 +46,11 @@
                   android:screenOrientation="portrait"
                   android:theme="@style/Theme.FreeAppBlocker" />
 
+        <activity android:name="gmail.developer_formal.freeappblocker.activities.ChangelogActivity"
+                  android:excludeFromRecents="true"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Theme.FreeAppBlocker" />
+
         <!-- Service responsible for app blocking logic -->
         <service android:name="gmail.developer_formal.freeappblocker.services.AppBlockerService"
                  android:exported="false"
