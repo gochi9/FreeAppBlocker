@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import gmail.developer_formal.freeappblocker.AdsManager;
-import gmail.developer_formal.freeappblocker.BlockersManager;
+import gmail.developer_formal.freeappblocker.important.AdsManager;
+import gmail.developer_formal.freeappblocker.important.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 
 public class BlockerActivity extends FragmentActivity {

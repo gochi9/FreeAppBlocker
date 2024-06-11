@@ -3,8 +3,8 @@ package gmail.developer_formal.freeappblocker.services;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
-import gmail.developer_formal.freeappblocker.AppUtils;
-import gmail.developer_formal.freeappblocker.BlockersManager;
+import gmail.developer_formal.freeappblocker.important.AppUtils;
+import gmail.developer_formal.freeappblocker.important.BlockersManager;
 import gmail.developer_formal.freeappblocker.services.AbstractServices.TickableService;
 
 public class StrictService extends TickableService {

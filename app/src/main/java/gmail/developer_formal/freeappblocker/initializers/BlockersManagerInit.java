@@ -3,7 +3,7 @@
 //import android.content.Context;
 //import androidx.annotation.NonNull;
 //import androidx.startup.Initializer;
-//import gmail.developer_formal.freeappblocker.BlockersManager;
+//import gmail.developer_formal.freeappblocker.important.BlockersManager;
 //import org.jetbrains.annotations.NotNull;
 //
 //import java.util.Collections;

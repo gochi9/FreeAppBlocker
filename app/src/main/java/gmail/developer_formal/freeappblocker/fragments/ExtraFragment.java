@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import gmail.developer_formal.freeappblocker.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
-import gmail.developer_formal.freeappblocker.activities.BlockerActivity;
 import gmail.developer_formal.freeappblocker.activities.ChangelogActivity;
 
 public class ExtraFragment extends Fragment {

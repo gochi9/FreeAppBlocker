@@ -1,20 +1,18 @@
 package gmail.developer_formal.freeappblocker.adapters;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
-import gmail.developer_formal.freeappblocker.BlockersManager;
+import gmail.developer_formal.freeappblocker.important.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.objects.SettingItem;
+import gmail.developer_formal.freeappblocker.objects.SettingsViewHolder;
 
-public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.SettingsViewHolder> {
+public class SettingsAdapter extends RecyclerView.Adapter<SettingsViewHolder> {
 
     private final List<SettingItem> settingItems;
     private final BlockersManager blockersManager;
@@ -58,18 +56,5 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Settin
     @Override
     public int getItemCount() {
         return settingItems.size();
-    }
-
-    static class SettingsViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView;
-        TextView descriptionTextView;
-        CheckBox checkBox;
-
-        public SettingsViewHolder(@NonNull View itemView) {
-            super(itemView);
-            nameTextView = itemView.findViewById(R.id.setting_name);
-            descriptionTextView = itemView.findViewById(R.id.setting_description);
-            checkBox = itemView.findViewById(R.id.setting_checkbox);
-        }
     }
 }

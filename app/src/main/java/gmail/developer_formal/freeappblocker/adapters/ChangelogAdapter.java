@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.objects.ChangelogEntry;
+import gmail.developer_formal.freeappblocker.objects.ChangelogViewHolder;
 
-public class ChangelogAdapter extends RecyclerView.Adapter<ChangelogAdapter.ViewHolder> {
+public class ChangelogAdapter extends RecyclerView.Adapter<ChangelogViewHolder> {
 
     private final List<ChangelogEntry> changelogEntries;
     private final Context context;
@@ -24,20 +25,21 @@ public class ChangelogAdapter extends RecyclerView.Adapter<ChangelogAdapter.View
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ChangelogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_changelog, parent, false);
-        return new ViewHolder(view);
+        return new ChangelogViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ChangelogViewHolder holder, int position) {
         ChangelogEntry entry = changelogEntries.get(position);
         holder.versionTitle.setText("Version: " + entry.getVersion());
         holder.changeDate.setText("Date: " + entry.getDate());
         StringBuilder changes = new StringBuilder();
-        for (String change : entry.getChanges()) {
+
+        for (String change : entry.getChanges())
             changes.append("- ").append(change).append("\n");
-        }
+
         holder.changeList.setText(changes.toString());
 
         holder.versionTitle.setOnClickListener(v -> {
@@ -49,20 +51,5 @@ public class ChangelogAdapter extends RecyclerView.Adapter<ChangelogAdapter.View
     @Override
     public int getItemCount() {
         return changelogEntries.size();
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView versionTitle;
-        private final TextView changeDate;
-        private final TextView changeList;
-        private final LinearLayout changesContainer;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            versionTitle = itemView.findViewById(R.id.versionTitle);
-            changeDate = itemView.findViewById(R.id.changeDate);
-            changeList = itemView.findViewById(R.id.changeList);
-            changesContainer = itemView.findViewById(R.id.changesContainer);
-        }
     }
 }

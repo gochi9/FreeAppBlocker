@@ -5,8 +5,8 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.Notification;
 import android.content.Intent;
 import android.view.accessibility.AccessibilityEvent;
-import gmail.developer_formal.freeappblocker.AppBlockServiceHelper;
-import gmail.developer_formal.freeappblocker.AppUtils;
+import gmail.developer_formal.freeappblocker.important.AppBlockServiceHelper;
+import gmail.developer_formal.freeappblocker.important.AppUtils;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.activities.PermissionReminderActivity;
 
@@ -64,11 +64,6 @@ public class BlockSitesService extends AccessibilityService {
         startActivity(intent);
     }
 
-    //I might be able to ditch AppBlockerService and just use this to find open apps instead of having a timer
-    //Maybe
-    //Update for the above note
-    //Users can activate an accessibility shortcut, and they can use it to disable this service, anytime, and I can't disable it
-    //FUCK THIS SHIT
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (System.currentTimeMillis() < cooldown)

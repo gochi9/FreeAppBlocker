@@ -92,7 +92,8 @@ public class ChangelogActivity extends AppCompatActivity {
             List<ChangelogEntry> changelogEntries = changelog.getChangelog();
             ChangelogAdapter changelogAdapter = new ChangelogAdapter(this, changelogEntries);
             changelogRecyclerView.setAdapter(changelogAdapter);
-        } catch (JsonSyntaxException e) {
+        }
+        catch (JsonSyntaxException e) {
             Log.e("ChangelogActivity", "Failed to parse changelog", e);
             Toast.makeText(this, "Failed to parse changelog", Toast.LENGTH_SHORT).show();
         }

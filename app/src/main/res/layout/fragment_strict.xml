@@ -7,8 +7,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/waveAnimationView"
-            android:layout_width="272dp"
-            android:layout_height="278dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:lottie_rawRes="@raw/wave_animation_enable"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
@@ -16,51 +16,53 @@
             app:layout_constraintBottom_toTopOf="@id/displayTimer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="32dp" app:layout_constraintVertical_bias="0.556"/>
+            app:layout_constraintDimensionRatio="1:1"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_medium"/>
+
     <gmail.developer_formal.freeappblocker.objects.AutoResizeTextView
             android:id="@+id/displayTimer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/default_timer_message"
             android:gravity="center"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
             android:fontFamily="sans-serif-medium"
             app:layout_constraintBottom_toTopOf="@id/pickerButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="50dp"/>
+            android:layout_marginBottom="@dimen/margin_large"/>
 
     <Button
             android:id="@+id/pickerButton"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/button_height"
             android:text="@string/set_timer_button_text"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_medium"
             android:background="@drawable/button_transparent_outline"
             android:textStyle="bold"
             android:textAllCaps="true"
             app:layout_constraintBottom_toTopOf="@id/actionButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="@dimen/margin_medium"/>
 
     <Button
             android:id="@+id/actionButton"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/button_height"
             android:text="@string/activate_button_text"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_medium"
             android:background="@drawable/rounded_button"
             android:textStyle="bold"
             android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="@dimen/margin_small"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

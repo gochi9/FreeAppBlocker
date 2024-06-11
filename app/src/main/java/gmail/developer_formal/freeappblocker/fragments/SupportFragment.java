@@ -12,8 +12,8 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import gmail.developer_formal.freeappblocker.AdsManager;
-import gmail.developer_formal.freeappblocker.BlockersManager;
+import gmail.developer_formal.freeappblocker.important.AdsManager;
+import gmail.developer_formal.freeappblocker.important.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.adapters.SettingsAdapter;
 import gmail.developer_formal.freeappblocker.objects.SettingItem;
@@ -67,9 +67,9 @@ public class SupportFragment extends Fragment {
     private void openPayPal(Context context) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(PAYPAL_URL));
         intent.setPackage(PAYPAL_PACKAGE);
-        if (isIntentSafe(context, intent)) {
+        if (isIntentSafe(context, intent))
             context.startActivity(intent);
-        }
+
         else {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(PAYPAL_URL));
             context.startActivity(browserIntent);

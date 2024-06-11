@@ -22,9 +22,9 @@ public class BlockerViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         name = itemView.findViewById(R.id.blocker_name);
         toggle = itemView.findViewById(R.id.blocker_toggle);
-        manageApps = itemView.findViewById(R.id.manage_apps_button); // Cast to ImageButton
-        addKeywordButton = itemView.findViewById(R.id.add_keyword_button); // Cast to ImageButton
-        delete = itemView.findViewById(R.id.delete_button); // Cast to ImageButton
+        manageApps = itemView.findViewById(R.id.manage_apps_button);
+        addKeywordButton = itemView.findViewById(R.id.add_keyword_button);
+        delete = itemView.findViewById(R.id.delete_button);
         centerImage = itemView.findViewById(R.id.center_image);
     }
 

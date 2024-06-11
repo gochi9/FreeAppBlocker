@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
@@ -13,7 +11,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import gmail.developer_formal.freeappblocker.BlockersManager;
+import gmail.developer_formal.freeappblocker.important.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.fragments.BlockersFragment;
 import gmail.developer_formal.freeappblocker.fragments.ExtraFragment;
@@ -113,17 +111,19 @@ public class MainActivity extends AppCompatActivity {
                 Fragment selectedFragment = null;
 
                 int id = item.getItemId();
-                if (id == R.id.navigation_blockers) {
-                    selectedFragment = new BlockersFragment();
-                } else if (id == R.id.navigation_strict) {
-                    selectedFragment = new StrictFragment();
-                } else if (id == R.id.navigation_extra) {
-                    selectedFragment = new ExtraFragment();
-                }
 
-                if (selectedFragment != null) {
+                if (id == R.id.navigation_blockers)
+                    selectedFragment = new BlockersFragment();
+
+                else if (id == R.id.navigation_strict)
+                    selectedFragment = new StrictFragment();
+
+                else if (id == R.id.navigation_extra)
+                    selectedFragment = new ExtraFragment();
+
+
+                if (selectedFragment != null)
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-                }
 
                 return true;
             };

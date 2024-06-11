@@ -11,8 +11,8 @@ import android.widget.*;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-import gmail.developer_formal.freeappblocker.AppUtils;
-import gmail.developer_formal.freeappblocker.BlockersManager;
+import gmail.developer_formal.freeappblocker.important.AppUtils;
+import gmail.developer_formal.freeappblocker.important.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 
 public class DateTimePickerFragment extends DialogFragment {

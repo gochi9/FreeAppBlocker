@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
-    <!-- Permissions required by the app -->
+
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
-    <!-- Application node: defines global settings and content of the app -->
     <application
             android:requestLegacyExternalStorage="true"
             android:allowBackup="true"
@@ -25,7 +24,6 @@
             android:theme="@style/Theme.FreeAppBlocker"
             tools:targetApi="31">
 
-        <!-- MainActivity: the launcher activity of the app -->
         <activity android:name="gmail.developer_formal.freeappblocker.activities.MainActivity"
                   android:exported="true"
                   android:screenOrientation="portrait"
@@ -36,7 +34,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Additional activities used in the app -->
+        <!-- Activities -->
         <activity android:name="gmail.developer_formal.freeappblocker.activities.PermissionReminderActivity"
                   android:screenOrientation="portrait"
                   android:noHistory="true"/>
@@ -51,7 +49,7 @@
                   android:screenOrientation="portrait"
                   android:theme="@style/Theme.FreeAppBlocker" />
 
-        <!-- Service responsible for app blocking logic -->
+        <!-- Services -->
         <service android:name="gmail.developer_formal.freeappblocker.services.AppBlockerService"
                  android:exported="false"
                  android:foregroundServiceType="specialUse"
@@ -90,7 +88,7 @@
                     android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <!-- Receivers for handling system events -->
+        <!-- Receivers -->
         <receiver android:name="gmail.developer_formal.freeappblocker.receivers.BootCompletedReceiver"
                   android:enabled="true"
                   android:exported="true"
@@ -123,16 +121,6 @@
                 <action android:name="android.intent.action.ACTION_PACKAGE_ADDED" />
             </intent-filter>
         </receiver>
-
-        <!-- Provider for initializing components at app start
-        <provider android:name="androidx.startup.InitializationProvider"
-                  android:authorities="${applicationId}.androidx-startup"
-                  android:exported="false"
-                  tools:node="merge">
-            <meta-data android:name="gmail.developer_formal.freeappblocker.initializers.BlockersManagerInit"
-                       android:value="androidx.startup" />
-        </provider>
-        -->
 
         <meta-data
                 android:name="com.google.android.gms.ads.APPLICATION_ID"

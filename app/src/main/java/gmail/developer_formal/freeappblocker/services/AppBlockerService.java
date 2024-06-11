@@ -1,8 +1,8 @@
 package gmail.developer_formal.freeappblocker.services;
 
 import android.content.*;
-import gmail.developer_formal.freeappblocker.AppBlockServiceHelper;
-import gmail.developer_formal.freeappblocker.AppUtils;
+import gmail.developer_formal.freeappblocker.important.AppBlockServiceHelper;
+import gmail.developer_formal.freeappblocker.important.AppUtils;
 import gmail.developer_formal.freeappblocker.services.AbstractServices.TickableService;
 
 public class AppBlockerService extends TickableService {
