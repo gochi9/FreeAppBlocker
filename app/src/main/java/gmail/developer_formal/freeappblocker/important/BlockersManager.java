@@ -1,9 +1,12 @@
 package gmail.developer_formal.freeappblocker.important;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import gmail.developer_formal.freeappblocker.activities.BlockerActivity;
+import gmail.developer_formal.freeappblocker.activities.MainActivity;
 import gmail.developer_formal.freeappblocker.objects.AppInfoCache;
 import gmail.developer_formal.freeappblocker.objects.Blocker;
 import com.google.gson.Gson;
@@ -131,13 +134,23 @@ public class BlockersManager {
         saveToPrefs("startedAt", timestamp);
     }
 
-    public void changeStrictMode(boolean enabled) {
+    public void changeStrictMode(Context context, boolean enabled) {
         this.strictModeEnabled = enabled;
         saveToPrefs("strictModeEnabled", enabled);
 
-        if (!enabled)
-            return;
+        if (!enabled) {
+            for(Blocker blocker : blockers)
+                blocker.setActive(true);
 
+            saveBlockers();
+
+            if(context == null)
+                return;
+
+            Intent dialogIntent = new Intent(context, MainActivity.class);
+            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            return;
+        }
         this.strictBlocker = new Blocker("Strict", true, true);
         this.strictBlocker.getBlockedApps().add("com.google.android.packageinstaller");
         saveStrictBlocker();

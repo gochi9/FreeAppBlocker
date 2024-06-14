@@ -33,7 +33,7 @@ public class StrictService extends TickableService {
         long seconds = blockersManager.getTotalStrictSecondsRemaining();
 
         if (seconds < 1) {
-            blockersManager.changeStrictMode(false);
+            blockersManager.changeStrictMode(this, false);
             broadcastIntent.putExtra("resetUI", "true");
             sendBroadcast(broadcastIntent);
 

@@ -1,15 +1,7 @@
 {
   "changelog": [
     {
-      "version": "1.0.1",
-      "date": "2024-06-11",
-      "changes": [
-        "Change log test",
-        "2nd line"
-      ]
-    },
-    {
-      "version": "1.0.0",
+      "version": "1.0",
       "date": "2024-05-20",
       "changes": [
         "Initial release"

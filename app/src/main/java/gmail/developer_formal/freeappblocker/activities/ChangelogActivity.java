@@ -65,7 +65,7 @@ public class ChangelogActivity extends AppCompatActivity {
         try {
             PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
             String versionName = packageInfo.versionName;
-            versionTextView.setText("Version: " + versionName);
+            versionTextView.setText("Your Version: " + versionName);
         }
         catch (PackageManager.NameNotFoundException e) {
             Log.e("ChangelogActivity", "Failed to get version name", e);

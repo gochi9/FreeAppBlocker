@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
@@ -42,7 +43,15 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsViewHolder> {
             settingItem.setChecked(isChecked);
             int id = settingItem.getNameResId();
 
-            if(id == R.string.enable_ad_banner)
+            if(id == R.string.block_installed_apps){
+                holder.checkBox.setChecked(false);
+                Toast.makeText(context, "Not yet implemented!", Toast.LENGTH_SHORT).show();
+            }
+
+            if(id == R.string.turn_off_blockers_when_finished)
+                blockersManager.setTurnOffBlockersWhenFinished(isChecked);
+
+            else if(id == R.string.enable_ad_banner)
                 blockersManager.setEnableAdBanner(isChecked);
 
             else if(id == R.string.watch_short_ad_on_trigger)
