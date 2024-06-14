@@ -157,7 +157,7 @@ public class StrictFragment extends Fragment {
             }
 
             blockersManager.setStartedAt(System.currentTimeMillis());
-            blockersManager.changeStrictMode(getContext(),true);
+            blockersManager.changeStrictMode(this.getContext(), true);
             updateWaterEffect(true);
             dialog.dismiss();
         });
