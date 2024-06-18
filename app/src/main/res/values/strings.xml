@@ -122,10 +122,13 @@
     <string name="extra_settings_button_text">Settings</string>
     <string name="extra_changelog_button_text">Changelog</string>
     <string name="extra_support_me_button_text">Support Me</string>
+    <string name="extra_alternative_apps_button_text" translatable="false">Alternative apps</string>
 
     <string name="extra_short_add_button_text">Watch A Short Ad Now</string>
     <string name="extra_long_add_button_text">Watch A Long Ad Now</string>
     <string name="extra_paypal_button_text">Donate via PayPal</string>
+
+    <string name="developer_note">"Hello there! I'm the lone dev behind this app, juggling college and code. Let’s cut to the chase: I love money! Most of us do! It keeps my lights on, my stomach full, and a roof over my head. All of that helps me keep improving this app for you. No fancy rewards for now, just my heartfelt thanks if you watch ads, turn on the banner, or donate. This app, and all of its features are free, therefore I can't really offer much, so your support means everything. Thanks for keeping the dev(me) alive!"</string>
 
     <string name="enable_ad_banner">Enable Ad Banner</string>
     <string name="enable_ad_banner_description">Show an ad banner at the top of the screen</string>
@@ -141,5 +144,27 @@
 
     <string name="turn_off_blockers_when_finished">Turn off blockers when finished</string>
     <string name="turn_off_blockers_when_finished_description">Turn off all blockers when strict mode is done</string>
+
+    <string name="alternative_app_open_app_button_text">"Open App"</string>
+    <string name="alternative_app_name_app_block">"AppBlock - Android"</string>
+    <string name="alternative_app_description_app_block">"I've used this app in the past, it's got great features and compatibility. However, some features are locked behind a paywall. The app is maintained by a team of professional devs, so you can guarantee the quality. I can happily recommend this one."</string>
+
+    <string name="alternative_app_name_cold_turkey">"Cold Turkey - Windows"</string>
+    <string name="alternative_app_description_cold_turkey">"I am still using this application to this day. It works great, and I've found no flaws in it. Most features are free, and some non-essential features are locked behind a paywall. They are not mandatory but more of a way to support the dev. Highly recommended if you're a Windows user."</string>
+
+    <string name="alternative_app_name_none">"iPhone - None"</string>
+    <string name="alternative_app_description_none">
+        "I've never owned an iPhone before, so there's nothing I can really recommend for this one.\n
+        On this note, if you've got any apps you think are good and you would like to see here, you can drop me a message, and I'll check them out."
+    </string>
+
+    <!-- ################################################ -->
+    <!-- #### Accessibility Disable Activity Strings #### -->
+    <!-- ################################################ -->
+
+    <string name="accessibility_warning">
+        "Hello there! It seems that you've turned off the accessibility permission for this app. This app uses the accessibility permission to keep you out of the apps you've blocked and to ensure you don't get distracted. Fortunately, the app has a backup prevention mode for this situation, which you cannot turn off, but it is much stricter. For example, if strict mode is enabled, you won't be able to access your settings at all, compared to just settings related to this app, and all browsers are blocked. I highly encourage you to re-enable the permission for a better experience.\n"
+        "If the settings are blocked, you can use the shortcut you used to disable the accessibility permission."
+    </string>
 
 </resources>

@@ -123,6 +123,8 @@
     <string name="extra_long_add_button_text">Oglądaj teraz długi film reklamowy</string>
     <string name="extra_paypal_button_text">Przekaż darowiznę przez PayPal</string>
 
+    <string name="developer_note">"Cześć! Jestem jedynym twórcą tej aplikacji, balansującym między studiami a kodowaniem. Przejdźmy do rzeczy: uwielbiam pieniądze! Większość z nas to robi! Dzięki nim mam światło, pełny żołądek i dach nad głową. Wszystko to pomaga mi dalej rozwijać tę aplikację dla Ciebie. Na razie nie ma żadnych dużych nagród, tylko moje szczere podziękowania, jeśli oglądasz reklamy, włączasz baner lub przekazujesz darowiznę. Ta aplikacja i wszystkie jej funkcje są darmowe, więc nie mogę naprawdę zaoferować wiele, więc twoje wsparcie znaczy wszystko. Dziękuję za utrzymanie programisty przy życiu!"</string>
+
     <string name="enable_ad_banner">Włącz baner reklamowy</string>
     <string name="enable_ad_banner_description">Pokaż baner reklamowy na górze ekranu</string>
 
@@ -137,5 +139,28 @@
 
     <string name="turn_off_blockers_when_finished">Wyłącz blokady po zakończeniu</string>
     <string name="turn_off_blockers_when_finished_description">Wyłącz wszystkie blokady po zakończeniu trybu ścisłego</string>
+
+    <string name="alternative_app_open_app_button_text">"Otwórz aplikację"</string>
+    <string name="alternative_app_name_app_block">"AppBlock - Android"</string>
+    <string name="alternative_app_description_app_block">"Używałem tej aplikacji w przeszłości, ma posiada świetne funkcje i kompatybilność. Jednak niektóre funkcje są zablokowane za paywallem. Aplikacja jest utrzymywana przez zespół profesjonalnych deweloperów, więc możesz zagwarantować jakość."</string>
+
+    <string name="alternative_app_name_cold_turkey">"Cold Turkey - Windows"</string>
+    <string name="alternative_app_description_cold_turkey">"Wciąż używam tej aplikacji do dziś. Działa świetnie i nie znalazłem w niej żadnych wad. Większość funkcji jest darmowa, a niektóre mniej ważne funkcje są zablokowane za paywallem. Nie są obowiązkowe, ale raczej sposobem na wsparcie dewelopera. Gorąco polecane, jeśli jesteś użytkownikiem Windows."</string>
+
+    <string name="alternative_app_name_none">"iPhone - Żaden"</string>
+    <string name="alternative_app_description_none">
+        "Nigdy nie miałem iPhone'a, więc nie mogę niczego polecić dla tego.\n
+        Na tej uwadze, jeśli masz jakieś aplikacje, które uważasz za dobre i chciałbyś je zobaczyć tutaj, możesz wysłać mi wiadomość, a ja je sprawdzę."
+    </string>
+
+
+    <!-- ################################################ -->
+    <!-- #### Accessibility Disable Activity Strings #### -->
+    <!-- ################################################ -->
+
+    <string name="accessibility_warning">
+        "Cześć! Wygląda na to, że wyłączyłeś uprawnienie dostępności dla tej aplikacji. Ta aplikacja używa uprawnienia dostępności, aby upewnić się, że trzymasz się z dala od zablokowanych aplikacji i abyś nie był rozpraszany. Na szczęście aplikacja ma tryb zapasowego zabezpieczenia na tę okoliczność, którego nie można wyłączyć, ale jest znacznie surowszy. Na przykład, jeśli tryb ścisły jest włączony, nie będziesz mógł w ogóle uzyskać dostępu do swoich ustawień, w porównaniu tylko do ustawień związanych z tą aplikacją, a wszystkie przeglądarki są zablokowane. Zdecydowanie zachęcam do ponownego włączenia uprawnienia dla lepszego doświadczenia.\n"
+        "Jeśli ustawienia są zablokowane, możesz użyć skrótu, którego użyłeś do wyłączenia uprawnienia dostępności."
+    </string>
 
 </resources>

@@ -23,11 +23,6 @@ public class BlockSitesService extends AccessibilityService {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
     public void onInterrupt() {}
 
     @Override

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="gmail.developer_formal.freeappblocker.fragments.AlternativeAppsFragment">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+            <!-- AppBlock - Android -->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/dialog_background"
+                    android:layout_marginBottom="16dp">
+
+                <ImageView
+                        android:id="@+id/app_block_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/app_block_logo"/>
+
+                <TextView
+                        android:id="@+id/app_block_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_name_app_block"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                <TextView
+                        android:id="@+id/app_block_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_description_app_block"
+                        android:layout_marginTop="4dp"/>
+
+                <Button
+                        android:id="@+id/app_block_link_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_open_app_button_text"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_background"
+                        android:layout_marginTop="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <!-- Cold Turkey - Windows -->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/dialog_background"
+                    android:layout_marginBottom="16dp">
+
+                <ImageView
+                        android:id="@+id/cold_turkey_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cold_turkey_logo"/>
+
+                <TextView
+                        android:id="@+id/cold_turkey_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_name_cold_turkey"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                <TextView
+                        android:id="@+id/cold_turkey_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_description_cold_turkey"
+                        android:layout_marginTop="4dp"/>
+
+                <Button
+                        android:id="@+id/cold_turkey_link_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_open_app_button_text"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_background"
+                        android:layout_marginTop="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <!-- None -->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/dialog_background"
+                    android:layout_marginBottom="16dp">
+
+                <ImageView
+                        android:id="@+id/none_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/empty_image"/>
+
+                <TextView
+                        android:id="@+id/none_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_name_none"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                <TextView
+                        android:id="@+id/none_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_description_none"
+                        android:layout_marginTop="4dp"/>
+
+                <Button
+                        android:id="@+id/none_link_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alternative_app_open_app_button_text"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_background"
+                        android:layout_marginTop="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

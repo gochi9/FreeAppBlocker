@@ -5,11 +5,13 @@ import android.app.ActivityManager;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.PowerManager;
 
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import gmail.developer_formal.freeappblocker.activities.AccessibilityDisableActivity;
 import gmail.developer_formal.freeappblocker.activities.PermissionReminderActivity;
 
 import java.util.Arrays;
@@ -22,6 +24,7 @@ public class AppBlockServiceHelper {
     private final PowerManager powerManager;
     private final BlockersManager blockersManager;
     private final HashSet<String> browsers;
+    private boolean warn = false;
 
     public AppBlockServiceHelper(Context context) {
         this.context = context;
@@ -48,9 +51,18 @@ public class AppBlockServiceHelper {
 
     public boolean shouldBlockApp(String currentApp, boolean isAppBlockService) {
         if (blockersManager == null || !powerManager.isInteractive() || currentApp.isEmpty() ||
-                (isAppBlockService && PermissionReminderActivity.hasAccessibilityPermission(context)) ||
-                (!blockersManager.getIsAtLeastAppBlockerActive() && !blockersManager.isStrictModeEnabled()))
+                (!blockersManager.getIsAtLeastAppBlockerActive() && !blockersManager.isStrictModeEnabled()) ||
+                (isAppBlockService && PermissionReminderActivity.hasAccessibilityPermission(context)))
+            return warn = false;
+
+
+        if(isAppBlockService && !warn){
+            warn = true;
+            Intent dialogIntent = new Intent(context, AccessibilityDisableActivity.class);
+            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(dialogIntent);
             return false;
+        }
 
         if (blockersManager.isStrictModeEnabled() &&
                 (blockersManager.getStrictBlocker().getBlockedApps().contains(currentApp) ||
@@ -122,7 +134,7 @@ public class AppBlockServiceHelper {
             String id = text.toString();
             if (!id.isEmpty() && (checkInSettings && id.toLowerCase().contains("freeappblocker") || isSiteBlocked(id))) {
                 performSequentialActions(service);
-                AppUtils.notifyUser(service, "URL: " + id);
+               // AppUtils.notifyUser(service, "URL: " + id);
                 return;
             }
         }

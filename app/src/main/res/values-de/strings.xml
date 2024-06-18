@@ -123,6 +123,8 @@
     <string name="extra_long_add_button_text">Schauen Sie sich jetzt eine lange Anzeige an</string>
     <string name="extra_paypal_button_text">Spenden via PayPal</string>
 
+    <string name="developer_note">"Hallo! Ich bin der Alleinentwickler dieser App und jongliere zwischen Studium und Programmierung. Kommen wir direkt zur Sache: Ich liebe Geld! Die meisten von uns tun das! Es hält meine Lichter an, meinen Magen voll und ein Dach über meinem Kopf. All das hilft mir, diese App für dich weiter zu verbessern. Keine großen Belohnungen im Moment, nur mein herzliches Dankeschön, wenn du Werbung schaust, das Banner aktivierst oder spendest. Diese App und alle ihre Funktionen sind kostenlos, daher kann ich nicht viel bieten, also bedeutet deine Unterstützung alles. Danke, dass du den Entwickler am Leben hältst!"</string>
+
     <string name="enable_ad_banner">Werbebanner aktivieren</string>
     <string name="enable_ad_banner_description">Zeige ein Werbebanner oben auf dem Bildschirm</string>
 
@@ -137,5 +139,27 @@
 
     <string name="turn_off_blockers_when_finished">Blocker ausschalten, wenn fertig</string>
     <string name="turn_off_blockers_when_finished_description">Schalte alle Blocker aus, wenn der strikte Modus beendet ist</string>
+
+    <string name="alternative_app_open_app_button_text">"App öffnen"</string>
+    <string name="alternative_app_name_app_block">"AppBlock - Android"</string>
+    <string name="alternative_app_description_app_block">"Ich habe diese App in der Vergangenheit verwendet, sie hat großartige Funktionen und Kompatibilität. Einige Funktionen sind jedoch hinter einer Bezahlschranke gesperrt. Die App wird von einem Team professioneller Entwickler gewartet, sodass Sie Qualität garantieren können."</string>
+
+    <string name="alternative_app_name_cold_turkey">"Cold Turkey - Windows"</string>
+    <string name="alternative_app_description_cold_turkey">"Ich benutze diese Anwendung bis heute. Sie funktioniert großartig und ich habe keine Mängel daran gefunden. Die meisten Funktionen sind kostenlos, und einige nicht wesentliche Funktionen sind hinter einer Bezahlschranke gesperrt. Sie sind nicht zwingend erforderlich, sondern eher eine Möglichkeit, den Entwickler zu unterstützen. Sehr zu empfehlen, wenn Sie ein Windows-Benutzer sind."</string>
+
+    <string name="alternative_app_name_none">"iPhone - Keine"</string>
+    <string name="alternative_app_description_none">
+        "Ich habe noch nie ein iPhone besessen, daher kann ich für dieses nichts wirklich empfehlen.\n
+        Wenn Sie an dieser Stelle Apps haben, die Sie für gut halten und hier sehen möchten, können Sie mir eine Nachricht hinterlassen und ich werde sie überprüfen."
+    </string>
+
+    <!-- ################################################ -->
+    <!-- #### Accessibility Disable Activity Strings #### -->
+    <!-- ################################################ -->
+
+    <string name="accessibility_warning">
+        "Hallo! Es scheint, dass du die Zugriffsberechtigung für diese App deaktiviert hast. Diese App verwendet die Zugriffsberechtigung, um sicherzustellen, dass du von den blockierten Apps fernbleibst und nicht abgelenkt wirst. Zum Glück hat die App einen Backup-Präventionsmodus für diese Situation, den du nicht deaktivieren kannst, der jedoch viel strenger ist. Zum Beispiel kannst du im strikten Modus überhaupt nicht auf deine Einstellungen zugreifen, im Vergleich zu nur den Einstellungen dieser App, und alle Browser sind blockiert. Ich empfehle dir dringend, die Berechtigung für ein besseres Erlebnis wieder zu aktivieren.\n"
+        "Wenn die Einstellungen blockiert sind, kannst du den Shortcut verwenden, den du benutzt hast, um die Zugriffsberechtigung zu deaktivieren."
+    </string>
 
 </resources>

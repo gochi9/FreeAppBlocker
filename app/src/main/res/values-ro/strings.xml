@@ -123,6 +123,8 @@
     <string name="extra_long_add_button_text">Urmărește acum un anunț lung</string>
     <string name="extra_paypal_button_text">Donează prin PayPal</string>
 
+    <string name="developer_note">"Salut! Sunt singurul dezvoltator al acestei aplicații, jonglând între facultate și codare. Să trecem direct la subiect: îmi place banii! Cei mai mulți dintre noi o fac! Ei îmi mențin lumina aprinsă, stomacul plin și un acoperiș deasupra capului. Toate acestea mă ajută să continui să îmbunătățesc această aplicație pentru tine. Nu am recompense mari pentru moment, doar mulțumirile mele sincere dacă vizionezi reclame, activezi bannerul sau donezi. Această aplicație, și toate funcțiile sale sunt gratuite, deci nu pot oferi mare lucru, așa că sprijinul tău înseamnă totul. Mulțumesc că păstrezi dezvoltatorul în viață!"</string>
+
     <string name="enable_ad_banner">Activează bannerul publicitar</string>
     <string name="enable_ad_banner_description">Afișează un banner publicitar în partea de sus a ecranului</string>
 
@@ -137,5 +139,27 @@
 
     <string name="turn_off_blockers_when_finished">Dezactivează blocatorii când este terminat</string>
     <string name="turn_off_blockers_when_finished_description">Dezactivează toți blocatorii când modul strict s-a terminat</string>
+
+    <string name="alternative_app_open_app_button_text">"Deschide aplicația"</string>
+    <string name="alternative_app_name_app_block">"AppBlock - Android"</string>
+    <string name="alternative_app_description_app_block">"Am folosit această aplicație în trecut, are funcții excelente și compatibilitate. Totuși, unele funcții sunt blocate în spatele unui paywall. Aplicația este întreținută de o echipă de dezvoltatori profesioniști, așa că poți garanta calitatea."</string>
+
+    <string name="alternative_app_name_cold_turkey">"Cold Turkey - Windows"</string>
+    <string name="alternative_app_description_cold_turkey">"Folosesc încă această aplicație până în prezent. Funcționează excelent și nu am găsit defecte în ea. Majoritatea funcțiilor sunt gratuite, iar unele funcții neesențiale sunt blocate în spatele unui paywall. Nu sunt obligatorii, ci mai degrabă un mod de a sprijini dezvoltatorul. Foarte recomandat dacă ești utilizator de Windows."</string>
+
+    <string name="alternative_app_name_none">"iPhone - Niciuna"</string>
+    <string name="alternative_app_description_none">
+        "Nu am avut niciodată un iPhone, deci nu pot recomanda nimic pentru acesta.\n
+        În această notă, dacă ai aplicații pe care le consideri bune și ai dori să le vezi aici, îmi poți trimite un mesaj și le voi verifica."
+    </string>
+
+    <!-- ################################################ -->
+    <!-- #### Accessibility Disable Activity Strings #### -->
+    <!-- ################################################ -->
+
+    <string name="accessibility_warning">
+        "Salut! Se pare că ai dezactivat permisiunea de accesibilitate pentru această aplicație. Această aplicație folosește permisiunea de accesibilitate pentru a te menține departe de aplicațiile pe care le-ai blocat și pentru a te asigura că nu te distragi. Din fericire, aplicația are un mod de prevenire de rezervă pentru această situație, pe care nu poți să-l dezactivezi, dar este mult mai strict. De exemplu, dacă modul strict este activat, nu vei putea accesa setările deloc, în comparație cu doar setările legate de această aplicație, și toate browserele sunt blocate. Te încurajez cu tărie să reactivezi permisiunea pentru o experiență mai bună.\n"
+        "Dacă setările sunt blocate, poți folosi scurtătura pe care ai folosit-o pentru a dezactiva permisiunea de accesibilitate."
+    </string>
 
 </resources>

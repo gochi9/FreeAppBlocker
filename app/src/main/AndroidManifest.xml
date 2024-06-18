@@ -49,6 +49,11 @@
                   android:screenOrientation="portrait"
                   android:theme="@style/Theme.FreeAppBlocker" />
 
+        <activity android:name="gmail.developer_formal.freeappblocker.activities.AccessibilityDisableActivity"
+                  android:excludeFromRecents="true"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Theme.FreeAppBlocker" />
+
         <!-- Services -->
         <service android:name="gmail.developer_formal.freeappblocker.services.AppBlockerService"
                  android:exported="false"

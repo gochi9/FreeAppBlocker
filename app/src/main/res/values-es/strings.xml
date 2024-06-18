@@ -123,6 +123,8 @@
     <string name="extra_long_add_button_text">Ver un anuncio largo ahora</string>
     <string name="extra_paypal_button_text">Donar vía PayPal</string>
 
+    <string name="developer_note">"¡Hola! Soy el único desarrollador de esta aplicación, manejando la universidad y el código. Vamos al grano: ¡Me encanta el dinero! ¡A la mayoría de nosotros también! Mantiene las luces encendidas, mi estómago lleno y un techo sobre mi cabeza. Todo eso me ayuda a seguir mejorando esta aplicación para ti. No hay grandes recompensas por ahora, solo mi más sincero agradecimiento si ves anuncios, activas el banner o donas. Esta aplicación, y todas sus funciones son gratuitas, por lo tanto, no puedo ofrecer mucho, así que tu apoyo lo significa todo. ¡Gracias por mantener al desarrollador vivo!"</string>
+
     <string name="enable_ad_banner">Activar banner publicitario</string>
     <string name="enable_ad_banner_description">Mostrar un banner publicitario en la parte superior de la pantalla</string>
 
@@ -137,5 +139,27 @@
 
     <string name="turn_off_blockers_when_finished">Desactivar bloqueadores al finalizar</string>
     <string name="turn_off_blockers_when_finished_description">Desactivar todos los bloqueadores cuando el modo estricto haya terminado</string>
+
+    <string name="alternative_app_open_app_button_text">"Abrir app"</string>
+    <string name="alternative_app_name_app_block">"AppBlock - Android"</string>
+    <string name="alternative_app_description_app_block">"He usado esta app en el pasado, tiene grandes características y compatibilidad. Sin embargo, algunas características están bloqueadas detrás de un muro de pago. La app está mantenida por un equipo de desarrolladores profesionales, por lo que puedes garantizar calidad."</string>
+
+    <string name="alternative_app_name_cold_turkey">"Cold Turkey - Windows"</string>
+    <string name="alternative_app_description_cold_turkey">"Todavía estoy usando esta aplicación hasta el día de hoy. Funciona genial y no he encontrado fallos en ella. La mayoría de las características son gratuitas, y algunas características no esenciales están bloqueadas detrás de un muro de pago. No son obligatorias, sino más bien una forma de apoyar al desarrollador. Muy recomendable si eres usuario de Windows."</string>
+
+    <string name="alternative_app_name_none">"iPhone - Ninguna"</string>
+    <string name="alternative_app_description_none">
+        "Nunca he tenido un iPhone, así que no puedo recomendar nada para este.\n
+        En esta nota, si tienes alguna app que crees que es buena y te gustaría verla aquí, puedes enviarme un mensaje y la revisaré."
+    </string>
+
+    <!-- ################################################ -->
+    <!-- #### Accessibility Disable Activity Strings #### -->
+    <!-- ################################################ -->
+
+    <string name="accessibility_warning">
+        "¡Hola! Parece que has desactivado el permiso de accesibilidad para esta aplicación. Esta aplicación utiliza el permiso de accesibilidad para mantenerte fuera de las aplicaciones que has bloqueado y para asegurarte de que no te distraigas. Afortunadamente, la aplicación tiene un modo de prevención de respaldo para esta situación, que no puedes desactivar, pero es mucho más estricto. Por ejemplo, si el modo estricto está habilitado, no podrás acceder a tu configuración en absoluto, en comparación con solo la configuración relacionada con esta aplicación, y todos los navegadores están bloqueados. Te recomiendo encarecidamente que vuelvas a habilitar el permiso para una mejor experiencia.\n"
+        "Si los ajustes están bloqueados, puedes usar el atajo que utilizaste para desactivar el permiso de accesibilidad."
+    </string>
 
 </resources>
