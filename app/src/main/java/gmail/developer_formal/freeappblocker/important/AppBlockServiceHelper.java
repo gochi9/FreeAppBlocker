@@ -24,7 +24,7 @@ public class AppBlockServiceHelper {
     private final PowerManager powerManager;
     private final BlockersManager blockersManager;
     private final HashSet<String> browsers;
-    private boolean warn = false;
+    private boolean warn = true;
 
     public AppBlockServiceHelper(Context context) {
         this.context = context;
@@ -53,11 +53,11 @@ public class AppBlockServiceHelper {
         if (blockersManager == null || !powerManager.isInteractive() || currentApp.isEmpty() ||
                 (!blockersManager.getIsAtLeastAppBlockerActive() && !blockersManager.isStrictModeEnabled()) ||
                 (isAppBlockService && PermissionReminderActivity.hasAccessibilityPermission(context)))
-            return warn = false;
+            return false;
 
 
-        if(isAppBlockService && !warn){
-            warn = true;
+        if(isAppBlockService && warn){
+            warn = false;
             Intent dialogIntent = new Intent(context, AccessibilityDisableActivity.class);
             dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(dialogIntent);
