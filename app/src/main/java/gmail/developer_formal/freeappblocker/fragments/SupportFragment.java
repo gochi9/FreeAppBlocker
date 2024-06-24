@@ -38,7 +38,7 @@ public class SupportFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_support, container, false);
 
         blockersManager = BlockersManager.getInstance(getContext());
-        this.adsManager = new AdsManager();
+        this.adsManager = blockersManager.getAds();
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import gmail.developer_formal.freeappblocker.important.AdsManager;
 import gmail.developer_formal.freeappblocker.important.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
@@ -28,26 +29,21 @@ public class BlockerActivity extends FragmentActivity {
 
         BlockersManager blockersManager = BlockersManager.getInstance(this);
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        AdsManager adsManager = new AdsManager();
-
-        adsManager.loadInterstitialAd(this);
-        adsManager.loadRewardedAd(this);
-        if(blockersManager.isWatchLongAdOnTrigger())
-            adsManager.showRewardedAd(this);
-
-        else if(blockersManager.isWatchShortAdOnTrigger())
-            adsManager.showInterstitialAd(this);
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
+//        AdsManager adsManager = blockersManager.getAds();
+//
+////        adsManager.loadInterstitialAd(this);
+////        adsManager.loadRewardedAd(this);
+//        if(blockersManager.isWatchLongAdOnTrigger())
+//            adsManager.showRewardedAd(this);
+//
+//        else if(blockersManager.isWatchShortAdOnTrigger())
+//            adsManager.showInterstitialAd(this);
 
         if(!BlockersManager.getInstance(this).isEnableAdBanner())
             return;
@@ -59,6 +55,22 @@ public class BlockerActivity extends FragmentActivity {
 
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+//        if(!BlockersManager.getInstance(this).isEnableAdBanner())
+//            return;
+//
+//        AdView adView = findViewById(R.id.adView2);
+//
+//        if(adView == null)
+//            return;
+//
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        adView.loadAd(adRequest);
     }
 
     @Override

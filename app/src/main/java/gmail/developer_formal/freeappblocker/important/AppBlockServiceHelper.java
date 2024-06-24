@@ -55,6 +55,8 @@ public class AppBlockServiceHelper {
                 (isAppBlockService && PermissionReminderActivity.hasAccessibilityPermission(context)))
             return false;
 
+        if(currentApp.equals("android"))
+            return false;
 
         if(isAppBlockService && warn){
             warn = false;
@@ -132,7 +134,7 @@ public class AppBlockServiceHelper {
         CharSequence text = node.getText();
         if (text != null) {
             String id = text.toString();
-            if (!id.isEmpty() && (checkInSettings && id.toLowerCase().contains("freeappblocker") || isSiteBlocked(id))) {
+            if (!id.isEmpty() && !id.equals("android") && (checkInSettings && id.toLowerCase().contains("freeappblocker") || isSiteBlocked(id))) {
                 performSequentialActions(service);
                // AppUtils.notifyUser(service, "URL: " + id);
                 return;
@@ -156,7 +158,7 @@ public class AppBlockServiceHelper {
     public void performSequentialActions(AccessibilityService service) {
         try {
             service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
-            Thread.sleep(200);
+            Thread.sleep(350);
             service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME);
             Thread.sleep(900);
             AppUtils.notifyUser(service, "");

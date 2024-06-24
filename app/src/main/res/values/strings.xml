@@ -8,7 +8,7 @@
     <string name="accessibility_service_description">
         This service helps to block access to specified websites to minimize distractions and enhance productivity by monitoring and blocking browser activity. No sensitive information is being accessed or stored.
     </string>
-    <string name="ad_unit_id_banner" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ad_unit_id_banner" translatable="false">ca-app-pub-1957142949765830/7936152886</string>
 
     <!-- ######################### -->
     <!-- #### General Strings #### -->

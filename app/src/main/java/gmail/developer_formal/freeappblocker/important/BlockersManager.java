@@ -41,6 +41,9 @@ public class BlockersManager {
     private Set<String> cachedBlockedSites, cachedActiveBlocker;
     private boolean isAtLeastAppBlockerActive = false, isAtLeastSiteBlockerActive = false;
 
+    //
+    private AdsManager ads;
+
     private BlockersManager(Context applicationContext) {
         this.blockers = new ArrayList<>();
         this.prefs = applicationContext.getSharedPreferences("BlockersManager", Context.MODE_PRIVATE);
@@ -53,6 +56,7 @@ public class BlockersManager {
         this.enableAdBanner = (boolean) loadFromPrefs("enableAdBanner", new TypeToken<Boolean>() {}.getType(), false);
         this.watchShortAdOnTrigger = (boolean) loadFromPrefs("watchShortAdOnTrigger", new TypeToken<Boolean>() {}.getType(), false);
         this.watchLongAdOnTrigger = (boolean) loadFromPrefs("watchLongAdOnTrigger", new TypeToken<Boolean>() {}.getType(), false);
+        this.ads = new AdsManager();
         cacheInformation();
         refreshApps(applicationContext);
         loadBlockers();
@@ -285,5 +289,9 @@ public class BlockersManager {
 
     public void setPause(boolean pause){
         this.pause = pause;
+    }
+
+    public AdsManager getAds(){
+        return ads;
     }
 }

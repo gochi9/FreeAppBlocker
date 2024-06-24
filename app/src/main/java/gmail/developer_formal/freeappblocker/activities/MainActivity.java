@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -51,11 +53,15 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        MobileAds.initialize(this, initializationStatus -> {});
+
         BlockersManager blockersManager = BlockersManager.getInstance(this);
         blockersManager.startAgain(this);
         blockersManager.refreshApps(this);
         blockersManager.loadBlockers();
         blockersManager.loadStrictBlocker();
+        blockersManager.getAds().loadInterstitialAd(this);
+        blockersManager.getAds().loadRewardedAd(this);
 
         Intent intent = new Intent(this, AppBlockerService.class);
         Intent intent2 = new Intent(this, StrictService.class);
@@ -85,20 +91,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         BlockersManager.getInstance(this);
 
+        MobileAds.initialize(this, initializationStatus -> {});
+
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_main);
 
-        MobileAds.initialize(this, initializationStatus -> {});
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
         if(BlockersManager.getInstance(this).isEnableAdBanner()) {
             AdView adView = findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
             adView.loadAd(adRequest);
         }
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new StrictFragment()).commit();
