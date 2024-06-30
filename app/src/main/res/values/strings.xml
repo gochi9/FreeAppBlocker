@@ -49,6 +49,8 @@
 
     <string name="add_blocker_button_text">Add Blocker</string>
 
+    <string name="blockers_info_message">"If the blockers aren't working, try to delete all of them, restart the app and try again. If that doesn't work, send a message using the \"Contact me\" button from the extras menu"</string>
+
     <!-- ################################# -->
     <!-- #### Strict activity Strings #### -->
     <!-- ################################# -->

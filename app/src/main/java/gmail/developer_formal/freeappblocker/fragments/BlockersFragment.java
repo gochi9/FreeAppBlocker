@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
 import gmail.developer_formal.freeappblocker.important.BlockersManager;
 import gmail.developer_formal.freeappblocker.R;
 import gmail.developer_formal.freeappblocker.adapters.BlockerAdapter;
@@ -33,6 +35,7 @@ public class BlockersFragment extends Fragment {
             return null;
 
         BlockersManager blockersManager = BlockersManager.getInstance(activity);
+        boolean isHolder = blockersManager.isHasOpenedBlockersTab();
         blockersManager.loadBlockers();
 
         RecyclerView blockersRecyclerView = view.findViewById(R.id.blockers_list);
@@ -50,6 +53,9 @@ public class BlockersFragment extends Fragment {
             BlockersManager.getInstance(getActivity()).saveBlockers();
         });
 
+        if(isHolder)
+            showInfoDialog(activity);
+
         return view;
     }
 
@@ -61,5 +67,25 @@ public class BlockersFragment extends Fragment {
 
         if(activity != null)
             BlockersManager.getInstance(activity).saveBlockers();
+    }
+
+    private void showInfoDialog(Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        LayoutInflater inflater = activity.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_text, null);
+
+        TextView dialogText = dialogView.findViewById(R.id.dialog_text);
+        dialogText.setText(R.string.blockers_info_message);
+
+        Button cancelButton = dialogView.findViewById(R.id.dialogTextCancelButton);
+        Button confirmButton = dialogView.findViewById(R.id.dialogTextContinueButton);
+
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+
+        cancelButton.setVisibility(View.GONE);
+        confirmButton.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
     }
 }

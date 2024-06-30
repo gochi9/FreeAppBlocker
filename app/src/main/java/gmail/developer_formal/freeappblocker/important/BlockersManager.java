@@ -27,6 +27,7 @@ public class BlockersManager {
     private boolean strictModeEnabled;
     private long strictDelay, startedAt;
     private Blocker strictBlocker;
+    private boolean hasOpenedBlockersTab;
 
     //Settings
     private boolean blockInstalledApps;
@@ -56,6 +57,7 @@ public class BlockersManager {
         this.enableAdBanner = (boolean) loadFromPrefs("enableAdBanner", new TypeToken<Boolean>() {}.getType(), false);
         this.watchShortAdOnTrigger = (boolean) loadFromPrefs("watchShortAdOnTrigger", new TypeToken<Boolean>() {}.getType(), false);
         this.watchLongAdOnTrigger = (boolean) loadFromPrefs("watchLongAdOnTrigger", new TypeToken<Boolean>() {}.getType(), false);
+        this.hasOpenedBlockersTab = (boolean)loadFromPrefs("hasOpenedBlockersTab", new TypeToken<Boolean>() {}.getType(), false);
         this.ads = new AdsManager();
         cacheInformation();
         refreshApps(applicationContext);
@@ -243,6 +245,15 @@ public class BlockersManager {
     public void setBlockInstalledApps(boolean blockInstalledApps) {
         this.blockInstalledApps = blockInstalledApps;
         saveToPrefs("blockInstalledApps", blockInstalledApps);
+    }
+
+    public boolean isHasOpenedBlockersTab(){
+        if(hasOpenedBlockersTab)
+            return true;
+
+        hasOpenedBlockersTab = true;
+        saveToPrefs("hasOpenedBlockersTab", true);
+        return false;
     }
 
     public boolean isTurnOffBlockersWhenFinished() {

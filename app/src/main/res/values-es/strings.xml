@@ -48,6 +48,8 @@
 
     <string name="add_blocker_button_text">Agregar Bloqueador</string>
 
+    <string name="blockers_info_message">"Si los bloqueadores no funcionan, intenta eliminar todos, reiniciar la aplicación y vuelve a intentarlo. Si eso no funciona, envía un mensaje usando el botón \"Contáctame\" en el menú de extras"</string>
+
     <!-- ################################# -->
     <!-- #### Strict activity Strings #### -->
     <!-- ################################# -->

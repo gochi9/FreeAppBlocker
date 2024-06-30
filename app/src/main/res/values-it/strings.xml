@@ -41,12 +41,14 @@
     <string name="clear_and_refresh_button">Pulisci e aggiorna</string>
     <string name="show_blocked_only_button">Mostra solo bloccati</string>
     <string name="show_all_apps_button">Mostra tutte le app</string>
-    <string name="search_apps_text_bar_hint">Cerca app...</string>
+    <string name="search_apps_text_bar_hint">Cerca app…</string>
     <string name="cancel_notifications_button">Annulla notifiche</string>
 
     <string name="new_name_text_hint">Inserisci nuovo nome</string>
 
     <string name="add_blocker_button_text">Aggiungi blocco</string>
+
+    <string name="blockers_info_message">"Se i blocchi non funzionano, prova a eliminarli tutti, riavvia l'app e riprova. Se non funziona, invia un messaggio utilizzando il pulsante \"Contattami\" dal menu extra"</string>
 
     <!-- ################################# -->
     <!-- #### Strict activity Strings #### -->

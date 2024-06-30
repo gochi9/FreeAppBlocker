@@ -196,6 +196,7 @@ public class PermissionReminderActivity extends Activity {
         builder.setView(view);
         alertDialog = builder.create();
 
+        cancelButton.setVisibility(View.VISIBLE);
         cancelButton.setOnClickListener(v -> {
             alertDialog.dismiss();
             this.finish();

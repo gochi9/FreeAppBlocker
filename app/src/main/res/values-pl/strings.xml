@@ -48,6 +48,8 @@
 
     <string name="add_blocker_button_text">Dodaj Bloker</string>
 
+    <string name="blockers_info_message">"Jeśli blokery nie działają, spróbuj usunąć wszystkie, ponownie uruchomić aplikację i spróbować ponownie. Jeśli to nie zadziała, wyślij wiadomość za pomocą przycisku \"Skontaktuj się ze mną\" w menu dodatków"</string>
+
     <!-- ################################# -->
     <!-- #### Strict activity Strings #### -->
     <!-- ################################# -->

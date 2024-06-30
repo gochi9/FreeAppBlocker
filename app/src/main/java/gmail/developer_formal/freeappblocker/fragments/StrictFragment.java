@@ -126,6 +126,7 @@ public class StrictFragment extends Fragment {
             requestAdminPermission();
         });
 
+        cancelButton.setVisibility(View.VISIBLE);
         cancelButton.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
@@ -162,6 +163,7 @@ public class StrictFragment extends Fragment {
             dialog.dismiss();
         });
 
+        cancelButton.setVisibility(View.VISIBLE);
         cancelButton.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
