@@ -14,8 +14,9 @@ import java.util.Locale;
 
 public class AppUtils {
 
-    public static void notifyUser(Context context, String packageName) {
+    public static void notifyUser(Context context) {
         try {
+            BlockersManager.getInstance(context).getAds().loadBothAds(context);
             Intent dialogIntent = new Intent(context, BlockerActivity.class);
             dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //            dialogIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

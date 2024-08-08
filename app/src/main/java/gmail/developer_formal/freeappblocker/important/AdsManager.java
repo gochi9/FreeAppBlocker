@@ -1,6 +1,7 @@
 package gmail.developer_formal.freeappblocker.important;
 
 import android.app.Activity;
+import android.content.Context;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.google.android.gms.ads.AdRequest;
@@ -17,9 +18,14 @@ public class AdsManager {
     private InterstitialAd mInterstitialAd;
     private RewardedAd mRewardedAd;
 
-    public void loadInterstitialAd(Activity activity) {
+    public void loadBothAds(Context context){
+        loadInterstitialAd(context);
+        loadRewardedAd(context);
+    }
+
+    public void loadInterstitialAd(Context context) {
         AdRequest adRequest = new AdRequest.Builder().build();
-        InterstitialAd.load(activity, "ca-app-pub-1957142949765830/9500515993", adRequest, new InterstitialAdLoadCallback() {
+        InterstitialAd.load(context, "ca-app-pub-1957142949765830/9500515993", adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                 mInterstitialAd = interstitialAd;
@@ -42,9 +48,9 @@ public class AdsManager {
     }
 
 
-    public void loadRewardedAd(Activity activity) {
+    public void loadRewardedAd(Context context) {
         AdRequest adRequest = new AdRequest.Builder().build();
-        RewardedAd.load(activity, "ca-app-pub-1957142949765830/1622025971", adRequest, new RewardedAdLoadCallback() {
+        RewardedAd.load(context, "ca-app-pub-1957142949765830/1622025971", adRequest, new RewardedAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
                 mRewardedAd = rewardedAd;

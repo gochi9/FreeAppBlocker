@@ -21,9 +21,7 @@ public class AppBlockerService extends TickableService {
 
     @Override
     protected void tickService() {
-        String currentApp = helper.getForegroundApp();
-
-        if (helper.shouldBlockApp(currentApp, true))
-            AppUtils.notifyUser(this, currentApp);
+        if (helper.shouldBlockApp(null, true))
+            AppUtils.notifyUser(this);
     }
 }

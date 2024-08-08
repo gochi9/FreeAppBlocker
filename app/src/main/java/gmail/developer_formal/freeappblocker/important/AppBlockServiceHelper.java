@@ -50,12 +50,15 @@ public class AppBlockServiceHelper {
     }
 
     public boolean shouldBlockApp(String currentApp, boolean isAppBlockService) {
-        if (blockersManager == null || !powerManager.isInteractive() || currentApp.isEmpty() ||
+        if (blockersManager == null || !powerManager.isInteractive() ||
                 (!blockersManager.getIsAtLeastAppBlockerActive() && !blockersManager.isStrictModeEnabled()) ||
                 (isAppBlockService && PermissionReminderActivity.hasAccessibilityPermission(context)))
             return false;
 
-        if(currentApp.equals("android"))
+        if(currentApp == null)
+            currentApp = getForegroundApp();
+
+        if(currentApp.isEmpty() || currentApp.equals("android"))
             return false;
 
         if(isAppBlockService && warn){
@@ -69,13 +72,13 @@ public class AppBlockServiceHelper {
         if (blockersManager.isStrictModeEnabled() &&
                 (blockersManager.getStrictBlocker().getBlockedApps().contains(currentApp) ||
                         (isAppBlockService && (currentApp.equals("com.android.settings") || browsers.contains(currentApp))))) {
-            AppUtils.notifyUser(context, currentApp);
+            AppUtils.notifyUser(context);
             return true;
         }
 
         for (String blockedApp : blockersManager.getCachedActiveBlocker())
             if (blockedApp.contains(currentApp)) {
-                AppUtils.notifyUser(context, currentApp);
+                AppUtils.notifyUser(context);
                 return true;
             }
 
@@ -161,7 +164,7 @@ public class AppBlockServiceHelper {
             Thread.sleep(350);
             service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME);
             Thread.sleep(900);
-            AppUtils.notifyUser(service, "");
+            AppUtils.notifyUser(service);
         } catch (InterruptedException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

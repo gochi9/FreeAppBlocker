@@ -68,16 +68,20 @@ public class BlockersManager {
     public static BlockersManager getInstance(@NotNull Context context) {
         BlockersManager result = instance;
 
-        if(result != null)
-            return result;
-
-        synchronized (BlockersManager.class) {
-            result = instance;
-            if (result == null)
-                instance = new BlockersManager(context.getApplicationContext());
-        }
+        if(result == null)
+            result = new BlockersManager(context);
 
         return result;
+//        if(result != null)
+//            return result;
+//
+//        synchronized (BlockersManager.class) {
+//            result = instance;
+//            if (result == null)
+//                instance = new BlockersManager(context.getApplicationContext());
+//        }
+//
+//        return result;
     }
 
     public void refreshApps(Context context) {

@@ -1,11 +1,14 @@
 package gmail.developer_formal.freeappblocker.services.AbstractServices;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 
 public abstract class TickableService extends NotificationService {
 
     private boolean running = false;
     private final int TICK_DELAY;
+    private Handler handler;
 
     public TickableService(String CHANNEL_ID, int TICK_DELAY) {
         super(CHANNEL_ID);
@@ -27,23 +30,27 @@ public abstract class TickableService extends NotificationService {
         return finishInstructions(intent, flags, startId);
     }
 
-    private void startTimer(){
-        this.running = true;
+    public void startTimer() {
+        handler = new Handler(Looper.getMainLooper());
+        running = true;
 
-        new Thread(() -> {
-            while (running && !Thread.currentThread().isInterrupted()) {
+        Runnable tickRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (!running)
+                    return;
+
                 try {
-                    Thread.sleep(TICK_DELAY);
                     tickService();
+                } catch (Throwable e) {
+                    e.printStackTrace();
                 }
-                catch (Throwable e) {
-                    if (e instanceof InterruptedException){
-                        stopTimer();
-                        Thread.currentThread().interrupt();
-                    }
-                }
+
+                handler.postDelayed(this, TICK_DELAY);
             }
-        }).start();
+        };
+
+        handler.post(tickRunnable);
     }
 
     public void stopTimer(){

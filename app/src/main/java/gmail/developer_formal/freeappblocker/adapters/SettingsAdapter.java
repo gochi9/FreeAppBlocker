@@ -56,20 +56,23 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsViewHolder> {
             else if(id == R.string.enable_ad_banner){
                 blockersManager.setEnableAdBanner(isChecked);
                 Toast.makeText(context, "This setting requires you to restart the app to take effect", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Thank you!", Toast.LENGTH_SHORT).show();
             }
 
             else if(id == R.string.watch_short_ad_on_trigger){
-                holder.checkBox.setChecked(false);
-                Toast.makeText(context, "Not yet implemented!", Toast.LENGTH_SHORT).show();
+//                holder.checkBox.setChecked(false);
+//                Toast.makeText(context, "Not yet implemented!", Toast.LENGTH_SHORT).show();
 
-                //blockersManager.setWatchShortAdOnTrigger(isChecked);
+                blockersManager.setWatchShortAdOnTrigger(isChecked);
+                Toast.makeText(context, "Thank you!", Toast.LENGTH_SHORT).show();
             }
 
             else if(id == R.string.watch_long_ad_on_trigger){
-                holder.checkBox.setChecked(false);
-                Toast.makeText(context, "Not yet implemented!", Toast.LENGTH_SHORT).show();
+//                holder.checkBox.setChecked(false);
+//                Toast.makeText(context, "Not yet implemented!", Toast.LENGTH_SHORT).show();
 
-                //blockersManager.setWatchLongAdOnTrigger(isChecked);
+                blockersManager.setWatchLongAdOnTrigger(isChecked);
+                Toast.makeText(context, "Thank you!", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -35,17 +35,15 @@ public class BlockerActivity extends FragmentActivity {
 //            throw new RuntimeException(e);
 //        }
 
-//        AdsManager adsManager = blockersManager.getAds();
-//
-////        adsManager.loadInterstitialAd(this);
-////        adsManager.loadRewardedAd(this);
-//        if(blockersManager.isWatchLongAdOnTrigger())
-//            adsManager.showRewardedAd(this);
-//
-//        else if(blockersManager.isWatchShortAdOnTrigger())
-//            adsManager.showInterstitialAd(this);
+        AdsManager adsManager = blockersManager.getAds();
 
-        if(!BlockersManager.getInstance(this).isEnableAdBanner())
+        if(blockersManager.isWatchLongAdOnTrigger())
+            adsManager.showRewardedAd(this);
+
+        else if(blockersManager.isWatchShortAdOnTrigger())
+            adsManager.showInterstitialAd(this);
+
+        if(!blockersManager.isEnableAdBanner())
             return;
 
         AdView adView = findViewById(R.id.adView2);
