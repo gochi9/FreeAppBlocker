@@ -4,4 +4,6 @@ Users can add URLs to a block list or add programs from their installed list. Us
 
 The app also has a few settings, mostly related to monetization, where users may choose to help the developer by enabling or disabling videos and ad banners. Other unspecified features include a contact support button, change logs, and more.
 
-![alt text](https://i.imgur.com/qj6VzDn.jpeg)![alt text](https://i.imgur.com/AKKTKuZ.jpeg)
+![alt text](https://i.imgur.com/qj6VzDn.jpeg)![alt text](https://i.imgur.com/AKKTKuZ.jpeg)![alt text](https://i.imgur.com/u4dVRU2.jpeg)![alt text](https://i.imgur.com/DV9SYrH.jpeg)
+![alt text](https://i.imgur.com/qn51Dno.jpeg)![alt text](https://i.imgur.com/qsNAsD0.jpeg)![alt text](https://i.imgur.com/B6kNl46.jpeg)![alt text](https://i.imgur.com/8Jcizsc.jpeg)
+![alt text](https://i.imgur.com/bOKv0md.jpeg)![alt text](https://i.imgur.com/biUn0P1.jpeg)
